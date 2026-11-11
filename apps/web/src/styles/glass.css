@@ -12,8 +12,8 @@
 --------------------------------------------------------------------------- */
 @layer components {
   .glass {
-    --glass-top: 0.86;
-    --glass-bottom: 0.7;
+    --glass-top: 0.6;
+    --glass-bottom: 0.42;
     --glass-blur: 28px;
     position: relative;
     isolation: isolate;

@@ -20,9 +20,17 @@
     border-radius: var(--radius-panel);
     /* Almost clear glass: about 90% transparent, so the ambient light behind it
        reads through. The blur, rim and shadow still define the panel. */
-    --glass-top: 0.14;
-    --glass-bottom: 0.08;
+    --glass-top: 0.05;
+    --glass-bottom: 0.02;
     --glass-blur: 26px;
+  }
+
+  /* In the light theme the glass sheen is white; soften it here so the panel
+     does not turn milky at its lit corner. */
+  html:not([data-theme="dark"]) .side-nav {
+    --glass-glow: rgb(255 255 255 / 0.2);
+    --glass-glow-soft: rgb(255 255 255 / 0.08);
+    --glass-sheen: rgb(255 255 255 / 0.22);
   }
 
   @media (min-width: 68.75rem) {

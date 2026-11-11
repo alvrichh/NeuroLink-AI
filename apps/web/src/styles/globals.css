@@ -62,6 +62,12 @@
   --hairline: color-mix(in srgb, var(--ink) 10%, transparent);
   --hairline-strong: color-mix(in srgb, var(--ink) 16%, transparent);
   --thumb: var(--nl-white); /* knob of a segmented control */
+  /* Cards and panels are translucent veils, so the ambient light reads
+     through them. --card needs its hairline to be seen on white; --card-soft
+     carries a trace of navy so it stays visible without one. */
+  --card: rgb(255 255 255 / 0.46);
+  --card-soft: color-mix(in srgb, var(--nl-navy) 3.5%, transparent);
+  --card-edge: rgb(255 255 255 / 0.9); /* lit top edge */
   --scrim: color-mix(in srgb, var(--nl-navy) 10%, transparent); /* behind an open menu */
   /* Tinted section bands and the ambient corner light: translucent, so the
      page background shows through them. */
@@ -115,6 +121,9 @@ html[data-theme="dark"] {
   --accent: color-mix(in srgb, var(--nl-blue) 48%, var(--nl-white));
   --shadow: #000;
   --thumb: color-mix(in srgb, var(--nl-white) 14%, var(--paper-raised));
+  --card: rgb(255 255 255 / 0.045);
+  --card-soft: rgb(255 255 255 / 0.03);
+  --card-edge: rgb(255 255 255 / 0.09);
   --scrim: rgb(0 0 0 / 0.5);
   --band: color-mix(in srgb, var(--nl-blue) 5%, transparent);
   --ambient-blue: color-mix(in srgb, var(--nl-blue) 30%, transparent);
@@ -590,8 +599,9 @@ html[data-theme="dark"] {
   .card {
     position: relative;
     border-radius: var(--radius-card);
-    background: var(--paper-raised);
+    background: var(--card);
     box-shadow:
+      inset 0 1px 0 var(--card-edge),
       inset 0 0 0 1px var(--hairline),
       0 1px 2px color-mix(in srgb, var(--shadow) 3%, transparent);
   }
@@ -599,7 +609,7 @@ html[data-theme="dark"] {
   .card-soft {
     position: relative;
     border-radius: var(--radius-card);
-    background: var(--surface);
+    background: var(--card-soft);
   }
 
   .card-lift {
