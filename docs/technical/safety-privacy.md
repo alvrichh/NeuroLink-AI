@@ -60,3 +60,13 @@ https://www.unesco.org/en/legal-affairs/recommendation-ethics-neurotechnology
 - [ ] Procedimiento de detención y respuesta ante molestias.
 - [ ] Protocolos, métricas y análisis definidos antes del ensayo.
 - [ ] Cualquier afirmación comunicada describe exactamente lo medido.
+
+
+## Requisitos particulares de electrónica
+
+- No conectar un AFE o protoboard de desarrollo sin evaluación independiente a una persona. Un chip diseñado para EEG o una evaluación de laboratorio **no convierten automáticamente** la placa en equipo de adquisición humana seguro.
+- Antes de contacto humano, analizar gestión de riesgos, corrientes de fuga, aislamiento, protección de entradas, fallos previsibles, rutas a tierra, EMC y seguridad del conjunto (incluido ordenador y alimentador) por profesionales cualificados.
+- Considerar, según el uso previsto y la clasificación del dispositivo, las normas **IEC 60601-1**, **IEC 60601-1-2** e **IEC 80601-2-26:2019**; estas referencias no equivalen a certificar un equipo.
+- Seguir la advertencia de TI sobre la **ADS1299EEG-FE EVM**, que es exclusivamente para evaluación electrónica de laboratorio y no para conexión directa a pacientes.
+
+Fuentes: https://www.iso.org/standard/77773.html · https://webstore.iec.ch/en/publication/67497 · https://webstore.iec.ch/en/publication/67554 · https://www.ti.com/lit/ug/slau443b/slau443b.pdf

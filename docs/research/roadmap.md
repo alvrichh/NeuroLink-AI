@@ -60,3 +60,14 @@ Ningún prototipo es una interfaz médica certificada ni una demostración de le
 - Evaluación cross-subject y transferencia entre sesiones.
 - Adaptación por persona, abstención por baja confianza y sesiones de calibración.
 - Estudio formal de aprendizaje de códigos táctiles externos.
+
+
+## Pista paralela de ingeniería electrónica
+
+- **H0**: revisar diseños de referencia y requisitos de seguridad; documentar cadena de señal y alternativas de hardware.
+- **H1**: validar recepción y marcas temporales usando datos sintéticos o un generador electrónico de señales, sin conexión a personas.
+- **H2**: evaluar una placa EEG comercial documentada y una futura arquitectura de adquisición propia; no asumir que un kit de evaluación analógico sea apto para uso humano.
+- **H3**: solo si hay justificación, diseñar esquemático/PCB bajo revisión de ingeniería y evaluación de seguridad antes de cualquier estudio con participantes.
+- **H4, opcional**: estudiar FPGA/Verilog si el microcontrolador resulta insuficiente, con métricas de latencia, potencia y coste.
+
+Ver [hardware/README.md](../../hardware/README.md) y [revisión de seguridad](../../hardware/safety-review.md).

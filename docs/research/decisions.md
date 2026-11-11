@@ -44,3 +44,13 @@ Informar procedencia, controles y métricas; no afirmar que una demo sintética 
 ## Próxima acción
 
 Implementar **R1: pipeline reproducible de clasificación P300**, con entradas BNCI2014-009 y evaluación documentada. No publicar resultados de precisión hasta haberlos medido.
+
+
+**D-008 — Capa de electrónica dedicada (11-11-2026)**  
+La documentación del hardware se mantiene en `hardware/` y los diagramas en `diagrams/`; el proyecto separa componentes analógicos, firmware y posibles circuitos digitales en FPGA.
+
+**D-009 — Verilog no es requisito para el primer MVP**  
+El registro EEG necesita un front-end analógico especializado y un convertidor; un microcontrolador puede gestionar SPI, temporización y transporte. HDL/FPGA será una investigación opcional y se validará primero con señales digitales sintéticas.
+
+**D-010 — No fabricar un circuito experimental para conectarlo a personas sin revisión de seguridad**  
+Los esquemas y prototipos propios comenzarán exclusivamente con simulación y pruebas electrónicas de banco. La seguridad y la pertinencia de IEC 60601-1, IEC 60601-1-2 e IEC 80601-2-26 se evaluarán profesionalmente antes de estudios humanos.

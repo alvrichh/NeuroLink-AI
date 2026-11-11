@@ -1,60 +1,53 @@
-# NeuroLink AI
-### Investigación sobre comunicación cerebro–inteligencia artificial
+# NeuroLink AI 🧠
 
-**Estado:** propuesta de investigación y diseño técnico (sin decodificador funcional ni pruebas humanas realizadas).  
-**Inicio de la documentación:** 11 de noviembre de 2026.  
-**Idioma principal:** español.
+**Investigación de interfaces de comunicación bidireccional cerebro–IA.**
 
-NeuroLink AI explora una pregunta: **¿podemos comunicarnos voluntariamente con una IA a través de señales cerebrales y, con el tiempo, construir un canal de respuesta cada vez más directo?**
+La prioridad del proyecto es **escribir a una IA mediante actividad cerebral**, después recibir sus respuestas y, opcionalmente, conectarla a Internet. También investigaremos la electrónica que hace posible registrar estas señales: electrodos, adquisición analógica, digitalización, firmware y, solo si resulta necesario, FPGA/Verilog.
 
-La prioridad no es navegar por Internet, sino **escribir o comunicarnos con la IA mediante actividad cerebral**. La conexión a Internet es una extensión eventual, no el objetivo científico principal.
+> **Estado actual: diseño e investigación.** No hay todavía un EEG propio, un decodificador validado ni resultados experimentales en este repositorio. Los diagramas e imágenes son **conceptuales**, no una prueba de lectura de pensamientos.
 
-> ⚠️ Un EEG no lee pensamientos arbitrarios. Nuestro primer prototipo utilizará selección voluntaria de caracteres (P300) sobre registros reales, no supuesta interpretación libre de frases imaginadas. La comunicación neuronal invasiva y la estimulación cerebral quedan fuera del desarrollo independiente.
+![Tres fases de NeuroLink AI](assets/diagrams/roadmap.svg)
 
-## Tres fases
+## Elige cómo explorar el proyecto
 
-| Fase | Objetivo | Alcance inicial | Madurez |
-| --- | --- | --- | --- |
-| **1. Cerebro → IA** | Producir texto mediante actividad cerebral | Selección P300, decodificación EEG, confirmación de caracteres, mensaje a IA | Construible como prototipo de investigación no invasivo |
-| **2. IA → persona** | Recibir respuestas | Pantalla, audio y más adelante códigos hápticos externos; investigación documental sobre estimulación neuronal | Salida convencional viable; transferencia cerebral directa de contenido complejo no demostrada |
-| **3. Internet** | Consultar fuentes y herramientas desde la interfaz BCI | Búsqueda, lectura, llamadas de herramientas bajo autorización explícita | Integración de software, dependiente de fases 1–2 |
+| Sección | Qué encontrarás |
+| --- | --- |
+| [**Entender la idea — sin tecnicismos**](docs/simple/README.md) | Explicación sencilla, tres fases, preguntas frecuentes |
+| [**Ejemplos con imágenes**](examples/README.md) | Teclado P300, conversación y camino de señales |
+| [**Diagramas**](diagrams/README.md) | Esquemas editables Mermaid y SVG |
+| [**Documentación técnica**](docs/technical/README.md) | Arquitectura de software, algoritmos, API y seguridad |
+| [**Ingeniería electrónica**](hardware/README.md) | Bloques de hardware, ADS1299, firmware, FPGA/Verilog, pruebas y normas |
+| [**Investigación científica**](docs/research/README.md) | Evidencia, bibliografía, decisiones y hoja de ruta |
+| [**Índice de todo el repositorio**](docs/README.md) | Mapa general y convenciones |
 
-## Primer hito: PoC 0.1 (sin comprar hardware)
+## Objetivos por fase
 
-1. Cargar un dataset público P300 con MOABB (BNCI2014-009).
-2. Entrenar y evaluar un clasificador **Target vs NonTarget** con MNE/scikit-learn, incluyendo prueba independiente de sesión.
-3. Reconstruir selecciones de caracteres cuando el protocolo y los metadatos lo permitan; **clasificar eventos P300 no equivale automáticamente a escribir letras**.
-4. Construir una interfaz de teclado que distinga datos reales, reproducción offline y simulación.
-5. Enviar **solo texto confirmado por la persona** a un asistente; representar la respuesta visualmente o por voz.
+**01 — Cerebro → IA:** empezar por selección voluntaria de letras con señales EEG P300. No confundirlo con la lectura general de pensamientos.  
+**02 — IA → persona:** respuestas en pantalla/voz y estudio posterior de códigos táctiles externos; neuroestimulación directa solo como investigación clínica de literatura.  
+**03 — Acceso a Internet:** herramientas bajo confirmación y permisos, una vez funcione la comunicación.
 
-**No hemos implementado ni validado todavía estos componentes.** El repositorio establece el plan científico, el protocolo de evaluación y el perímetro de seguridad para implementarlos.
+![Arquitectura EEG a IA](assets/diagrams/architecture.svg)
 
-## Documentación
+## Nuestro primer MVP
 
-- [Visión, objetivos y límites](docs/VISION.md)
-- [Estado de la ciencia y posibilidades reales](docs/SCIENCE.md)
-- [Arquitectura técnica propuesta](docs/ARCHITECTURE.md)
-- [Fase 1: escritura con EEG y P300](docs/PHASE_1_EEG_TO_TEXT.md)
-- [Fase 2: respuesta bidireccional](docs/PHASE_2_BIDIRECTIONAL.md)
-- [Fase 3: acceso a Internet](docs/PHASE_3_INTERNET.md)
-- [Hoja de ruta, hitos y criterios de aceptación](docs/ROADMAP.md)
-- [Protocolo experimental y evaluación](docs/RESEARCH_PROTOCOL.md)
-- [Seguridad, ética y privacidad neuronal](docs/SAFETY_PRIVACY.md)
-- [Fuentes científicas y herramientas](docs/REFERENCES.md)
-- [Decisiones de producto y preguntas abiertas](docs/DECISIONS.md)
+**PoC 0.1:** analizar un conjunto EEG público P300, reproducir métricas fiables, reconstruir caracteres cuando los datos lo permitan y enviar solo texto confirmado a una IA de prueba. El hardware se desarrolla en paralelo, **primero como diagramas, simulación digital y ensayos de banco**, nunca mediante un circuito experimental conectado directamente a una persona.
 
-## Stack previsto
+## Estructura del repositorio
 
-Python · MNE-Python · MOABB · scikit-learn (PyTorch solo si aporta valor demostrado) · BrainFlow · FastAPI · React/TypeScript · motor LLM con opción local · audio/háptica no invasiva.
+```text
+docs/
+  simple/       # Lectura accesible para cualquier persona
+  technical/    # Procesamiento EEG, interfaces, protocolos, seguridad
+  research/     # Publicaciones, decisiones, roadmap y límites científicos
+hardware/       # Electrónica analógica, microcontroladores, FPGA y revisión de seguridad
+  hdl/          # Verilog/SystemVerilog didáctico para simulación digital
+diagrams/       # Fuente editable de los esquemas (Mermaid)
+examples/       # Casos ilustrados y explicación paso a paso
+assets/
+  diagrams/     # Imágenes SVG de arquitectura y fases
+  examples/     # Imágenes SVG de ejemplos, diseñadas para este repositorio
+```
 
-**Límites:** nada de implantes, neuroestimulación casera ni claims de lectura de pensamientos. Sin datos sensibles en el repositorio público. La investigación con personas se planteará únicamente tras revisión ética y evaluación de seguridad pertinentes.
+**Principio de seguridad:** nada de implantes, estimulación cerebral casera, uso humano de protoboards de biopotenciales o exposición de datos cerebrales personales en un repositorio público.
 
-## Fuentes iniciales
-
-- [P300 dataset BNCI2014-009 (MOABB)](https://moabb.neurotechx.com/docs/generated/moabb.datasets.BNCI2014_009.html)
-- [Neuroprótesis de voz con 256 microelectrodos, Nature 2025](https://www.nature.com/articles/s41586-025-09127-3)
-- [Reconstrucción semántica mediante fMRI, Nature Neuroscience 2023](https://www.nature.com/articles/s41593-023-01304-9)
-- [Sensaciones táctiles artificiales con implantes, NIH 2025](https://www.nih.gov/news-events/nih-research-matters/creating-artificial-sense-touch)
-- [Recomendación UNESCO sobre ética de la neurotecnología, 2025](https://www.unesco.org/en/legal-affairs/recommendation-ethics-neurotechnology)
-
-> **Naturaleza del proyecto:** investigación y prototipado experimental, no dispositivo médico ni producto de lectura mental.
+[Ver toda la documentación](docs/README.md) · [Plan de experimentos](docs/technical/research-protocol.md) · [Referencias](docs/research/references.md)

@@ -105,3 +105,8 @@ NeuroLink-AI/
 ```
 
 Esta estructura es **propuesta futura**; no se debe asumir que las carpetas de código ya existen.
+
+
+## Capa de adquisición física
+
+El flujo de software depende de una cadena de adquisición segura: electrodos → entrada analógica de biopotenciales (AFE) → conversor ADC → microcontrolador/firmware → transporte → adaptador EEG. **Verilog no sustituye la electrónica analógica.** Ver [arquitectura de hardware](../../hardware/architecture.md) y el [diagrama del camino de señal](../../diagrams/hardware-signal-chain.md).

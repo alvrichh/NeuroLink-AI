@@ -49,3 +49,27 @@ Listado de fuentes verificadas al preparar la propuesta inicial (11-11-2026). Lo
 - No transferir cifras de precisión de una investigación invasiva a EEG externo.
 - Un EEG que identifica letras por atención no comprende espontáneamente el lenguaje interno.
 - La investigación sobre percepción inducida no equivale a inyectar contenido semántico al cerebro.
+
+
+## Electrónica, adquisición EEG y seguridad (consultado 11-11-2026)
+
+12. **Texas Instruments ADS1299** — AFE EEG de 4/6/8 canales, 24 bits, ADC simultáneo, PGA, SPI y muestreo configurable. La hoja de datos documenta capacidades del chip, **no seguridad de un equipo completo**.  
+    https://www.ti.com/product/ADS1299
+
+13. **OpenBCI — Hardware Development** — documentación y esquemáticos completos de hardware abierto, útil como referencia de arquitectura, no como autorización automática para ensamblar un producto apto para humanos.  
+    https://docs.openbci.com/ForDevelopers/HardwareDevelopment/
+
+14. **OpenBCI — Cyton specifications** — ejemplo de plataforma basada en ADS1299 + microcontrolador PIC32 y comunicaciones.  
+    https://docs.openbci.com/Cyton/CytonSpecs/
+
+15. **ADS1299EEG-FE Users Guide**, aviso de TI — *evaluation only, not intended for direct interface with a patient*.  
+    https://www.ti.com/lit/ug/slau443b/slau443b.pdf
+
+16. **IEC 60601-1** (edición consolidada con enmiendas a 2020) — seguridad básica y funcionamiento esencial de equipos médicos eléctricos.  
+    https://webstore.iec.ch/en/publication/67497
+
+17. **IEC 60601-1-2** (edición consolidada con enmienda de 2020) — requisitos de perturbaciones electromagnéticas.  
+    https://webstore.iec.ch/en/publication/67554
+
+18. **IEC 80601-2-26:2019** — requisitos particulares para electroencefalógrafos, confirmado como actual por ISO en 2024 (con enmienda). No utilizar como referencia principal la retirada IEC 60601-2-26:2002.  
+    https://www.iso.org/standard/77773.html
