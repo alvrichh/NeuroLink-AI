@@ -3,7 +3,7 @@ import { GeistMono } from "geist/font/mono";
 import { GeistSans } from "geist/font/sans";
 import type { ReactNode } from "react";
 import { getDictionary, localePath, locales, type Locale } from "@/content";
-import { logo, siteUrl, withBase } from "@/lib/site";
+import { icons, logo, siteUrl, withBase } from "@/lib/site";
 import { brand } from "@/styles/brand/tokens";
 import { Navigation } from "./Navigation";
 import { RevealObserver } from "./RevealObserver";
@@ -30,7 +30,15 @@ export function buildMetadata(locale: Locale): Metadata {
     title: t.meta.title,
     description: t.meta.description,
     applicationName: brand.name,
-    icons: { icon: logo.icon.src, apple: logo.icon.src },
+    icons: {
+      icon: [
+        { url: icons.favicon, sizes: "48x48" },
+        { url: icons.png32, type: "image/png", sizes: "32x32" },
+        { url: icons.png192, type: "image/png", sizes: "192x192" },
+      ],
+      apple: [{ url: icons.apple, sizes: "180x180" }],
+    },
+    manifest: withBase("/manifest.webmanifest"),
     // Canonical and hreflang must be absolute URLs, so they are emitted only
     // when the deployment origin is known (NEXT_PUBLIC_SITE_URL).
     alternates: siteUrl

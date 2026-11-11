@@ -11,7 +11,7 @@
 | [`neurolink-ai-lockup.webp`](neurolink-ai-lockup.webp) | Full logo: symbol, wordmark and the line "Brain · Privacy · AI". Primary form. / Logotipo completo; forma principal. |
 | [`neurolink-ai-symbol.webp`](neurolink-ai-symbol.webp) | Brain-and-orbit symbol alone, for small or square spaces. / Símbolo solo, para espacios pequeños. |
 | [`neurolink-ai-wordmark.webp`](neurolink-ai-wordmark.webp) | "NeuroLink AI" lettering alone. / Solo el nombre. |
-| [`neurolink-ai-icon.png`](neurolink-ai-icon.png) | Square symbol (256 px) for favicons and app icons. / Símbolo cuadrado para iconos. |
+| [`icons/`](icons/icon-512.png) | Favicon and app icons: the whole symbol on a white tile — `favicon.ico` (16/32/48), `icon-32.png`, `icon-192.png`, `icon-512.png`, `apple-touch-icon.png` (180). / Iconos: el símbolo completo sobre una pieza blanca. |
 
 These are optimized copies of the supplied artwork: empty margins trimmed to a uniform clear space and the background set to pure white. The artwork itself is not redrawn, recoloured or re-proportioned. Keep symbol and wordmark in the lockup's proportions when they are shown together, and do not place them on coloured backgrounds.
 

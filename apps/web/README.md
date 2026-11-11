@@ -48,9 +48,9 @@ Content, styles, motion and visualisations are kept in separate layers: sections
 
 ## Brand tokens
 
-`/assets/branding` is the single source of truth. `scripts/sync-brand.mjs` copies the logo files (lockup, symbol, wordmark, icon) and `tokens.css` verbatim into the app and generates a typed `tokens.ts` with the colour values (for canvas drawing) and each logo file's pixel size. It **fails the build** if `tokens.css` and `tokens.json` disagree. The copies are git-ignored.
+`/assets/branding` is the single source of truth. `scripts/sync-brand.mjs` copies the logo files (lockup, symbol, wordmark, and the favicon/app-icon set) and `tokens.css` verbatim into the app and generates a typed `tokens.ts` with the colour values (for canvas drawing) and each logo file's pixel size. It **fails the build** if `tokens.css` and `tokens.json` disagree. The copies are git-ignored.
 
-`src/styles/globals.css` removes Tailwind's default colour palette and exposes only `white`, `navy`, `blue`, `cyan` plus neutrals derived from navy, so an off-brand blue or cyan cannot be introduced by accident. Cyan is used for accents only, never for text. The logo is never redrawn or recoloured: the navigation shows the symbol over the wordmark in the lockup's proportions, the footer and social preview use the full lockup, and the favicon uses the square symbol.
+`src/styles/globals.css` removes Tailwind's default colour palette and exposes only `white`, `navy`, `blue`, `cyan` plus neutrals derived from navy, so an off-brand blue or cyan cannot be introduced by accident. Cyan is used for accents only, never for text. The logo is never redrawn or recoloured: the navigation shows the symbol over the wordmark in the lockup's proportions, the footer and social preview use the full lockup, and the favicon, Apple touch icon and web manifest use the symbol on a white tile.
 
 ## Content and languages
 

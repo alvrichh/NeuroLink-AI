@@ -22,8 +22,15 @@ export const logo = {
   wordmark: asset(brand.assets.wordmark),
   /** Full logo: symbol, wordmark and the "Brain · Privacy · AI" line. */
   lockup: asset(brand.assets.lockup),
-  /** Square symbol for favicons and app icons. */
-  icon: asset(brand.assets.icon),
+} as const;
+
+/** Favicon and app icons: the symbol on a white tile (see /assets/branding/icons). */
+export const icons = {
+  favicon: withBase("/favicon.ico"),
+  png32: withBase("/brand/icons/icon-32.png"),
+  png192: withBase("/brand/icons/icon-192.png"),
+  png512: withBase("/brand/icons/icon-512.png"),
+  apple: withBase("/brand/icons/apple-touch-icon.png"),
 } as const;
 
 /** Optional absolute origin, used only for canonical and Open Graph URLs. */
