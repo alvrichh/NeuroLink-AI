@@ -84,6 +84,7 @@ The site contains no EEG plots, signal traces or experimental results, because t
 
 - **Sub-path hosting** (for example GitHub Pages at `/<repository>/`): build with `NEXT_PUBLIC_BASE_PATH=/NeuroLink-AI`.
 - **Canonical / social URLs:** set `NEXT_PUBLIC_SITE_URL=https://example.org` to emit absolute Open Graph image URLs.
+- **Vercel:** import the repository, set **Root Directory** to `apps/web` and keep the Next.js preset — no other settings are needed. Leave "Include files outside the Root Directory" enabled (the default), because the build reads the logo and tokens from `/assets/branding`. Canonical and social URLs use the project's production domain automatically.
 - **GitHub Pages:** the workflow [`.github/workflows/web.yml`](../../.github/workflows/web.yml) checks every pull request, and has a manually triggered *deploy* job. To use it, enable Pages with "GitHub Actions" as the source in the repository settings, then run the workflow from the Actions tab.
 
 ## Known limitations
