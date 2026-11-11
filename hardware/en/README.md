@@ -10,7 +10,7 @@ EEG measures very small analog voltage differences. The complete signal chain ha
 Electrodes -> patient-interface safety (requires professional design)
           -> analog front end (AFE) / ADC -> SPI digital samples
           -> microcontroller and timestamps -> transport -> host software
-          -> preprocessing -> P300 classification -> character selection
+          -> preprocessing -> inner-speech research decoder -> privacy gate
 ```
 
 **Verilog does not replace the analog front end.** A hardware description language describes digital logic, e.g. FPGA pipelines or deterministic acquisition control. An MCU is often sufficient for an initial data pipeline; FPGA is optional if measurements later justify its costs.
@@ -36,6 +36,10 @@ Electrodes -> patient-interface safety (requires professional design)
 | H2 | Evaluate documented commercial EEG acquisition | Bench data and measured timing, professionally reviewed |
 | H3 | Consider custom schematic/PCB design | Appropriate safety and engineering review first |
 | H4 | Consider FPGA/Verilog implementation | Documented performance need, synthesis and verification |
+
+## Physical privacy boundary (future)
+
+A real physical EEG power/acquisition disconnect offers stronger privacy than a software lock. An optional mental wake detector would still require limited local EEG sampling while powered on. We have not designed or validated physical patient-contact hardware. [Firewall](../../docs/en/technical/neural-privacy-firewall.md) · [Hardware research issue](https://github.com/alvrichh/NeuroLink-AI/issues/10).
 
 ## Human safety
 

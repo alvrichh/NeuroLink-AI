@@ -7,7 +7,8 @@ Los siguientes diagramas son **fuentes Mermaid editables**. Documentan interface
 | Figure / Figura | Description / Descripción | Type |
 | --- | --- | --- |
 | [Acquisition hardware / Cadena de adquisición](hardware-signal-chain.md) | Electrodes, analog front-end, ADC, MCU and host | CONCEPTUAL |
-| [Software/data pipeline](arquitectura-software.md) | EEG, P300, character reconstruction, confirmation, assistant | CONCEPTUAL |
+| [Software/data pipeline](arquitectura-software.md) | EEG, inner-speech hypotheses, privacy gate, confirmation, assistant | CONCEPTUAL |
+| [Neural Privacy Firewall / Firewall neuronal](neural-privacy-firewall.md) | Fail-closed state machine | CONCEPTUAL |
 | [Research roadmap / Hoja de ruta](tres-fases.md) | Workstreams and phase gates | PLANNED |
 | [Bidirectional loop / Circuito bidireccional](ciclo-bidireccional.md) | Voluntary input and sensory output, not brain stimulation | CONCEPTUAL |
 

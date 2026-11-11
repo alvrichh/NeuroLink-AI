@@ -14,7 +14,10 @@ La documentación técnica original del proyecto está redactada principalmente 
 ## Investigación y desarrollo
 
 - [Arquitectura software](../technical/architecture.md)
-- [Fase 1: EEG a texto](../technical/phase-1-eeg-to-text.md)
+- [Fase 1: lenguaje interior](../technical/phase-1-eeg-to-text.md)
+- [Neural Privacy Firewall](../technical/neural-privacy-firewall.md)
+- [Protocolo de habla interna](../technical/inner-speech-protocol.md)
+- [Dataset principal](../research/inner-speech-datasets.md)
 - [Fase 2: recepción de respuestas](../technical/phase-2-bidirectional.md)
 - [Fase 3: Internet opcional](../technical/phase-3-internet.md)
 - [Protocolo experimental](../technical/research-protocol.md)

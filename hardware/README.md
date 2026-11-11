@@ -30,6 +30,10 @@ La señal EEG es muy pequeña. Por eso se necesita una **cadena analógica de me
 | [Ejemplo de módulo digital](hdl/sample_register.sv) | Verilog didáctico, **solo señales sintéticas** |
 | [Testbench digital](hdl/tb_sample_register.sv) | Verificación simulada de flujo de muestras |
 
+## Desconexión física de privacidad (futura)
+
+Una verdadera desconexión de adquisición mediante interruptor físico podría ofrecer una barrera más fuerte que el bloqueo software. Una palabra clave mental exige monitorización limitada mientras el sistema está encendido. **Todavía no existe diseño físico validado para uso en personas.** [Firewall neuronal](../docs/technical/neural-privacy-firewall.md) · [Tarea de hardware](https://github.com/alvrichh/NeuroLink-AI/issues/10).
+
 ## Camino recomendado
 
 1. **H0 — Documentación:** estudiar ADS1299, OpenBCI y estándares; definir requisitos medibles.
