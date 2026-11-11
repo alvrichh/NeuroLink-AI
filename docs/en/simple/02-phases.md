@@ -2,20 +2,20 @@
 
 [Español](../../simple/02-las-fases.md)
 
-## 1. Brain to AI: spelling
+## 1. Inner speech → AI (primary)
 
-Use a well-defined EEG paradigm such as P300. The participant voluntarily attends to an option; event-related potentials can provide information to a classifier. In a P300 speller, several event scores are combined to infer a character. Character accuracy must be evaluated separately from single-event accuracy.
+Investigate the words a person says **to themselves mentally**, without selecting letters or making sounds. Begin with a small prompted vocabulary using recorded EEG; only attempt natural sequences if evidence justifies it.
 
-Planned first outcome: an **offline, independently evaluated baseline** using a public P300 dataset.
+Mental privacy must be built in: **locked by default**, deliberate activation, bounded local decoding, independent approval and automatic relock. Private inner speech must never be forwarded by default.
 
-## 2. AI to person: feedback
+## 2. AI → person
 
-Initially the answer will arrive as ordinary text or spoken audio. We may study external tactile patterns as a different feedback modality, with objective comprehension tests. This is **functional bidirectional interaction**, not direct neural stimulation.
+Responses through text and audio. External tactile codes are a possible independent research track. Direct brain stimulation remains a regulated clinical research topic.
 
-Research with intracortical implants has elicited some artificial sensory experiences, but transferring an arbitrary AI answer directly as knowledge is not an established capability.
+## 3. Internet (optional)
 
-## 3. Optional internet tools
+Only approved requests may reach external tools. No continuous cloud streaming of EEG.
 
-The assistant may later search sources and read permitted data. No web action should be triggered by an unconfirmed or ambiguous neural selection. The first external tools should be read-only.
+**P300 spelling is a secondary BCI reference**, not the intended user experience.
 
-[Scientific context](../research/state-of-the-science.md) · [Technical architecture](../technical/architecture.md)
+[Neural privacy firewall](../technical/neural-privacy-firewall.md) · [Experimental protocol](../technical/inner-speech-protocol.md).

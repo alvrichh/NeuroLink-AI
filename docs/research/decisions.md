@@ -1,56 +1,40 @@
-# Registro de decisiones y preguntas abiertas
+# Registro de decisiones — NeuroLink AI
 
-## Decisiones confirmadas en la definición del proyecto
+[Visión actualizada](vision.md) · [Hoja de ruta](roadmap.md)
 
-**D-001 — Objetivo principal**  
-Comunicación con IA mediante el pensamiento, comenzando por la **escritura voluntaria**, no por consultar Internet.
+## Decisiones activas
 
-**D-002 — Tres fases**  
-1. Cerebro → IA. 2. Respuesta IA → persona. 3. Internet opcional.
+**D-001 (revisada, 11-11-2026) — Objetivo principal.** Interpretar el **lenguaje interior** voluntario (lo que nos decimos mentalmente), no escribir seleccionando letras con un teclado P300. Nuestro primer alcance experimental es clasificación de palabras imaginadas, no transcripción de frases libres.
 
-**D-003 — Alcance técnico del primer MVP**  
-EEG no invasivo, enfoque inicial P300 Speller, evaluación sobre registros científicos abiertos antes de comprar dispositivos.
+**D-002 — Tres fases.** (1) lenguaje interior → IA, (2) respuesta por canales sensoriales, (3) Internet opcional.
 
-**D-004 — Realismo científico**  
-Diferenciar la selección de opciones controlada de una decodificación libre de pensamientos o de habla imaginada. La segunda se mantendrá como línea de investigación de mayor riesgo.
+**D-003 (revisada) — Dataset prioritario.** Nieto2022 / *Thinking out loud*: cuatro palabras direccionales imaginadas. P300/BNCI2014-009 pasa a [referencia técnica secundaria](../technical/p300-secondary-baseline.md).
 
-**D-005 — Enfoque bidireccional**  
-Primero pantalla/voz, después codificación táctil externa si aporta valor. La estimulación neuronal directa será únicamente una línea de estudio científico con posible futura colaboración clínica.
+**D-004 — Limitaciones.** No atribuir frases inventadas por el modelo a señales neuronales. Reconocer palabras de una tarea no constituye un detector de pensamiento libre ni intención de compartir.
 
-**D-006 — Seguridad**  
-No realizar autoimplantes, neuroestimulación casera ni acciones automáticas de Internet sin confirmación.
+**D-005 — Retorno.** Primero pantalla/voz y, si aporta valor, códigos táctiles externos. Estimulación neural directa: bibliografía y posibles colaboradores clínicos, nunca autoexperimentación.
 
-**D-007 — Evidencia antes que marketing**  
-Informar procedencia, controles y métricas; no afirmar que una demo sintética prueba lectura cerebral.
+**D-006 — Seguridad.** No autoimplantes, neuroestimulación casera, ni protoboards de biopotenciales sobre personas. Revisión ética/profesional antes de ensayos humanos.
 
-## Propuestas técnicas todavía NO aprobadas ni implementadas
+**D-007 — Evidencia antes que publicidad.** Separar simulación, señales registradas, predicciones, texto corregido por IA y métricas experimentales.
 
-- Uso exacto de Python 3.12, FastAPI, React, MOABB/MNE, BrainFlow y scikit-learn.
-- Método principal de clasificación: LDA regularizado frente a regresión logística.
-- Diseño de interfaz y umbrales de confianza.
-- Proveedor de LLM, modo local, costes y gestión de credenciales.
-- Compra de hardware y arquitectura de adquisición en vivo.
-- Definición precisa de códigos táctiles externos.
+**D-008 — Electrónica diferenciada.** Front-end analógico/ADC + firmware/MCU y posible FPGA/Verilog, con esquemas y referencias separados del software.
 
-## Preguntas pendientes
+**D-009 — Verilog no es requisito inicial.** Usar HDL cuando haya evidencia de necesidad de lógica dedicada; primero datos públicos y pruebas digitales sintéticas.
 
-1. ¿Se pretende trabajar siempre con un único usuario calibrado o investigar generalización entre personas?
-2. ¿Qué preferimos inicialmente: P300 de matriz o interfaz de selección SSVEP, considerando los riesgos de estímulo y la disponibilidad de datasets?
-3. ¿Qué velocidad de escritura y tasa de errores consideraríamos útiles para una conversación?
-4. ¿Cómo diferenciaríamos una sugerencia de autocompletado del texto realmente seleccionado?
-5. ¿Qué consentimiento, evaluación ética y protección de datos exigiríamos si se recopila EEG propio?
-6. ¿Con qué institución académica o clínica convendría colaborar para estudiar la bidireccionalidad neuronal directa?
+**D-010 — La seguridad del sistema completo se verifica.** Un AFE o kit de evaluación no equivale a un dispositivo seguro para contacto humano.
 
-## Próxima acción
+**D-011 (nueva) — Neural Privacy Firewall como requisito transversal.** Estado cerrado por defecto, activación voluntaria, local-first, revisión/confirmación, auto-bloqueo y desconexión física como objetivo de hardware futuro.
 
-Implementar **R1: pipeline reproducible de clasificación P300**, con entradas BNCI2014-009 y evaluación documentada. No publicar resultados de precisión hasta haberlos medido.
+**D-012 (nueva) — Palabra clave mental como hipótesis, no control demostrado.** Requiere recogida/protocolo separado con pensamiento privado vs comunicación deliberada y estudio de falsas activaciones por hora. No extrapolar implantes a EEG superficial.
 
+## Preguntas abiertas
 
-**D-008 — Capa de electrónica dedicada (11-11-2026)**  
-La documentación del hardware se mantiene en `hardware/` y los diagramas en `diagrams/`; el proyecto separa componentes analógicos, firmware y posibles circuitos digitales en FPGA.
+- ¿Qué margen de error es aceptable para clasificar cuatro palabras imaginadas?
+- ¿Hasta qué punto necesitamos adaptar el modelo a cada usuario?
+- ¿Podrá existir una señal no invasiva fiable que indique **quiero hablar con la IA** sin leer pensamientos privados?
+- ¿Qué mecanismo accesible, independiente y seguro proporcionaría la confirmación?
+- ¿Cómo diseñar la barrera física de privacidad en una futura placa bajo revisión profesional?
+- ¿Qué datasets y autorizaciones harán falta para evaluación con pensamiento privado, no solo tareas inducidas?
 
-**D-009 — Verilog no es requisito para el primer MVP**  
-El registro EEG necesita un front-end analógico especializado y un convertidor; un microcontrolador puede gestionar SPI, temporización y transporte. HDL/FPGA será una investigación opcional y se validará primero con señales digitales sintéticas.
-
-**D-010 — No fabricar un circuito experimental para conectarlo a personas sin revisión de seguridad**  
-Los esquemas y prototipos propios comenzarán exclusivamente con simulación y pruebas electrónicas de banco. La seguridad y la pertinencia de IEC 60601-1, IEC 60601-1-2 e IEC 80601-2-26 se evaluarán profesionalmente antes de estudios humanos.
+**Próximo desarrollo:** NPF-01 por software e IS-01 como experimento EEG, ambos claramente etiquetados.

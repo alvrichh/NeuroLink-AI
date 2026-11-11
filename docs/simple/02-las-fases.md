@@ -1,19 +1,21 @@
-# Tres fases, por orden
+# Las tres fases de NeuroLink AI
 
-![Las tres fases](../../assets/diagrams/roadmap.svg)
+[English](../en/simple/02-phases.md)
 
-## 1. Escribir a la IA
+## 1. Lenguaje interior → IA (objetivo principal)
 
-La prioridad será investigar métodos EEG como **P300**, que permiten seleccionar letras en un escenario controlado. El sistema debe reconocer señales, proponer caracteres y permitir confirmación y corrección.
+Investigar la interpretación de palabras que imaginamos pronunciar sin mover la boca. Primero un vocabulario pequeño con EEG registrado; en el futuro, frases más naturales **solo si lo respalda la evidencia científica**.
 
-## 2. Recibir las respuestas
+**La privacidad mental es obligatoria:** interruptor/activación voluntaria, revisión local, confirmación y bloqueo automático. Nunca transmitir por defecto nuestros pensamientos privados.
 
-Primero pantalla y audio. Después experimentaremos, si es útil, con señales táctiles externas como vibraciones para representar mensajes cortos. Los implantes de estimulación cerebral pertenecen a la investigación clínica, no a este prototipo.
+## 2. IA → persona
 
-## 3. Consultar Internet
+Respuestas por pantalla o voz. Podremos investigar mensajes codificados mediante tacto externo; la estimulación neural directa es investigación clínica, no un experimento doméstico.
 
-La IA podrá utilizar herramientas de consulta para responder, con permisos y confirmación del usuario. Esta fase depende de las anteriores, pero no es nuestro objetivo científico principal.
+## 3. Internet (opcional)
 
-**En todas las etapas distinguiremos simulaciones, EEG real registrado y EEG en vivo.**
+La IA podrá consultar fuentes externas si recibe un mensaje autorizado. No queremos un sistema que conecte a Internet constantemente nuestra actividad cerebral.
 
-[Más detalle técnico](../technical/README.md) · [Hoja de ruta](../research/roadmap.md).
+**P300 y los teclados cerebrales son referencias secundarias**, no la forma de comunicación que buscamos.
+
+[Firewall neuronal](../technical/neural-privacy-firewall.md) · [Protocolo](../technical/inner-speech-protocol.md).

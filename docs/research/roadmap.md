@@ -1,73 +1,42 @@
-# Hoja de ruta y criterios de aceptación
+# Hoja de ruta — lenguaje interior y privacidad mental
 
-**Estado de todas las etapas:** planificadas, no implementadas.
+[English](../en/research/roadmap.md)
 
-## Secuencia de trabajo
+**Estado:** diseño documentado. No existen decodificadores entrenados ni dispositivos propios validados. Las fases originales de P300 quedan como [referencia secundaria](../technical/p300-secondary-baseline.md).
 
-| Hito | Entrega | Evidencia de finalización | Dependencia |
-| --- | --- | --- | --- |
-| **R0** Fundamentos | Fuentes, objetivos, dataset, protocolo y riesgos | Documentación revisada, límites de lenguaje científico explícitos | Ninguna |
-| **R1** Baseline EEG | Pipeline reproducible de clasificación P300 | Métricas por sujeto/sesión, controles de fuga y baseline trivial | R0 |
-| **R2** Speller offline | Reconstrucción de caracteres siguiendo metadatos del paradigma | Matriz de confusión por carácter, velocidad y errores | R1 |
-| **R3** IA local | Interfaz + API + stub de respuesta | Conversación completa desde selecciones confirmadas; origen visible | R2 |
-| **R4** EEG real no invasivo | Adaptador BrainFlow + dispositivo evaluado | Calidad de señales, sincronización, ensayos seguros y resultados documentados | R1–R3; evaluación de seguridad |
-| **R5** Retorno sensorial | Audio y texto; estudio de patrones táctiles externos | Comprensión objetiva, tiempo, errores y consentimiento | R3 |
-| **R6** Internet opcional | Consulta externa bajo permisos | Respuestas verificables, ninguna acción no consentida | R3–R5 |
-| **R7** Investigación de estimulación neural | Revisión y alianzas académicas | Informe de evidencia, preguntas abiertas, riesgos y marcos éticos | Independiente; NO desarrollo casero |
+| Hito | Trabajo | Criterio de aceptación |
+| --- | --- | --- |
+| **IS-00** Fundamentos | Revisión bibliográfica, licencias y protocolo de lenguaje interior | Delimitación y datasets reproducibles |
+| **NPF-01** Firewall software | Máquina de estados de privacidad, permisos y bloqueos | Sin envío de texto no autorizado en pruebas |
+| **IS-01** EEG de cuatro palabras | Clasificador sobre Nieto2022 | Balanced accuracy/macro-F1, controles, sesiones reservadas |
+| **IS-02** Generalización | Cambios entre sesiones y personas, control de artefactos | Resultados honestos por sujeto/sesión y fallos |
+| **NPF-02** Detectar intención | Protocolo separado: activar vs pensar privadamente | Falsos desbloqueos/h, falsos negativos, revisión ética |
+| **IS-03** Lenguaje más natural | Estudiar secuencias/vocabulario si es viable | Evidencia independiente antes de afirmaciones |
+| **AI-01** Comunicación | Hipótesis lingüística local → confirmación → IA | Solo texto voluntariamente aprobado |
+| **FB-01** Respuesta | Pantalla, voz, quizá patrones táctiles externos | Comprensión, latencia, ergonomía |
+| **NET-01** Internet (opcional) | Herramientas de consulta con permisos mínimos | Confirmación y ausencia de acciones inesperadas |
 
-## Iteración 0.1 — Tareas sugeridas
+## Pista paralela de electrónica
 
-- [ ] Fijar estructura Python, entornos y bloqueo de dependencias.
-- [ ] Documentar licencia y forma de adquisición de BNCI2014-009.
-- [ ] Implementar cargador reproducible para una persona/sesión.
-- [ ] Graficar distribución de clases y calidad del EEG.
-- [ ] Pipeline P300 básico con entrenamiento y prueba separados.
-- [ ] Comparar LDA y regresión logística contra trivial/permutación.
-- [ ] Guardar configuración y resultados agregados reproducibles.
-- [ ] Estudiar si es factible reconstruir caracteres con los metadatos disponibles.
-- [ ] Crear interfaz de teclado **offline** con distinción real/replay/synthetic.
-- [ ] API mock que solo reciba texto confirmado.
-- [ ] Tests de cancelación, incertidumbre y no ejecución de acciones.
-- [ ] Escribir informe honesto de aciertos, errores y limitaciones.
+- **H0:** investigar la cadena EEG y los requisitos de seguridad con referencias de ADS1299/OpenBCI.
+- **H1:** simulación digital y testbenches con muestras sintéticas.
+- **H2:** estudiar un **interruptor físico de privacidad** que desconecte adquisición o comunicación y un indicador verificable; solo arquitectura, no PCB apto para personas.
+- **H3:** evaluar sistemas EEG comerciales y ensayos de banco, antes de diseñar PCB propios.
+- **H4 (opcional):** FPGA/Verilog únicamente si las pruebas justifican ese hardware.
 
-## Condiciones para declarar un hito
+## Prioridad de la primera iteración
 
-### R1 aprobado si
-- El código permite repetir el experimento en una instalación limpia.
-- Se conocen el número de ejemplos por clase y la estrategia de separación.
-- No hay fuga entre entrenamiento/validación/evaluación.
-- Se publican resultados por sujeto y sesión, no solo el promedio más favorable.
-- Los resultados no proceden únicamente de datos sintéticos.
+1. Construir el núcleo software NPF con transiciones de privacidad y pruebas automáticas.
+2. Preparar experimento IS-01 (Nieto2022), sin descargar datos masivos al repo.
+3. Distinguir claramente **clasificar vocabulario cerrado** de **transcribir lenguaje interno libre**.
+4. Diseñar la activación mental como hipótesis NPF-02, **no** como capacidad demostrada.
+5. Integrar IA solo cuando exista confirmación independiente y cancelación.
 
-### R2 aprobado si
-- Se identifica la verdad terreno de cada selección.
-- Se informa la precisión **por carácter** y la tasa de comandos/selecciones falsas.
-- El usuario puede cancelar; no hay envío automático de incertidumbre elevada.
+## Reglas científicas y de seguridad
 
-### R3 aprobado si
-- La IA nunca recibe información que no pase por confirmación.
-- Puede explicarse qué caracteres proceden de señales y cuáles son correcciones propuestas por un LLM.
-- Los tests no dependen de Internet ni de dinero para ejecutarse.
+- Una señal de contenido no prueba intención comunicativa.
+- «Bloqueado» con monitor de palabra clave activo **no** equivale a «ninguna señal recogida».
+- El objetivo principal no es seleccionar letras ni leer pensamientos privados.
+- La estimulación neural directa y el uso de circuitos de laboratorio conectados a personas quedan fuera del prototipado independiente.
 
-## No confundir «MVP» con producto comercial
-
-Ningún prototipo es una interfaz médica certificada ni una demostración de lectura mental general. La calidad se mide con experimentos controlados y resultados verificables, no con la espectacularidad de una demo.
-
-## Futuros hitos opcionales
-
-- Comparativa P300 vs SSVEP (con evaluación de seguridad de estímulos).
-- Experimentos exploratorios de habla imaginada de vocabulario cerrado.
-- Evaluación cross-subject y transferencia entre sesiones.
-- Adaptación por persona, abstención por baja confianza y sesiones de calibración.
-- Estudio formal de aprendizaje de códigos táctiles externos.
-
-
-## Pista paralela de ingeniería electrónica
-
-- **H0**: revisar diseños de referencia y requisitos de seguridad; documentar cadena de señal y alternativas de hardware.
-- **H1**: validar recepción y marcas temporales usando datos sintéticos o un generador electrónico de señales, sin conexión a personas.
-- **H2**: evaluar una placa EEG comercial documentada y una futura arquitectura de adquisición propia; no asumir que un kit de evaluación analógico sea apto para uso humano.
-- **H3**: solo si hay justificación, diseñar esquemático/PCB bajo revisión de ingeniería y evaluación de seguridad antes de cualquier estudio con participantes.
-- **H4, opcional**: estudiar FPGA/Verilog si el microcontrolador resulta insuficiente, con métricas de latencia, potencia y coste.
-
-Ver [hardware/README.md](../../hardware/README.md) y [revisión de seguridad](../../hardware/safety-review.md).
+[Protocolo](../technical/inner-speech-protocol.md) · [Firewall](../technical/neural-privacy-firewall.md).

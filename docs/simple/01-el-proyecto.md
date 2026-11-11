@@ -1,19 +1,29 @@
 # La idea de NeuroLink AI
 
-Queremos desarrollar una forma de comunicarnos con una inteligencia artificial mediante **actividad cerebral voluntaria**.
+[English](../en/simple/01-project.md)
 
-Piensa en escribir «HOLA IA» sin usar los dedos. Una pantalla podría mostrar letras y el sistema buscaría señales EEG relacionadas con la letra a la que estás prestando atención.
+Imagina que piensas, sin decir nada en voz alta:
 
-La [matriz P300 del ejemplo](../../examples/teclado-p300.md) es una **maqueta conceptual**, no una captura de un decodificador funcionando. Para ver material auténtico, consulta las [fotografías reales de EEG](../../assets/real/README.md).
+> «Explícame qué es un agujero negro».
 
-![Experimento BCI real de 2013: control de cursor mediante EEG](https://upload.wikimedia.org/wikipedia/commons/thumb/7/7c/Brain-computer_interface_experiment.jpg/960px-Brain-computer_interface_experiment.jpg)
+**Nuestro sueño es que la IA pueda interpretar esa voz interior** y, cuando decidas comunicarla, recibir tu pregunta. No queremos un teclado que obligue a elegir letras con la mirada ni entender cualquier pensamiento a escondidas.
 
-*Investigación BCI real de control de cursor (2013). Fotografía: Laurens R. Krol, [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/), [fuente](https://commons.wikimedia.org/wiki/File:Brain-computer_interface_experiment.jpg). Sin modificaciones. **No corresponde a NeuroLink AI ni demuestra escritura P300 de nuestro proyecto.***
+## El problema científico
 
-**Primero aprenderemos a seleccionar letras.** Eso ya es diferente de leer cualquier pensamiento: no sabemos convertir libremente en texto todas las frases que alguien imagina.
+La actividad eléctrica del cerebro contiene señales relacionadas con el lenguaje, pero **todavía no se pueden transcribir frases mentales espontáneas de forma general con un EEG convencional**. Por eso empezaremos por experimentos mucho más limitados: distinguir unas pocas palabras imaginadas en registros científicos reales.
 
-Después la IA respondería con texto o voz. También investigaremos si códigos táctiles externos podrían representar respuestas sencillas. Recibir información compleja mediante estimulación neuronal directa no es algo resuelto y no forma parte de experimentos caseros.
+## El firewall neuronal
 
-¿Y el acceso a Internet? Es una extensión posterior del software, no el desafío fundamental.
+Cuando piensas para ti, ese contenido es privado. Necesitamos una separación clara: **modo privado** → activación voluntaria → interpretación local → confirmación → envío a la IA → vuelta al modo privado.
 
-[Las tres fases](02-las-fases.md) · [Ejemplo de conversación](../../examples/conversacion.md).
+La palabra clave mental sería una función futura que habría que demostrar. Al principio, la activación y la confirmación deberán funcionar mediante controles externos confiables. Un interruptor físico podría impedir que el dispositivo capture o transmita datos cuando esté realmente apagado.
+
+## Tres fases
+
+1. Comprender lenguaje interior voluntario.
+2. Devolver respuestas por pantalla/voz; explorar después otros canales seguros.
+3. Conectar Internet, de forma secundaria y solo con permiso.
+
+**Actualmente el proyecto está documentado, no validado experimentalmente.**
+
+[Fotografías reales de investigación BCI](../../assets/real/README.md) · [Firewall](../technical/neural-privacy-firewall.md) · [Datos de habla interna](../research/inner-speech-datasets.md).

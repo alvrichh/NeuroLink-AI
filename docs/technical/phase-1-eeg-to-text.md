@@ -1,73 +1,48 @@
-# Fase 1 — Escribir mediante actividad cerebral
+# Fase 1 — Decodificar el lenguaje interior (inner speech)
 
-**Prioridad principal del proyecto.**
+[English](../en/technical/phase-1-eeg-to-text.md) · [Protocolo experimental](inner-speech-protocol.md) · [Privacidad mental](neural-privacy-firewall.md)
 
-## Separar dos problemas científicos
+**OBJETIVO:** investigar si podemos reconstruir palabras formuladas internamente, sin pronunciar ni seleccionar letras. Esto es distinto de escribir con P300, que pasa a [método secundario](p300-secondary-baseline.md).
 
-### A. Selección cerebral de caracteres: P300 Speller
+## Dos problemas que no debemos confundir
 
-Un EEG detecta respuestas relacionadas con la atención a estímulos visuales. El clasificador estima si un evento fue relevante para el participante (Target) o no (NonTarget). Un algoritmo específico del paradigma acumula evidencias hasta proponer una letra.
+1. **Contenido:** ¿qué palabra se ha imaginado pronunciar? Empezaremos clasificando un vocabulario pequeño, impuesto por un experimento.
+2. **Intención comunicativa:** ¿quiere la persona compartir esa palabra con la IA? Un clasificador de contenido no puede decidir el consentimiento por sí mismo. Ver [Neural Privacy Firewall](neural-privacy-firewall.md).
 
-Esto permite desarrollar un teclado BCI experimental, **pero no significa que el sistema pueda interpretar cualquier frase pensada sin contexto**.
+## Investigación IS-01 — cuatro palabras imaginadas
 
-### B. Decodificación de habla imaginada
+**Dataset:** Nieto et al. (2022), [*Thinking out loud*](https://www.nature.com/articles/s41597-022-01147-2), [NEMAR/OpenNeuro](https://nemar.org/dataset/on003626), [adaptador MOABB](https://moabb.neurotechx.com/docs/generated/moabb.datasets.Nieto2022.html).
 
-La persona imagina pronunciar palabras sin emitir sonido. Se estudia si la señal permite reconocer palabras o clases conocidas. Debemos exigir validación entre sesiones, control de artefactos y separación de la predicción de lenguaje. Esta línea queda como investigación posterior, no como dependencia del MVP.
+- 10 personas, 3 sesiones, 5.640 ensayos, 128 canales EEG y 8 EOG/EMG.
+- Palabras direccionales imaginadas: «arriba», «abajo», «izquierda», «derecha».
+- Incluye condiciones de habla pronunciada e imaginación visual, útiles para controles.
+- Trabajar con un subconjunto permitido y registrar la licencia antes de descargar o reutilizar.
 
-## Dataset inicial: BNCI2014-009
+## Método previsto
 
-Según la documentación de MOABB:
+1. Revisar protocolos originales, etiquetas, segmentos temporales y canales.
+2. Aislar únicamente el intervalo de imaginación y controlar pistas experimentales.
+3. Eliminar o controlar artefactos oculares y musculares, evitando usar información futura del conjunto de prueba.
+4. Crear baselines interpretables: LDA, regresión logística y SVM (sin redes complejas al principio).
+5. Separar ensayos, sesiones y participantes en evaluaciones pertinentes; registrar balanced accuracy, macro-F1, matriz de confusión, intervalos y calibración.
+6. Hacer controles con etiquetas permutadas, clase mayoritaria y condiciones visuales.
+7. Marcar las predicciones como **hipótesis**, no transcripciones de pensamientos libres; reportar errores, incertidumbre y abstención.
 
-- 10 participantes, 16 canales EEG, muestreo de 256 Hz.
-- 3 sesiones expuestas por el cargador; el estudio describe más grabaciones, pero el cargador utiliza las sesiones efectivamente disponibles.
-- Paradigma P300 con clases **Target** y **NonTarget** y matriz de 36 caracteres.
-- El cargador MOABB incorpora los datos de la modalidad de cuadrícula, no la modalidad GeoSpell.
-- El dataset puede incluir datos ya preprocesados: registrar qué filtros se aplicaron antes de entrenar.
+**Límite fundamental:** distinguir cuatro palabras entrenadas no equivale a entender un monólogo mental ni una pregunta espontánea.
 
-Referencias:
-- https://moabb.neurotechx.com/docs/generated/moabb.datasets.BNCI2014_009.html
-- https://doi.org/10.1088/1741-2560/11/3/035008
+## Investigación NPF-01 — el canal de privacidad
 
-**Licencias:** verificar las condiciones del dataset en origen antes de descargar, redistribuir o utilizar con fines comerciales. No subir EEG bruto al repositorio público.
+Mientras no tengamos evidencia de reconocimiento de intención, crear un estado **LOCKED**, activación externa voluntaria de prueba, ventana local limitada, revisión de salida, confirmación explícita y auto-bloqueo. Una palabra clave mental será una **hipótesis a validar por separado**, no una función afirmada.
 
-## Experimento E1: clasificación ERP
+La fase 1 no se considerará lograda cuando solo haya un detector de palabras: necesitamos estudiar cómo formular voluntariamente un mensaje, distinguir intención de privacidad y medir la tasa de activaciones falsas.
 
-1. Fijar versiones de Python y librerías, semillas aleatorias y metadatos del conjunto.
-2. Cargar EEG y etiquetas con MOABB; verificar sujeto, sesión, clases, forma y unidades.
-3. Separar entrenamiento y evaluación por **sesión** cuando proceda, además de baselines dentro de sesión. Evitar mezclar eventos de una misma secuencia o prueba entre ambos grupos.
-4. Crear épocas relativas a marcas de estímulo usando MNE; documentar ventana, referencia, filtros y rechazo de artefactos.
-5. Entrenar baseline LDA regularizado o regresión logística con el desbalance de clases tratado correctamente.
-6. Comparar con una estrategia trivial, un modelo con etiquetas permutadas y métricas apropiadas (ROC-AUC/PR-AUC, sensibilidad, especificidad, matriz de confusión y calibración).
-7. Guardar resultados, configuración, versión y métricas por sujeto/sesión. No extrapolar promedios a usuarios nuevos.
+## Pasos a más largo plazo
 
-**Advertencia:** clasificar Target/NonTarget en eventos aislados no certifica la precisión por carácter.
+- Clasificación de secuencias controladas y vocabulario más amplio, si los resultados lo justifican.
+- Estudios de generalización entre sesiones/personas y de atajos musculares o visuales.
+- Investigación bibliográfica de prótesis de lenguaje interior implantadas; no extrapolar sus resultados a EEG superficial.
+- Traducción de hipótesis de texto a interacción con IA **solo** después de autorización.
 
-## Experimento E2: seleccionar letras
+No se usarán implantes, neuromodulación ni prototipos conectados a personas sin la correspondiente investigación regulada y revisión de seguridad.
 
-Para cada ensayo de escritura:
-
-- Conservar el orden de los estímulos y el mapa de filas/columnas o grupos atendidos.
-- Agregar probabilidades por repetición y alternativa.
-- Elegir letra candidata solo tras un umbral de evidencia calibrado.
-- Permitir «no estoy seguro», edición y cancelación.
-- Comparar letra estimada con la letra objetivo original.
-- Medir precisión por carácter, caracteres correctos/minuto, latencia y tasa de selección involuntaria.
-
-Si faltan los metadatos necesarios para reconstrucción real de caracteres en la versión del dataset que utilizamos, **no simularlos como si fueran datos reales**: optar por otro conjunto con estructura completa o documentar E2 como simulación explícita.
-
-## Experimento E3: teclado → IA
-
-- Teclado visible muestra cada letra candidata y su fuente (EEG, replay o synthetic).
-- Envío solo tras confirmación.
-- Primer asistente será un stub local determinista que responda a un texto.
-- Después podremos integrar un modelo LLM intercambiable; sus autocompletados nunca contarán como aciertos del decodificador.
-
-Ejemplo de demostración deseada: componer «HOLA IA», enviarlo y leer «Hola, he recibido tu mensaje». **Es una meta ilustrativa, no un resultado obtenido.**
-
-## Hardware: no comprar hasta tener baseline
-
-Para un paso posterior, evaluar un EEG no invasivo compatible con BrainFlow según cantidad y colocación de electrodos, calidad de señal, frecuencia de muestreo, marcadores temporales sincronizados, compatibilidad de software, coste y seguridad del producto. No seleccionar hardware solo por marketing de «leer la mente».
-
-## Criterio de salida de fase
-
-Resultados reproducibles por sesión, selección de caracteres con trazabilidad, incertidumbre visible y envío voluntario de mensajes sin intervención manual en la fase de selección. La demo debe revelar cuándo usa datos grabados y cuándo señales en vivo.
+[Hoja de ruta](../research/roadmap.md) · [Estado de la ciencia](../research/state-of-the-science.md).

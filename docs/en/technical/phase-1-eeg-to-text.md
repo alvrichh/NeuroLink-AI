@@ -1,45 +1,34 @@
-# Phase 1 — EEG to confirmed text
+# Phase 1 — Decoding inner speech
 
-[Español](../../technical/phase-1-eeg-to-text.md)
+[Español](../../technical/phase-1-eeg-to-text.md) · [Experimental plan](inner-speech-protocol.md) · [Mental privacy](neural-privacy-firewall.md)
 
-This is the project's **highest-priority research objective**.
+**GOAL:** study whether words spoken only in a person's mind can be decoded from brain recordings, without utterance or selecting letters. P300 spelling is now a [secondary BCI reference](p300-secondary-baseline.md), not the intended interface.
 
-## Different questions: P300 selection vs imagined speech
+## Two different questions
 
-**P300 speller:** the person attends to a letter or option in a controlled stimulus sequence. An EEG event classifier estimates whether a stimulus was a target. A second algorithm combines event scores according to the stimulation design to choose a character. This is **selection under a protocol**, not arbitrary thought reading.
+1. **Content:** which internally imagined word was uttered? Begin with a small experimentally labelled vocabulary.
+2. **Communicative intention:** does the person *want to share* that inner speech? Content classification alone is not permission. See the [Neural Privacy Firewall](neural-privacy-firewall.md).
 
-**Imagined speech:** the person mentally attempts words without producing audible speech. EEG decoding of an unrestricted vocabulary remains far harder and is a separate exploratory research direction, not the initial acceptance criterion.
+## IS-01 — imagined-word classification
 
-## Initial dataset
+**Dataset:** Nieto et al. (2022), [*Thinking out loud*](https://www.nature.com/articles/s41597-022-01147-2), [NEMAR](https://nemar.org/dataset/on003626) and [MOABB Nieto2022 adapter](https://moabb.neurotechx.com/docs/generated/moabb.datasets.Nieto2022.html).
 
-[BNCI2014-009 documented in MOABB](https://moabb.neurotechx.com/docs/generated/moabb.datasets.BNCI2014_009.html) is a P300 dataset with 10 participants, 16 EEG channels, and 256 Hz sampling. MOABB exposes three sessions. Record which preprocessing has already been applied before training; do not treat the data as raw if it is not. Verify the original license and terms **before** redistribution or commercial reuse.
+- 10 participants, 3 sessions, 5,640 trials, 128 EEG channels plus 8 EOG/EMG.
+- Four prompted imagined directions: *arriba*, *abajo*, *izquierda*, *derecha*.
+- Spoken and visual-imagination control conditions.
 
-## E1 — Event classification
+### Planned pipeline
 
-1. Freeze library versions, experiment configuration and random seeds.
-2. Load subject, session, labels, channels and event metadata.
-3. Divide train/validation/test by appropriate independent recording unit (e.g. held-out sessions/complete trials); do not leak correlated epochs across sets.
-4. Epoch EEG around the stimuli, document reference, filters and artifact rejection.
-5. Train regularised LDA or logistic regression before trying complex models.
-6. Report ROC-AUC, PR-AUC, sensitivity, specificity, calibration, latency and class distribution.
-7. Run majority and shuffled-label negative controls, and report by subject/session.
+Check provenance, timing and conditions; isolate imagined-speech intervals; inspect EOG/EMG and potential visual artifacts; fit preprocessing only on training data; evaluate interpretable LDA/logistic regression/SVM baselines in appropriate held-out sessions/subjects; report balanced accuracy, macro-F1, confusion matrices, abstention and negative controls.
 
-**Event-level classification performance must not be described as spelling accuracy.**
+The experiment tests **four-class imagined-speech discrimination**, not free-form mental transcription. Language-model completion cannot be reported as neural decoding.
 
-## E2 — Character reconstruction
+## NPF-01 — mental privacy
 
-For each spelling trial, preserve the correct stimulus order and attended row/column or grouping. Aggregate event evidence across repetitions, infer character candidates, and allow abstention, editing and cancellation. Compare against the *actual character target*, reporting character accuracy, correct characters/minute, selection latency and unintended selections.
+Build a **software privacy state-machine** before connecting a neural decoder: locked by default, explicitly unlocked, bounded decoding window, local review, independent confirmation and automatic relock. A mental wake-word requires separate evidence and its activation false-positive rate must be measured against **private thought**, not just silence.
 
-If the chosen dataset loader lacks the original trial-to-character mapping, obtain a suitable dataset or explicitly mark the character experiment as **simulation**. Do not fabricate ground-truth letter labels.
+## Further study
 
-## E3 — Assistant integration
+Explore larger vocabularies, temporal sequences and more natural self-generated language only when independently verified data support those claims. Implanted-language prosthesis results are relevant literature but do not imply scalp EEG will match them.
 
-The UI displays provenance (recorded/live/synthetic), candidate and uncertainty. A human confirmation gates all outgoing text. Initially connect to a deterministic local assistant for reproducible tests; an LLM can be introduced later, but any text it suggests is **model-generated**, not EEG-decoded.
-
-The target demo of composing `HOLA IA` and receiving a response is an **illustrative goal**, not a result.
-
-## Hardware gate
-
-Do not buy or build hardware based on marketing claims. After validating offline methodology, evaluate documented commercial recording devices for electrode placement, timing synchronization, signal quality, safety and software interfaces. Custom breadboards/EVMs are not patient-ready.
-
-[Experimental protocol (ES)](../../technical/research-protocol.md) · [Hardware engineering](../../../hardware/en/README.md).
+[Roadmap](../research/roadmap.md) · [Scientific limitations](../research/state-of-the-science.md).

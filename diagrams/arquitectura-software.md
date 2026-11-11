@@ -1,45 +1,41 @@
-# EEG-to-AI pipeline / Arquitectura de software
+# NeuroLink AI — inner speech + privacy / lenguaje interior y privacidad
 
-**Type:** CONCEPTUAL DATAFLOW. No decoder, trained model or measured accuracy is implied.
+**Proposed architecture only.** No validated EEG intent detection, inner-speech transcription or patient-ready circuitry is claimed.
 
 ```mermaid
 flowchart TD
-  subgraph SOURCE["Acquisition / Adquisición"]
-    DATA["Public EEG dataset / Dataset público"]
-    LIVE["Verified EEG SDK / SDK EEG verificado"]
-    SYN["Synthetic test stream / Flujo sintético"]
+  subgraph INPUT["Local acquisition / Captura local"]
+    DATA["Recorded EEG / EEG grabado"]
+    DEV["Evaluated EEG device / Equipo evaluado"]
+    TEST["Synthetic input / Pruebas sintéticas"]
   end
-  subgraph PROCESS["Signal processing / Procesado"]
-    INGEST["Samples + clock + stimulus events"]
-    QC["Quality / artifacts / rejected epochs"]
-    ERP["P300 features and classifier"]
-    SEL["Stimulus aggregation<br/>character candidates + confidence"]
+  subgraph GUARD["Neural Privacy Firewall"]
+    OFF["HARD_OFF: physical acquisition off"]
+    GATE{"LOCKED / activation monitor"}
+    KEY["Deliberate activation / Activación voluntaria"]
+    DEC["Short decoding window / Ventana local"]
   end
-  subgraph USER["Human control / Control humano"]
-    UI["Candidate speller view"]
-    ACK{"Explicitly confirmed?<br/>¿Confirmado?"}
+  subgraph CONTENT["Language and consent / Lenguaje y consentimiento"]
+    MODEL["Imagined-word decoder / Modelo de lenguaje interior"]
+    REVIEW["Candidate + uncertainty / Propuesta"]
+    OK{"Explicit approval? / ¿Confirma?"}
   end
-  subgraph APP["Application / Aplicación"]
-    API["FastAPI / validated text"]
-    AI["LLM or deterministic test stub"]
-    FEED["Text / audio feedback"]
+  subgraph OUT["Assistant / Asistente"]
+    API["API — approved text only"]
+    AI["AI or deterministic stub"]
+    RETURN["Text / audio feedback"]
   end
-  DATA --> INGEST
-  LIVE --> INGEST
-  SYN --> INGEST
-  INGEST --> QC --> ERP --> SEL --> UI --> ACK
-  ACK -->|"no / edit / cancel"| UI
-  ACK -->|"confirmed text / texto confirmado"| API --> AI --> FEED
-  TOOL["Web read-only tools / Internet (later)"] -.-> AI
+  DATA --> GATE
+  DEV --> GATE
+  TEST --> GATE
+  GATE -->|"no activation"| OFF
+  KEY --> GATE
+  GATE -->|"authorized"| DEC --> MODEL --> REVIEW --> OK
+  OK -->|"no / cancel"| GATE
+  OK -->|"yes"| API --> AI --> RETURN
+  RETURN --> GATE
 ```
 
-## Invariants / Invariantes
+**Interpretation:** HARD_OFF and a software LOCKED state are different. When a neural keyword detector is enabled, minimal signal acquisition is necessary even while language decoding is locked. OFF in the diagram represents intentionally disabled acquisition, not a state that a running wake detector can magically enter and still recognize thought.
 
-- Every experimental result has a **source mode:** recorded EEG, live EEG or synthetic.
-- Fit preprocessing on training data only; keep independent session/test partitions.
-- `P300 target/non-target` metrics are not character-level spelling metrics.
-- User corrections and LLM autocomplete are **not decoded neural data**.
-- Confidence and abstention are shown to the user; false positives must never trigger web actions.
-- Use versioned protocol metadata and an audit record for signal → selection → confirmation.
-
-[Phase 1](../docs/technical/phase-1-eeg-to-text.md) · [Experimental protocol](../docs/technical/research-protocol.md).
+The [firewall state machine](neural-privacy-firewall.md) has the authoritative behavior. The four-word dataset [Nieto2022](../docs/research/inner-speech-datasets.md) does **not** establish communicative intent; it only supports constrained content research.
