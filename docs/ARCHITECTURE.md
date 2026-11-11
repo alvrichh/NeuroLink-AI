@@ -89,7 +89,7 @@ Ante señal insuficiente, baja confianza, desconexión, cancelación o anomalía
 ## Diseño de proyecto esperado
 
 ```text
-neuralink-ai/
+NeuroLink-AI/
   docs/
   experiments/         # notebooks/scripts reproducibles cuando existan
   src/neuralink_ai/

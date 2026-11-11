@@ -57,4 +57,4 @@ Python · MNE-Python · MOABB · scikit-learn (PyTorch solo si aporta valor demo
 - [Sensaciones táctiles artificiales con implantes, NIH 2025](https://www.nih.gov/news-events/nih-research-matters/creating-artificial-sense-touch)
 - [Recomendación UNESCO sobre ética de la neurotecnología, 2025](https://www.unesco.org/en/legal-affairs/recommendation-ethics-neurotechnology)
 
-> **Natureza del proyecto:** investigación y prototipado experimental, no dispositivo médico ni producto de lectura mental.
+> **Naturaleza del proyecto:** investigación y prototipado experimental, no dispositivo médico ni producto de lectura mental.
