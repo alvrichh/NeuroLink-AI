@@ -60,11 +60,11 @@ function LanguageSwitch({
             hrefLang={code}
             lang={code}
             aria-current={current ? "true" : undefined}
-            aria-label={localeNames[code].long}
             title={localeNames[code].long}
             className="lang-switch__item"
           >
             {localeNames[code].short}
+            <span className="sr-only"> — {localeNames[code].long}</span>
           </a>
         );
       })}

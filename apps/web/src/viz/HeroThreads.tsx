@@ -63,6 +63,8 @@ export function HeroThreads({ gateSelector }: { gateSelector: string }) {
     let pulses: Pulse[] = [];
     let gradPass: CanvasGradient | null = null;
     let gradStop: CanvasGradient | null = null;
+    let gradSamples: CanvasGradient | null = null;
+    let fanEnd = 0;
     let energy = 0;
     let frame = 0;
     let running = false;
@@ -71,8 +73,9 @@ export function HeroThreads({ gateSelector }: { gateSelector: string }) {
 
     const build = () => {
       const rect = host.getBoundingClientRect();
-      const dpr = Math.min(window.devicePixelRatio || 1, 2);
       width = Math.max(1, rect.width);
+      // Hairlines stay crisp at 1.5× on phones, at well under the fill cost of 3×.
+      const dpr = Math.min(window.devicePixelRatio || 1, width < 700 ? 1.5 : 2);
       height = Math.max(1, rect.height);
       canvas.width = Math.round(width * dpr);
       canvas.height = Math.round(height * dpr);
@@ -125,6 +128,13 @@ export function HeroThreads({ gateSelector }: { gateSelector: string }) {
       gradPass.addColorStop(0.985, rgba(blue, 0.3));
       gradPass.addColorStop(1, rgba(blue, 0));
 
+      fanEnd = gateX + (width - gateX) * 0.5;
+      gradSamples = ctx.createLinearGradient(fanEnd - 40, 0, width, 0);
+      gradSamples.addColorStop(0, rgba(blue, 0));
+      gradSamples.addColorStop(0.18, rgba(blue, 0.75));
+      gradSamples.addColorStop(0.9, rgba(blue, 0.5));
+      gradSamples.addColorStop(1, rgba(blue, 0));
+
       gradStop = ctx.createLinearGradient(0, 0, width, 0);
       gradStop.addColorStop(0, rgba(navy, 0));
       gradStop.addColorStop(Math.min(0.04, g * 0.2), rgba(navy, 0.22));
@@ -157,7 +167,6 @@ export function HeroThreads({ gateSelector }: { gateSelector: string }) {
     const draw = (now: number) => {
       ctx.clearRect(0, 0, width, height);
       const step = 12;
-      const fanEnd = gateX + (width - gateX) * 0.5;
 
       // Gate glow — sits behind the glass capsule and is blurred by it.
       if (energy > 0.01) {
@@ -209,12 +218,7 @@ export function HeroThreads({ gateSelector }: { gateSelector: string }) {
       ctx.globalAlpha = 1;
       ctx.lineWidth = 1.7;
       ctx.setLineDash([0.01, 13]);
-      const fade = ctx.createLinearGradient(fanEnd - 40, 0, width, 0);
-      fade.addColorStop(0, rgba(blue, 0));
-      fade.addColorStop(0.18, rgba(blue, 0.75));
-      fade.addColorStop(0.9, rgba(blue, 0.5));
-      fade.addColorStop(1, rgba(blue, 0));
-      ctx.strokeStyle = fade;
+      ctx.strokeStyle = gradSamples ?? rgba(blue, 0.6);
       threads.forEach((t, i) => {
         if (!t.pass) return;
         const y = yAt(t, width, now);
@@ -301,8 +305,15 @@ export function HeroThreads({ gateSelector }: { gateSelector: string }) {
     });
     resize.observe(host);
 
+    // The first frame is already drawn; hold the loop back until the entrance
+    // has painted, so it never competes with first render on slow devices.
+    let ready = false;
     let visible = true;
-    const sync = () => (visible && !document.hidden ? start() : stop());
+    const sync = () => (ready && visible && !document.hidden ? start() : stop());
+    const warmup = window.setTimeout(() => {
+      ready = true;
+      sync();
+    }, 1400);
     const io = new IntersectionObserver(([entry]) => {
       visible = entry?.isIntersecting ?? true;
       sync();
@@ -311,6 +322,7 @@ export function HeroThreads({ gateSelector }: { gateSelector: string }) {
     document.addEventListener("visibilitychange", sync);
 
     return () => {
+      window.clearTimeout(warmup);
       stop();
       resize.disconnect();
       io.disconnect();

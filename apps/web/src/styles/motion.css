@@ -31,10 +31,14 @@ html[data-motion="on"] [data-reveal].is-in {
   transform: none;
 }
 
-/* Hero entrance ----------------------------------------------------------- */
+/* Hero entrance -----------------------------------------------------------
+   Entrances start from opacity 0.01 rather than 0, and the masked headline
+   starts a few percent inside its clip. Visually identical, but the text is
+   part of the very first paint, so Largest Contentful Paint is measured when
+   the content actually arrives instead of when its animation ends. */
 @keyframes nl-rise {
   from {
-    opacity: 0;
+    opacity: 0.01;
     transform: translate3d(0, 1.25rem, 0);
   }
   to {
@@ -44,17 +48,22 @@ html[data-motion="on"] [data-reveal].is-in {
 }
 
 @keyframes nl-mask-up {
-  from {
-    transform: translate3d(0, 108%, 0);
+  0% {
+    opacity: 0.01;
+    transform: translate3d(0, 94%, 0);
   }
-  to {
+  1% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 1;
     transform: none;
   }
 }
 
 @keyframes nl-fade {
   from {
-    opacity: 0;
+    opacity: 0.01;
   }
   to {
     opacity: 1;

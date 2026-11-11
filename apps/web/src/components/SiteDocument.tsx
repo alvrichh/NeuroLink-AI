@@ -31,13 +31,17 @@ export function buildMetadata(locale: Locale): Metadata {
     description: t.meta.description,
     applicationName: brand.name,
     icons: { icon: logoSrc, apple: logoSrc },
-    alternates: {
-      canonical: withBase(localePath(locale)),
-      languages: {
-        ...Object.fromEntries(locales.map((code) => [code, withBase(localePath(code))])),
-        "x-default": withBase(localePath("en")),
-      },
-    },
+    // Canonical and hreflang must be absolute URLs, so they are emitted only
+    // when the deployment origin is known (NEXT_PUBLIC_SITE_URL).
+    alternates: siteUrl
+      ? {
+          canonical: withBase(localePath(locale)),
+          languages: {
+            ...Object.fromEntries(locales.map((code) => [code, withBase(localePath(code))])),
+            "x-default": withBase(localePath("en")),
+          },
+        }
+      : undefined,
     openGraph: {
       type: "website",
       siteName: brand.name,

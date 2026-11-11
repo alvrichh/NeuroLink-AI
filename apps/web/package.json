@@ -2,6 +2,7 @@
   "name": "@neurolink-ai/web",
   "version": "0.1.0",
   "private": true,
+  "type": "module",
   "description": "NeuroLink AI research website (Next.js, static export).",
   "scripts": {
     "sync:brand": "node scripts/sync-brand.mjs",
