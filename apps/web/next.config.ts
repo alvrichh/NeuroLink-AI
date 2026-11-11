@@ -13,6 +13,8 @@ const nextConfig: NextConfig = {
   basePath,
   reactStrictMode: true,
   poweredByHeader: false,
+  // Do not let `next dev` write an AGENTS.md into the repository.
+  agentRules: false,
   images: { unoptimized: true },
 };
 
