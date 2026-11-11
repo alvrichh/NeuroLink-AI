@@ -41,9 +41,20 @@ export function Exchange({
               </p>
               <h3 className="t-heading mt-5">{t.out.title}</h3>
               <p className="t-body mt-4">{t.out.text}</p>
-              <p className="exchange__card-foot">
-                <Status kind="question">{status.question}</Status>
-              </p>
+              <ol className="levels">
+                {t.out.steps.map((step, i) => (
+                  <li key={step.name}>
+                    <span className="t-mono levels__n">{i + 1}</span>
+                    <div>
+                      <p className="levels__name">{step.name}</p>
+                      <p className="t-small mt-1">{step.text}</p>
+                    </div>
+                    <Status kind={step.status as StatusKind} className="levels__status">
+                      {status[step.status as StatusKind]}
+                    </Status>
+                  </li>
+                ))}
+              </ol>
             </article>
 
             <article className="card exchange__card" data-reveal="" style={stagger(1)}>

@@ -4,12 +4,13 @@ type Copy = Pick<Dictionary["exchange"], "person" | "ai" | "gate" | "senses" | "
 
 type Geometry = {
   viewBox: string;
+  width: number;
   person: { x: number; y: number; r: number };
   ai: { x: number; y: number; size: number };
   out: string;
   back: string;
-  gate: { x: number; y: number; w: number };
-  senses: { x: number; y: number; w: number };
+  gate: { x: number; y: number };
+  senses: { x: number; y: number };
   /** Direction labels; omitted where the layout has no clear space for them. */
   outTag?: { x: number; y: number };
   backTag?: { x: number; y: number };
@@ -17,28 +18,38 @@ type Geometry = {
 
 const wide: Geometry = {
   viewBox: "0 0 960 340",
+  width: 960,
   person: { x: 96, y: 170, r: 46 },
   ai: { x: 864, y: 170, size: 92 },
   out: "M139 143 C 300 28, 660 28, 815 138",
   back: "M821 197 C 660 312, 300 312, 145 202",
-  gate: { x: 480, y: 57, w: 132 },
-  senses: { x: 480, y: 283, w: 164 },
+  gate: { x: 480, y: 57 },
+  senses: { x: 480, y: 283 },
   outTag: { x: 232, y: 52 },
   backTag: { x: 728, y: 300 },
 };
 
 const tall: Geometry = {
   viewBox: "0 0 340 470",
+  width: 340,
   person: { x: 170, y: 54, r: 42 },
   ai: { x: 170, y: 412, size: 84 },
   out: "M137 82 C 28 170, 28 290, 124 372",
   back: "M216 372 C 312 290, 312 170, 205 86",
-  gate: { x: 62, y: 232, w: 116 },
-  senses: { x: 274, y: 232, w: 124 },
+  gate: { x: 62, y: 232 },
+  senses: { x: 274, y: 232 },
 };
 
 function Variant({ g, copy, id, className }: { g: Geometry; copy: Copy; id: string; className: string }) {
   const half = g.ai.size / 2;
+  // Chips size themselves to their label (11px mono ≈ 7.5px per character),
+  // so longer translations never collide with the icon or leave the frame.
+  const charWidth = 7.5;
+  const gateW = 46 + copy.gate.length * charWidth;
+  const sensesW = 30 + copy.senses.length * charWidth;
+  const clampX = (x: number, w: number) => Math.min(g.width - w / 2 - 2, Math.max(w / 2 + 2, x));
+  const gateX = clampX(g.gate.x, gateW);
+  const sensesX = clampX(g.senses.x, sensesW);
   return (
     <svg className={`xdiagram ${className}`} viewBox={g.viewBox} aria-hidden="true" focusable="false">
       <defs>
@@ -86,21 +97,21 @@ function Variant({ g, copy, id, className }: { g: Geometry; copy: Copy; id: stri
       </text>
 
       {/* Consent gate on the outbound path */}
-      <g transform={`translate(${g.gate.x - g.gate.w / 2} ${g.gate.y - 17})`}>
-        <rect className="xdiagram__chip xdiagram__chip--gate" width={g.gate.w} height="34" rx="17" />
+      <g transform={`translate(${gateX - gateW / 2} ${g.gate.y - 17})`}>
+        <rect className="xdiagram__chip xdiagram__chip--gate" width={gateW} height="34" rx="17" />
         <g transform="translate(13 8)" fill="none" stroke="var(--nl-blue)" strokeWidth="1.500" strokeLinecap="round">
           <rect x="1.500" y="7.500" width="13" height="9" rx="2.500" />
           <path d="M4.500 7.500V5.500a3.500 3.500 0 0 1 7 0v2" />
         </g>
-        <text className="xdiagram__chip-text xdiagram__chip-text--gate" x={(g.gate.w + 20) / 2} y="21.500" textAnchor="middle">
+        <text className="xdiagram__chip-text xdiagram__chip-text--gate" x={(gateW + 22) / 2} y="21.500" textAnchor="middle">
           {copy.gate}
         </text>
       </g>
 
       {/* Senses on the return path */}
-      <g transform={`translate(${g.senses.x - g.senses.w / 2} ${g.senses.y - 17})`}>
-        <rect className="xdiagram__chip" width={g.senses.w} height="34" rx="17" />
-        <text className="xdiagram__chip-text" x={g.senses.w / 2} y="21.500" textAnchor="middle">
+      <g transform={`translate(${sensesX - sensesW / 2} ${g.senses.y - 17})`}>
+        <rect className="xdiagram__chip" width={sensesW} height="34" rx="17" />
+        <text className="xdiagram__chip-text" x={sensesW / 2} y="21.500" textAnchor="middle">
           {copy.senses}
         </text>
       </g>

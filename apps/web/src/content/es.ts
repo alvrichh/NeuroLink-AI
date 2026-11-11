@@ -494,7 +494,24 @@ export const es: Dictionary = {
     out: {
       tag: "Persona → IA",
       title: "Decodificar el lenguaje interior voluntario",
-      text: "En investigación. El primer paso es un vocabulario pequeño y etiquetado en EEG registrado, tras una compuerta de privacidad bloqueada por defecto.",
+      text: "En investigación. Cada paso hacia fuera atraviesa una frontera que controla la persona.",
+      steps: [
+        {
+          name: "Primero, un vocabulario cerrado",
+          text: "Cuatro palabras imaginadas, bajo consigna, en registros de EEG publicados.",
+          status: "planned",
+        },
+        {
+          name: "Bloqueado por defecto",
+          text: "No se decodifica nada hasta que el canal se abre deliberadamente.",
+          status: "prototype",
+        },
+        {
+          name: "Consentimiento explícito",
+          text: "A la IA solo llega el texto que la persona ha aprobado.",
+          status: "prototype",
+        },
+      ],
     },
     back: {
       tag: "IA → Persona",

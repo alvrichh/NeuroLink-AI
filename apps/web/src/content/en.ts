@@ -492,7 +492,24 @@ export const en = {
     out: {
       tag: "Human → AI",
       title: "Decoding voluntary inner speech",
-      text: "Under investigation. The first step is a small, labelled vocabulary in recorded EEG, behind a privacy gate that stays locked by default.",
+      text: "Under investigation. Every step outward passes through a boundary the person controls.",
+      steps: [
+        {
+          name: "A closed vocabulary first",
+          text: "Four prompted, imagined words in published EEG recordings.",
+          status: "planned",
+        },
+        {
+          name: "Locked by default",
+          text: "Nothing is decoded until the channel is deliberately opened.",
+          status: "prototype",
+        },
+        {
+          name: "Explicit consent",
+          text: "Only text the person has approved ever reaches the AI.",
+          status: "prototype",
+        },
+      ],
     },
     back: {
       tag: "AI → Human",

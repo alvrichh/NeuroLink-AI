@@ -2003,10 +2003,6 @@
       var(--nl-white);
   }
 
-  .exchange__card-foot {
-    margin-top: auto;
-    padding-top: 2rem;
-  }
 
   .exchange__tag {
     display: flex;

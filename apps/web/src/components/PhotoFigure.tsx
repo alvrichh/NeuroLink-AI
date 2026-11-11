@@ -30,7 +30,10 @@ export function PhotoFigure({ photo, alt, caption, labels, className, ratio, foc
   useEffect(() => {
     // The image may have settled before hydration attached the handlers.
     const img = ref.current;
-    if (img?.complete) setState(img.naturalWidth > 0 ? "ready" : "failed");
+    if (!img) return;
+    // Capture mode (?still): load immediately, since nothing will scroll.
+    if (document.documentElement.dataset.motion === "off") img.loading = "eager";
+    if (img.complete) setState(img.naturalWidth > 0 ? "ready" : "failed");
   }, []);
 
   return (
