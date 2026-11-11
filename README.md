@@ -1,92 +1,74 @@
 # NeuroLink AI
 
-**Experimental research on brain–computer interfaces, EEG acquisition and AI-assisted communication.**  
-**Investigación experimental de interfaces cerebro–ordenador, adquisición EEG y comunicación asistida por IA.**
+**Inner speech → AI, with privacy by design.**  
+**Lenguaje interior → IA, con privacidad desde el diseño.**
 
-[English](#english) · [Español](#español) · [Engineering diagrams](diagrams/README.md) · [Real reference photographs](assets/real/README.md)
+[English](#english) · [Español](#español) · [Neural Privacy Firewall](docs/technical/neural-privacy-firewall.md) · [Scientific evidence](docs/research/inner-speech-datasets.md) · [Engineering diagrams](diagrams/README.md)
 
-> **Project status / Estado:** research and design. There is **no validated EEG decoder, human EEG study, custom acquisition board or measured NeuroLink AI result** in this repository yet.
+> **Research / Investigación.** A reliable system for unrestricted, non-invasive inner-speech transcription is **not yet available**. NeuroLink AI has not produced validated neural decoding, human-subject tests or a custom patient-ready electronic device.
 
 ## English
 
-The primary goal is to **compose messages for an AI without typing or speaking**, using voluntary brain signals. Our first method to investigate is EEG-based P300 spelling: selecting characters through a controlled attention task. This is not general-purpose thought reading.
+**The goal is not to type by mentally selecting letters.** We want to investigate whether the words a person *says to themselves internally* — their voluntary inner speech — can be interpreted by an AI without talking or moving.
 
-1. **Brain → AI:** record or replay EEG, decode a controlled selection, reconstruct characters and explicitly confirm the message.
-2. **AI → person:** receive answers through a screen or speech; explore non-invasive tactile feedback as a separate research track.
-3. **Internet, optional:** consult sources through the assistant only after the communication channel is reliable.
+The intended interaction is: **voluntary inner speech → neural signal → decoder → preview/consent → AI → response**.
 
-**Next experiment:** an offline P300 classification baseline on a documented public dataset, with independent evaluation and an honest distinction between event classification and character spelling.
+A second, equally important goal is the **Neural Privacy Firewall (NPF)**. Private thoughts must not be sent to the assistant. The proposed design is **locked by default**, opens only following deliberate activation, and requires explicit confirmation before sending a message. A hardware disconnect is a stronger privacy option than relying solely on neural keywords.
+
+Three research phases:
+
+1. **Inner speech → AI (primary):** start with a small, labelled vocabulary and independent EEG evaluation. Open-ended language reconstruction is the long-term scientific goal, not a current capability.
+2. **AI → person:** screen and audio first; external tactile codes are optional. Direct neural stimulation is clinical research, outside this independent prototype.
+3. **Internet (optional):** external lookups only from explicitly approved messages.
 
 ## Español
 
-La prioridad es **escribir a una IA sin teclado ni voz**, utilizando señales cerebrales voluntarias. Empezaremos estudiando teclados P300: permiten seleccionar letras en una tarea visual controlada, pero no leen cualquier pensamiento.
+**Nuestro objetivo no es seleccionar letras con un teclado cerebral.** Queremos investigar cómo interpretar las palabras que nos decimos mentalmente cuando hablamos con nosotros mismos: **la voz interior**, sin pronunciarlas.
 
-1. **Cerebro → IA:** adquirir o reproducir EEG, identificar selecciones, reconstruir caracteres y confirmar cada mensaje.
-2. **IA → persona:** recibir respuestas mediante pantalla o voz; estudiar después códigos táctiles externos.
-3. **Internet, opcional:** consultar fuentes externas cuando la comunicación básica funcione de manera fiable.
+La comunicación deseada es: **lenguaje interior voluntario → señales neuronales → decodificador → autorización → IA → respuesta**.
 
-**Próximo experimento:** entrenar y evaluar un clasificador P300 con datos públicos, evitando confundir la clasificación de eventos con la escritura de caracteres.
+Necesitamos un **Neural Privacy Firewall (NPF)** que distinga pensamiento privado de intención de comunicar. El sistema debe permanecer **bloqueado por defecto**, activarse deliberadamente, permitir cancelar y requerir confirmación antes de transmitir. Un interruptor físico proporciona una garantía de desconexión mayor que confiar únicamente en una palabra clave mental.
 
-## System architecture / Arquitectura
+Tres fases:
 
-The software and hardware are independent research workstreams. The figure below is a **conceptual engineering dataflow**, not a measured or validated system.
+1. **Lenguaje interior → IA (prioridad):** primero clasificar unas pocas palabras imaginadas con EEG real registrado. Reconstruir frases libres es un objetivo de investigación a largo plazo.
+2. **IA → persona:** texto y voz inicialmente; tacto externo como investigación opcional. La estimulación neural directa pertenece al ámbito clínico.
+3. **Internet (opcional):** consultas mediante la IA solo después de autorización voluntaria.
+
+## System concept / Esquema conceptual
 
 ```mermaid
 flowchart LR
-  subgraph SRC["Signal input / Entrada"]
-    EEG["Recorded EEG / EEG grabado"]
-    HW["Commercial EEG interface / Equipo comercial"]
-  end
-  subgraph DSP["Signal processing / Procesado"]
-    PRE["Preprocessing + stimulus timestamps"]
-    ERP["P300 event classifier"]
-    DEC["Character selection and uncertainty"]
-  end
-  subgraph APP["Application / Aplicación"]
-    CONF{"User confirms? / ¿Confirma?"}
-    AI["Assistant API"]
-    OUT["Text or speech / Texto o voz"]
-  end
-  EEG --> PRE
-  HW --> PRE
-  PRE --> ERP --> DEC --> CONF
-  CONF -->|"Yes / Sí"| AI --> OUT
-  CONF -->|"No / No"| DEC
+  S["Recorded or live EEG / Señal EEG"] --> G{"Privacy gate / Firewall"}
+  G -->|"Locked / Privado"| X["No speech decoding / Sin decodificar"]
+  G -->|"Deliberately unlocked / Activado"| D["Inner speech decoder / Decodificador"]
+  D --> P["Candidate + uncertainty / Propuesta"]
+  P --> C{"Explicit approval? / ¿Confirmado?"}
+  C -->|"No / Cancel"| X
+  C -->|"Yes / Sí"| A["AI assistant / Asistente"]
+  A --> F["Text / Audio"]
 ```
 
-## Documentation map / Mapa de documentación
+*Architecture only: no model or hardware has been built or validated here.*
+
+## Start here / Empieza aquí
 
 | Topic / Tema | English | Español |
 | --- | --- | --- |
-| Starting point / Introducción | [English guide](docs/en/README.md) | [Guía en español](docs/es/README.md) |
-| What we are building / Qué queremos construir | [Project explanation](docs/en/simple/01-project.md) | [Explicación](docs/simple/01-el-proyecto.md) |
-| Scientific limits / Límites científicos | [Evidence overview](docs/en/research/state-of-the-science.md) | [Estado de la ciencia](docs/research/state-of-the-science.md) |
-| Software architecture / Arquitectura de software | [Architecture (EN)](docs/en/technical/architecture.md) | [Arquitectura (ES)](docs/technical/architecture.md) |
-| EEG decoding / Decodificación | [P300 protocol (EN)](docs/en/technical/phase-1-eeg-to-text.md) | [Fase 1 (ES)](docs/technical/phase-1-eeg-to-text.md) |
-| Electronics / Electrónica | [Hardware notes (EN)](hardware/en/README.md) | [Hardware (ES)](hardware/README.md) |
-| Research roadmap / Hoja de ruta | [Roadmap (EN)](docs/en/research/roadmap.md) | [Roadmap (ES)](docs/research/roadmap.md) |
-| Drawings / Diagramas | [Mermaid diagrams](diagrams/README.md) | [Diagramas editables](diagrams/README.md) |
-| Photos / Fotos | [Real reference photos](assets/real/README.md) | [Fotos de referencia](assets/real/README.md) |
+| Vision | [Project](docs/en/simple/01-project.md) | [Visión](docs/simple/01-el-proyecto.md) |
+| Inner speech | [Phase 1](docs/en/technical/phase-1-eeg-to-text.md) | [Fase 1](docs/technical/phase-1-eeg-to-text.md) |
+| Mental privacy | [Neural firewall](docs/en/technical/neural-privacy-firewall.md) | [Firewall neuronal](docs/technical/neural-privacy-firewall.md) |
+| Dataset | [Inner speech evidence](docs/en/research/inner-speech-datasets.md) | [Datasets](docs/research/inner-speech-datasets.md) |
+| Hardware | [Electronics (EN)](hardware/en/README.md) | [Electrónica (ES)](hardware/README.md) |
+| Diagrams | [Editable diagrams](diagrams/README.md) | [Diagramas](diagrams/README.md) |
+| Photos | [Licensed EEG reference photos](assets/real/README.md) | [Fotografías reales](assets/real/README.md) |
 
-## Hardware reference / Referencia física
+**P300 spelling** has been reclassified as a [secondary BCI reference](docs/technical/p300-secondary-baseline.md), **not** the principal interaction design.
 
-![OpenBCI 32-bit ChipKIT v3 photographed hardware reference](https://upload.wikimedia.org/wikipedia/commons/thumb/b/ba/Openbci-brain-computer-interface-by-omphalosskeptic.png/960px-Openbci-brain-computer-interface-by-omphalosskeptic.png)
+## References / Fuentes
 
-*OpenBCI 32-bit ChipKIT v3, historical 2014 photograph by Omphalosskeptic, [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/), [original source](https://commons.wikimedia.org/wiki/File:Openbci-brain-computer-interface-by-omphalosskeptic.png). Unmodified. Not a NeuroLink AI build.*
+- Nieto et al., [*Thinking out loud* (2022)](https://www.nature.com/articles/s41597-022-01147-2); [EEG dataset](https://nemar.org/dataset/on003626): four Spanish imagined-direction words, 10 subjects, 3 conditions, 5640 trials.
+- Kunz et al., [*Cell* (2025)](https://doi.org/10.1016/j.cell.2025.06.015): inner-speech decoding and privacy safeguards **with implanted electrodes**, including a mental keyword gate tested in a participant. This **does not** establish reliable wake-word control using scalp EEG.
+- [NIH research summary (2025)](https://www.nih.gov/news-events/nih-research-matters/decoding-inner-speech-brain-signals): experimental implanted-device results and private-thought protection.
 
-
-
-![Real photograph of an EEG electrode](https://upload.wikimedia.org/wikipedia/commons/b/b7/EEG_electrode.jpg)
-
-*Real EEG electrode photograph / Fotografía real de un electrodo EEG. George Spilich (Gspilich2), [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:EEG_electrode.jpg), [CC BY-SA 3.0](https://creativecommons.org/licenses/by-sa/3.0/), unmodified / sin modificar. This is **not** hardware developed by NeuroLink AI.*
-
-For reference hardware, consult the original [OpenBCI Cyton documentation](https://docs.openbci.com/Cyton/CytonSpecs/) and [Texas Instruments ADS1299](https://www.ti.com/product/ADS1299). Their technical specifications and images must not be mistaken for devices built or validated by this project.
-
-## Research integrity / Integridad científica
-
-- A `P300 Target/NonTarget` event classifier does **not** automatically constitute a working speller.
-- No synthetic data, rendered drawing or language-model completion will be presented as a measured brain response.
-- Analog electronics and patient safety come **before** connecting any custom circuit to a person. Experimental boards and simulation code are **not** cleared for human use.
-- Direct stimulation of the brain, implants and transfer of complex knowledge are outside independent prototyping.
-
-[Editorial policy](docs/VISUAL_STANDARDS.md) · [Image provenance](assets/SOURCES.md) · [Experimental protocol](docs/technical/research-protocol.md) · [Repository migration plan](docs/REPOSITORY_PLAN.md)
+**Core safeguard / Protección central:** private neural activity is not a command. No involuntary sharing, no raw EEG sent to cloud services by default, and no electrical stimulation or DIY human-contact circuitry.

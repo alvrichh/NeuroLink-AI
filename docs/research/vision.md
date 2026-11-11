@@ -1,63 +1,38 @@
-# Visión y alcance
+# Visión: lenguaje interior → IA
 
-## Motivación
+**Decisión de producto (11-11-2026):** NeuroLink AI pretende interpretar **habla interna voluntaria**, no construir un teclado neuronal de letras.
 
-Queremos investigar cómo conectar actividad neuronal humana con software de inteligencia artificial. El objetivo inmediato es que una persona **componga y envíe texto sin teclado ni voz**, mediante señales cerebrales detectadas por una interfaz no invasiva. Después queremos recibir respuestas de la IA con la menor fricción posible.
+## Experiencia deseada
 
-La conexión directa con Internet es una posibilidad futura: el núcleo científico es crear un canal de comunicación fiable.
+La persona se dice mentalmente: «Explícame cómo funciona un agujero negro». El sistema intenta traducir ese **lenguaje interior** en una propuesta de texto. Solo tras **activación y confirmación voluntarias**, la IA recibe un mensaje.
 
-## Tres fases acordadas
+El término *inner speech* describe las palabras que nos decimos internamente. No todo pensamiento es verbal, y un sistema de decodificación no debe atribuir palabras a ideas no expresadas lingüísticamente.
 
-### Fase 1 — Cerebro → IA (prioridad máxima)
+```text
+Pensamiento privado -> LOCKED / NO DECODIFICAR NI ENVIAR
+Activación voluntaria -> ventana local de habla interna -> hipótesis lingüística
+-> revisión/confirmación -> IA -> respuesta sensorial
+-> bloqueo automático
+```
 
-- Registrar EEG o reproducir EEG existente.
-- Reconocer patrones vinculados a una acción voluntaria definida y medible.
-- Traducir selecciones en caracteres, palabras y mensajes.
-- Permitir editar, deshacer y confirmar un mensaje antes de enviarlo.
-- Investigar *habla imaginada* en paralelo, sin venderla como capacidad ya resuelta.
+## Tres fases
 
-Nuestro primer enfoque será P300 Speller: el participante atiende a estímulos que presentan letras u opciones; el sistema estima qué selección corresponde a su respuesta cerebral. **No es lectura libre de pensamientos.**
+1. **Cerebro → IA:** primero reconocimiento de palabras imaginadas en EEG público; después estudiar vocabularios y secuencias más complejos si aparecen evidencias que lo permitan. La transcripción libre de monólogo interior es un objetivo de largo recorrido.
+2. **IA → persona:** visual/audio primero, códigos táctiles externos opcionales; la estimulación neural directa solo se estudia científicamente.
+3. **Internet opcional:** herramientas de lectura bajo autorización expresa y sin transmisión de datos neuronales.
 
-### Fase 2 — IA → persona (segunda prioridad)
+## Cuarta exigencia transversal: privacidad mental
 
-**Etapa operativa:** mostrar o leer en voz alta las respuestas.  
-**Etapa exploratoria:** codificar mensajes discretos en patrones táctiles mediante dispositivos externos, para estudiar la comprensión de un nuevo canal sensorial.  
-**Investigación a largo plazo:** estudiar bibliografía sobre prótesis sensoriales y neuroestimulación clínica, sin implementarlas en personas fuera de entornos regulados.
+El **Neural Privacy Firewall** es condición previa a cualquier producto: bloqueo por defecto, activación voluntaria, tratamiento local, salida solo tras confirmación, parada inmediata y posibilidad de desconexión física. Una palabra clave neural es **investigación**, no garantía suficiente de consentimiento.
 
-### Fase 3 — Acceso a Internet (no prioritario)
+No buscamos lectura pasiva de pensamientos ni un «micrófono mental» siempre encendido. Para una activación exclusivamente cerebral, primero habrá que demostrar que el modelo reconoce una intención comunicativa con una tasa de falsas activaciones extremadamente baja; el dataset de cuatro palabras **no prueba esa capacidad**.
 
-Una vez que las fases anteriores funcionen, añadir herramientas web y otras fuentes de información, sujetas a permisos, confirmación y registros. Tener Internet integrado no mejora por sí solo la capacidad de decodificar pensamientos.
+## Camino científico realista
 
-## Qué significará «bidireccional»
+El dataset *Thinking out loud* (Nieto et al., 2022) contiene cuatro palabras direccionales imaginadas, 10 participantes y controles con habla audible e imaginación visual. Un primer clasificador podría reconocer clases cerradas, no frases libres.
 
-Hay dos interpretaciones distintas:
+También debemos descartar que el modelo reconozca actividad visual o muscular asociada al ensayo en vez de lenguaje interno. La generalización entre sesiones/personas y los periodos sin deseo de comunicar son pruebas esenciales.
 
-1. **Funcional:** cerebro → computadora → IA → pantalla/audio/tacto → sentidos → cerebro. Esta comunicación en bucle cerrado es abordable sin cirugía.
-2. **Neuronal directa:** registrar actividad del sistema nervioso y producir sensaciones mediante estimulación neural. Hay demostraciones clínicas de percepciones sencillas, pero **no existe un método probado para escribir conocimientos complejos directamente en el cerebro**.
+**El sistema queda en fase de investigación; no existe todavía un clasificador ni un firewall EEG validado.**
 
-El proyecto no afirmará haber alcanzado la segunda interpretación cuando únicamente haya implementado la primera.
-
-## Preguntas de investigación
-
-- ¿Qué precisión de comunicación voluntaria conseguimos con EEG no invasivo?
-- ¿Cuántos caracteres correctos por minuto pueden componerse de forma reproducible?
-- ¿Cómo cambia el rendimiento entre sesiones y participantes?
-- ¿Cuántos errores provienen del EEG y cuántos del corrector de lenguaje?
-- ¿Qué tipo de retroalimentación mejora más el control y la comprensión: texto, audio o patrones táctiles?
-- ¿Es posible diseñar un vocabulario sensorial sencillo que el usuario aprenda a interpretar?
-- ¿Qué límites científicos, técnicos, éticos y de seguridad impiden una conexión neuronal directa general?
-
-## Alcance excluido del MVP
-
-- Implantar electrodos o modificar tejido neural.
-- Aplicar estimulación cerebral eléctrica, magnética o ultrasónica en experimentos caseros.
-- Diagnosticar o tratar condiciones médicas.
-- Afirmar que EEG comercial descifra frases arbitrarias.
-- Subir EEG bruto o datos identificables a servicios externos por defecto.
-- Automatizar actos con consecuencias externas sin confirmación explícita.
-
-## Criterio de éxito inicial
-
-Un experimento **reproducible** con datos públicos donde un clasificador distingue eventos P300 y donde, utilizando la estructura correcta del paradigma, se pueden evaluar selecciones de caracteres. Después, una demo integrada debe mostrar la procedencia de cada letra y la confirmación voluntaria antes de consultar una IA.
-
-La honestidad de la medición importa más que una demo espectacular.
+[Investigación y datos](inner-speech-datasets.md) · [Protocolo](../technical/inner-speech-protocol.md) · [Firewall](../technical/neural-privacy-firewall.md).
