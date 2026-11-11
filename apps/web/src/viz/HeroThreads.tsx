@@ -81,6 +81,19 @@ export function HeroThreads({ gateSelector }: { gateSelector: string }) {
     let gradSamples: CanvasGradient | null = null;
     let fanEnd = 0;
     let energy = 0;
+    let flowTime = 0; // advances faster while the message is flowing
+
+    // Story state, from the pinned hero's scroll progress (0 when not pinned):
+    // closed — the gate holds everything back; open — it has been opened;
+    // flow — the approved message is travelling. All zero at scroll 0.
+    const story = { closed: 0, open: 0, flow: 0 };
+    const section = host.closest<HTMLElement>(".hero");
+    const readStory = () => {
+      const p = Number(section?.style.getPropertyValue("--hero-p")) || 0;
+      story.closed = smooth(0.06, 0.16, p) * (1 - smooth(0.36, 0.46, p));
+      story.open = smooth(0.36, 0.46, p);
+      story.flow = smooth(0.66, 0.78, p);
+    };
     let frame = 0;
     let running = false;
     let last = 0;
@@ -199,11 +212,15 @@ export function HeroThreads({ gateSelector }: { gateSelector: string }) {
       ctx.lineJoin = "round";
       ctx.setLineDash([]);
 
+      // How strongly the ordered side shows: dimmed while the gate is closed,
+      // slightly lifted while the message flows.
+      const ordered = Math.min(1.25, 1 - 0.8 * story.closed + 0.25 * story.flow);
+
       // Threads that stay private: they fade out before the gate.
       ctx.strokeStyle = gradStop ?? rgba(navy, 0.2);
       for (const t of threads) {
         if (t.pass) continue;
-        ctx.globalAlpha = t.alpha;
+        ctx.globalAlpha = Math.min(1, t.alpha * (1 + 0.5 * story.closed));
         ctx.beginPath();
         for (let x = 0; x <= gateX; x += step) {
           const y = yAt(t, x, now);
@@ -217,13 +234,22 @@ export function HeroThreads({ gateSelector }: { gateSelector: string }) {
       ctx.strokeStyle = gradPass ?? rgba(blue, 0.5);
       for (const t of threads) {
         if (!t.pass) continue;
-        ctx.globalAlpha = 0.65 + t.alpha * 0.35;
+        const base = 0.65 + t.alpha * 0.35;
+        // Up to the gate…
+        ctx.globalAlpha = base;
         ctx.beginPath();
-        for (let x = 0; x < fanEnd; x += step) {
+        for (let x = 0; x < gateX; x += step) {
           const y = yAt(t, x, now);
           if (x === 0) ctx.moveTo(x, y);
           else ctx.lineTo(x, y);
         }
+        ctx.lineTo(gateX, yAt(t, gateX, now));
+        ctx.stroke();
+        // …and beyond it.
+        ctx.globalAlpha = Math.min(1, base * ordered);
+        ctx.beginPath();
+        ctx.moveTo(gateX, yAt(t, gateX, now));
+        for (let x = gateX + step; x < fanEnd; x += step) ctx.lineTo(x, yAt(t, x, now));
         const yEnd = yAt(t, fanEnd, now);
         ctx.lineTo(fanEnd, yEnd);
         ctx.lineTo(width, yEnd);
@@ -231,20 +257,21 @@ export function HeroThreads({ gateSelector }: { gateSelector: string }) {
       }
 
       // Ordered side: discrete samples marching along each lane.
-      ctx.globalAlpha = 1;
+      ctx.globalAlpha = Math.min(1, ordered);
       ctx.lineWidth = 1.7;
       ctx.setLineDash([0.01, 13]);
       ctx.strokeStyle = gradSamples ?? rgba(blue, 0.6);
       threads.forEach((t, i) => {
         if (!t.pass) return;
         const y = yAt(t, width, now);
-        ctx.lineDashOffset = -(now * 22 + i * 5.3);
+        ctx.lineDashOffset = -(flowTime * 22 + i * 5.3);
         ctx.beginPath();
         ctx.moveTo(fanEnd - 40, y);
         ctx.lineTo(width, y);
         ctx.stroke();
       });
       ctx.setLineDash([]);
+      ctx.globalAlpha = 1;
 
       // Pulses: a short bright segment with a soft cyan head.
       for (const pulse of pulses) {
@@ -254,6 +281,8 @@ export function HeroThreads({ gateSelector }: { gateSelector: string }) {
         const tail = 96;
         let visibility = 1;
         if (!t.pass) visibility = 1 - smooth(gateX * 0.5, gateX - width * 0.035, head);
+        // While the gate is closed, nothing gets through it.
+        else visibility = 1 - story.closed * smooth(gateX * 0.6, gateX - width * 0.02, head);
         if (visibility <= 0.01 || head < 0) continue;
 
         const color = t.pass && head > gateX - 60 ? blue : navy;
@@ -289,14 +318,17 @@ export function HeroThreads({ gateSelector }: { gateSelector: string }) {
       const dt = Math.min(0.05, (stamp - last) / 1000 || 0);
       last = stamp;
       time += dt;
+      flowTime += dt * (1 + 1.6 * story.flow);
       for (const pulse of pulses) {
         const before = -0.08 * width + pulse.q * width * 1.16;
-        pulse.q += pulse.speed * dt;
+        pulse.q += pulse.speed * dt * (1 + 1.4 * story.flow);
         const after = -0.08 * width + pulse.q * width * 1.16;
-        if (threads[pulse.thread]?.pass && before < gateX && after >= gateX) energy = 1;
+        if (threads[pulse.thread]?.pass && before < gateX && after >= gateX && story.closed < 0.5) energy = 1;
         if (pulse.q > 1) pulse.q -= 1;
       }
       energy *= Math.pow(0.12, dt); // decays over roughly a second
+      // An opened gate keeps a steady glow, easing once the message is flowing.
+      energy = Math.max(energy, 0.85 * story.open * (1 - 0.55 * story.flow));
       draw(time);
       frame = requestAnimationFrame(tick);
     };
@@ -326,6 +358,18 @@ export function HeroThreads({ gateSelector }: { gateSelector: string }) {
       if (!running) draw(time);
     });
 
+    // Scroll progress through the pinned hero (see HeroScroll). Redraw at once
+    // when the loop is not running, e.g. during its start-up delay.
+    const onProgress = () => {
+      readStory();
+      if (!running) {
+        energy = Math.max(energy, 0.85 * story.open * (1 - 0.55 * story.flow));
+        draw(time);
+      }
+    };
+    section?.addEventListener("heroprogress", onProgress);
+    readStory();
+
     // The first frame is already drawn; hold the loop back until the entrance
     // has painted, so it never competes with first render on slow devices.
     let ready = false;
@@ -344,6 +388,7 @@ export function HeroThreads({ gateSelector }: { gateSelector: string }) {
 
     return () => {
       window.clearTimeout(warmup);
+      section?.removeEventListener("heroprogress", onProgress);
       stopThemeWatch();
       stop();
       resize.disconnect();

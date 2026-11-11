@@ -68,6 +68,13 @@ export const en = {
     vizAlt:
       "Abstract illustration: many fine organic threads converge on a narrow gate and leave it as ordered parallel lines.",
     scroll: "Scroll",
+    // Shown one at a time while the hero is pinned; each pairs with a viz label.
+    beats: [
+      "By design, inner speech stays private.",
+      "Only a deliberate act would open the channel.",
+      "Only what you approve would reach the AI.",
+    ],
+    beatsLabel: "The proposed design, in three steps",
   },
   vision: {
     eyebrow: "The vision",

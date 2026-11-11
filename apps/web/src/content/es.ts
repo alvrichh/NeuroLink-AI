@@ -70,6 +70,12 @@ export const es: Dictionary = {
     vizAlt:
       "Ilustración abstracta: muchos hilos finos y orgánicos convergen en una compuerta estrecha y salen de ella como líneas paralelas ordenadas.",
     scroll: "Desliza",
+    beats: [
+      "Por diseño, el lenguaje interior es privado.",
+      "Solo un acto deliberado abriría el canal.",
+      "A la IA solo llegaría lo que tú apruebes.",
+    ],
+    beatsLabel: "El diseño propuesto, en tres pasos",
   },
   vision: {
     eyebrow: "La visión",
