@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef } from "react";
+import { onThemeChange } from "@/lib/theme";
 import { brand } from "@/styles/brand/tokens";
 
 /**
@@ -53,7 +54,21 @@ export function HeroThreads({ gateSelector }: { gateSelector: string }) {
     const host = canvas?.parentElement;
     if (!canvas || !ctx || !host) return;
 
-    const { navy, electricBlue: blue, cyan } = brand.rgb;
+    // Colours come from the active theme (--viz-* in globals.css), falling back
+    // to the brand constants: navy threads on white, pale threads on navy.
+    let navy: readonly number[] = brand.rgb.navy;
+    let blue: readonly number[] = brand.rgb.electricBlue;
+    let cyan: readonly number[] = brand.rgb.cyan;
+    const readPalette = () => {
+      const style = getComputedStyle(document.documentElement);
+      const triplet = (name: string, fallback: readonly number[]) => {
+        const parts = style.getPropertyValue(name).trim().split(/\s+/).map(Number);
+        return parts.length === 3 && parts.every(Number.isFinite) ? parts : fallback;
+      };
+      navy = triplet("--viz-ink", brand.rgb.navy);
+      blue = triplet("--viz-signal", brand.rgb.electricBlue);
+      cyan = triplet("--viz-glow", brand.rgb.cyan);
+    };
     const animate = document.documentElement.dataset.motion === "on";
 
     let width = 0;
@@ -72,6 +87,7 @@ export function HeroThreads({ gateSelector }: { gateSelector: string }) {
     let time = 14; // start mid-motion so the first frame is already composed
 
     const build = () => {
+      readPalette();
       const rect = host.getBoundingClientRect();
       width = Math.max(1, rect.width);
       // Hairlines stay crisp at 1.5× on phones, at well under the fill cost of 3×.
@@ -305,6 +321,11 @@ export function HeroThreads({ gateSelector }: { gateSelector: string }) {
     });
     resize.observe(host);
 
+    const stopThemeWatch = onThemeChange(() => {
+      build();
+      if (!running) draw(time);
+    });
+
     // The first frame is already drawn; hold the loop back until the entrance
     // has painted, so it never competes with first render on slow devices.
     let ready = false;
@@ -323,6 +344,7 @@ export function HeroThreads({ gateSelector }: { gateSelector: string }) {
 
     return () => {
       window.clearTimeout(warmup);
+      stopThemeWatch();
       stop();
       resize.disconnect();
       io.disconnect();

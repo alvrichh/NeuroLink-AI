@@ -47,6 +47,8 @@ The closest dominant sampled pixels were #001E55 (navy), #004EF2 with nearby #00
 - Do not imply a software-only illustration or brand asset is scientific proof.
 - Use typography with clear hierarchy and adequate spacing, without excessive visual effects.
 
+**Website dark theme / Tema oscuro del sitio web.** The website offers an optional dark theme. White remains the primary canvas; the dark theme uses a deep navy mixed from `#001E55` and black, text in white mixed with navy, and a lightened `#004FF2` for links and active states only (buttons keep the exact blue). The logo is never recoloured for dark backgrounds: it is shown on a white plate. / El sitio web ofrece un tema oscuro opcional. El blanco sigue siendo el lienzo principal; el tema oscuro usa un azul marino profundo derivado de `#001E55`, y el logotipo se muestra sobre una pieza blanca, sin recolorearlo.
+
 Approximate contrast against white: navy **15.95:1**, blue **6.18:1**, cyan **1.44:1**. The cyan accent is **not accessible for small text on white**.
 
 ## Reusable design tokens

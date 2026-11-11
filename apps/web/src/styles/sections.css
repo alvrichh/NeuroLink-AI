@@ -55,11 +55,11 @@
     padding: 1.5rem;
     text-align: center;
     font-size: 0.875rem;
-    color: var(--nl-muted);
+    color: var(--ink-muted);
     background-image: repeating-linear-gradient(
       135deg,
       transparent 0 11px,
-      color-mix(in srgb, var(--nl-navy) 3.5%, transparent) 11px 12px
+      color-mix(in srgb, var(--ink) 3.5%, transparent) 11px 12px
     );
   }
 
@@ -68,7 +68,7 @@
     gap: 0.25rem;
     font-size: 0.8125rem;
     line-height: 1.45;
-    color: var(--nl-muted);
+    color: var(--ink-muted);
   }
 
   .photo__credit {
@@ -83,7 +83,7 @@
     font-size: 0.6875rem;
     letter-spacing: 0.06em;
     text-transform: uppercase;
-    color: var(--nl-navy);
+    color: var(--ink);
   }
 
   .photo__note {
@@ -96,7 +96,7 @@
     font-weight: 600;
     line-height: 1.04;
     letter-spacing: -0.04em;
-    color: var(--nl-navy);
+    color: var(--ink);
     text-wrap: balance;
     max-width: 12em;
   }
@@ -122,7 +122,7 @@
     background: radial-gradient(
       closest-side,
       color-mix(in srgb, var(--nl-cyan) 14%, transparent),
-      color-mix(in srgb, var(--nl-blue) 5%, transparent) 55%,
+      color-mix(in srgb, var(--accent) 5%, transparent) 55%,
       transparent
     );
     pointer-events: none;
@@ -134,12 +134,12 @@
     font-weight: 600;
     line-height: 1.02;
     letter-spacing: -0.045em;
-    color: var(--nl-navy);
+    color: var(--ink);
     text-wrap: balance;
   }
 
   .vision__quote span {
-    color: var(--nl-blue);
+    color: var(--accent);
   }
 
   .speller {
@@ -149,7 +149,7 @@
     width: min(100%, 15rem);
     font-family: var(--font-mono);
     font-size: 0.75rem;
-    color: color-mix(in srgb, var(--nl-navy) 38%, transparent);
+    color: color-mix(in srgb, var(--ink) 38%, transparent);
   }
 
   .speller span {
@@ -157,18 +157,18 @@
     place-items: center;
     aspect-ratio: 1;
     border-radius: 0.4375rem;
-    box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--nl-navy) 7%, transparent);
+    box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--ink) 7%, transparent);
   }
 
   .speller span[data-row="true"],
   .speller span[data-col="true"] {
-    background: color-mix(in srgb, var(--nl-navy) 6%, transparent);
-    color: color-mix(in srgb, var(--nl-navy) 70%, transparent);
+    background: color-mix(in srgb, var(--ink) 6%, transparent);
+    color: color-mix(in srgb, var(--ink) 70%, transparent);
   }
 
   .speller span[data-hit="true"] {
-    background: var(--nl-navy);
-    color: var(--nl-white);
+    background: var(--ink);
+    color: var(--paper);
     box-shadow: none;
   }
 
@@ -226,7 +226,7 @@
     inset: -0.5px 0;
     height: 2px;
     border-radius: 2px;
-    background: linear-gradient(90deg, var(--nl-blue), var(--nl-blue) 85%, var(--nl-cyan));
+    background: linear-gradient(90deg, var(--accent), var(--accent) 85%, var(--nl-cyan));
     transform: scaleX(calc(var(--active) / (var(--count) - 1)));
     transform-origin: 0 50%;
     transition: transform 0.9s var(--ease-swift);
@@ -240,7 +240,7 @@
     gap: 0.25rem;
     padding: 0 0.25rem 0.5rem;
     text-align: center;
-    color: var(--nl-muted);
+    color: var(--ink-muted);
     scroll-snap-align: center;
     border-radius: 1rem;
     -webkit-tap-highlight-color: transparent;
@@ -254,11 +254,11 @@
     height: var(--node);
     margin-bottom: 0.625rem;
     border-radius: 999px;
-    background: var(--nl-white);
-    color: color-mix(in srgb, var(--nl-navy) 62%, transparent);
+    background: var(--paper-raised);
+    color: color-mix(in srgb, var(--ink) 62%, transparent);
     box-shadow:
       inset 0 0 0 1px var(--hairline-strong),
-      0 1px 2px color-mix(in srgb, var(--nl-navy) 4%, transparent);
+      0 1px 2px color-mix(in srgb, var(--shadow) 4%, transparent);
     transition:
       color 0.4s ease,
       box-shadow 0.5s ease,
@@ -284,20 +284,20 @@
   }
 
   .seq__tab:hover .seq__node {
-    color: var(--nl-navy);
+    color: var(--ink);
     transform: translateY(-2px);
   }
 
   .seq__tab.is-past .seq__node {
-    color: var(--nl-navy);
-    box-shadow: inset 0 0 0 1.5px color-mix(in srgb, var(--nl-blue) 55%, transparent);
+    color: var(--ink);
+    box-shadow: inset 0 0 0 1.5px color-mix(in srgb, var(--accent) 55%, transparent);
   }
 
   .seq__tab[aria-selected="true"] .seq__node {
-    color: var(--nl-blue);
+    color: var(--accent);
     box-shadow:
-      inset 0 0 0 1.5px var(--nl-blue),
-      0 10px 24px -10px color-mix(in srgb, var(--nl-blue) 55%, transparent);
+      inset 0 0 0 1.5px var(--accent),
+      0 10px 24px -10px color-mix(in srgb, var(--accent) 55%, transparent);
   }
 
   .seq__tab[aria-selected="true"] .seq__node::after {
@@ -306,7 +306,7 @@
   }
 
   .seq__num {
-    color: var(--nl-muted);
+    color: var(--ink-muted);
   }
 
   .seq__label {
@@ -319,7 +319,7 @@
 
   .seq__tab[aria-selected="true"] .seq__label,
   .seq__tab[aria-selected="true"] .seq__num {
-    color: var(--nl-navy);
+    color: var(--ink);
     opacity: 1;
   }
 
@@ -328,11 +328,11 @@
   }
 
   .seq__tab[aria-selected="true"] .glyph-pick {
-    fill: var(--nl-blue);
+    fill: var(--accent);
   }
 
   .seq__tab[aria-selected="true"] .glyph-on-pick {
-    stroke: var(--nl-white);
+    stroke: var(--paper);
   }
 
   .glyph-dot {
@@ -380,7 +380,7 @@
     font-weight: 600;
     line-height: 0.85;
     letter-spacing: -0.06em;
-    color: color-mix(in srgb, var(--nl-navy) 9%, transparent);
+    color: color-mix(in srgb, var(--ink) 9%, transparent);
     font-feature-settings: "tnum";
   }
 
@@ -402,7 +402,7 @@
     margin-top: 1.5rem;
     font-size: 0.9375rem;
     font-weight: 500;
-    color: var(--nl-navy);
+    color: var(--ink);
   }
 
   .seq__foot {
@@ -418,7 +418,7 @@
 @layer components {
   .privacy {
     background:
-      linear-gradient(180deg, var(--nl-white), var(--surface) 18%, var(--surface) 82%, var(--nl-white));
+      linear-gradient(180deg, var(--paper), var(--surface) 18%, var(--surface) 82%, var(--paper));
   }
 
   .privacy__intro {
@@ -436,13 +436,13 @@
     /* The simulation lays itself out from its own width, not the viewport's. */
     container: fw / inline-size;
     background:
-      radial-gradient(70% 90% at 100% 0%, color-mix(in srgb, var(--nl-blue) 7%, transparent), transparent 60%),
+      radial-gradient(70% 90% at 100% 0%, color-mix(in srgb, var(--accent) 7%, transparent), transparent 60%),
       radial-gradient(60% 80% at 0% 100%, color-mix(in srgb, var(--nl-cyan) 9%, transparent), transparent 60%),
-      var(--nl-white);
+      var(--paper-raised);
     box-shadow:
       inset 0 0 0 1px var(--hairline),
-      0 1px 2px color-mix(in srgb, var(--nl-navy) 4%, transparent),
-      0 40px 80px -48px color-mix(in srgb, var(--nl-navy) 30%, transparent);
+      0 1px 2px color-mix(in srgb, var(--shadow) 4%, transparent),
+      0 40px 80px -48px color-mix(in srgb, var(--shadow) 30%, transparent);
   }
 
   .fw__backdrop {
@@ -452,13 +452,13 @@
     width: 100%;
     height: 100%;
     fill: none;
-    stroke: color-mix(in srgb, var(--nl-navy) 9%, transparent);
+    stroke: color-mix(in srgb, var(--ink) 9%, transparent);
     stroke-width: 1;
     transition: stroke 1.2s ease;
   }
 
   .fw:not([data-state="LOCKED"]) .fw__backdrop {
-    stroke: color-mix(in srgb, var(--nl-blue) 16%, transparent);
+    stroke: color-mix(in srgb, var(--accent) 16%, transparent);
   }
 
   .fw__head {
@@ -476,8 +476,8 @@
     grid-template-columns: 1fr 1fr;
     padding: 0.25rem;
     border-radius: 999px;
-    background: color-mix(in srgb, var(--nl-navy) 6%, transparent);
-    box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--nl-navy) 5%, transparent);
+    background: color-mix(in srgb, var(--ink) 6%, transparent);
+    box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--ink) 5%, transparent);
   }
 
   .fw-mode__btn {
@@ -492,13 +492,13 @@
     border-radius: 999px;
     font-size: 0.875rem;
     font-weight: 500;
-    color: var(--nl-muted);
+    color: var(--ink-muted);
     transition: color 0.35s ease;
     -webkit-tap-highlight-color: transparent;
   }
 
   .fw-mode__btn[aria-pressed="true"] {
-    color: var(--nl-navy);
+    color: var(--ink);
   }
 
   .fw-mode[data-on="true"] .fw-mode__btn[aria-pressed="true"] {
@@ -512,10 +512,10 @@
     left: 0.25rem;
     width: calc(50% - 0.25rem);
     border-radius: 999px;
-    background: var(--nl-white);
+    background: var(--thumb);
     box-shadow:
-      0 0 0 1px color-mix(in srgb, var(--nl-navy) 7%, transparent),
-      0 2px 6px color-mix(in srgb, var(--nl-navy) 12%, transparent);
+      0 0 0 1px color-mix(in srgb, var(--ink) 7%, transparent),
+      0 2px 6px color-mix(in srgb, var(--shadow) 12%, transparent);
     transition:
       transform 0.55s var(--ease-swift),
       background-color 0.4s ease,
@@ -527,7 +527,7 @@
     background: var(--nl-blue);
     box-shadow:
       inset 0 1px 0 rgb(255 255 255 / 0.25),
-      0 6px 16px -6px color-mix(in srgb, var(--nl-blue) 70%, transparent);
+      0 6px 16px -6px color-mix(in srgb, var(--accent) 70%, transparent);
   }
 
   /* ---- Communication path --------------------------------------------- */
@@ -547,8 +547,8 @@
     margin: -1.75rem 0 -1rem;
     padding: 1.75rem 1rem 1rem;
     border-radius: 1.5rem;
-    border: 1px dashed color-mix(in srgb, var(--nl-navy) 26%, transparent);
-    background: rgb(255 255 255 / 0.35);
+    border: 1px dashed color-mix(in srgb, var(--ink) 26%, transparent);
+    background: color-mix(in srgb, var(--paper-raised) 35%, transparent);
   }
 
   .fw__device-label {
@@ -556,12 +556,12 @@
     top: -0.5625rem;
     left: 1.25rem;
     padding: 0 0.5rem;
-    background: var(--nl-white);
+    background: var(--paper-raised);
     border-radius: 999px;
     font-size: 0.6875rem;
     letter-spacing: 0.07em;
     text-transform: uppercase;
-    color: var(--nl-muted);
+    color: var(--ink-muted);
     white-space: nowrap;
   }
 
@@ -582,8 +582,8 @@
     width: var(--disc);
     height: var(--disc);
     border-radius: 999px;
-    background: var(--nl-white);
-    color: color-mix(in srgb, var(--nl-navy) 45%, transparent);
+    background: var(--paper-raised);
+    color: color-mix(in srgb, var(--ink) 45%, transparent);
     box-shadow: inset 0 0 0 1px var(--hairline-strong);
     transition:
       color 0.45s ease,
@@ -604,12 +604,12 @@
     font-size: 1rem;
     font-weight: 600;
     letter-spacing: -0.02em;
-    color: var(--nl-muted);
+    color: var(--ink-muted);
     transition: color 0.45s ease;
   }
 
   .fw-node[data-state="active"] .fw-node__ai {
-    color: var(--nl-blue);
+    color: var(--accent);
   }
 
   .fw-node__label {
@@ -617,26 +617,26 @@
     font-weight: 500;
     line-height: 1.25;
     letter-spacing: -0.005em;
-    color: var(--nl-muted);
+    color: var(--ink-muted);
     transition: color 0.45s ease;
   }
 
   .fw-node[data-state="done"] .fw-node__disc {
-    color: var(--nl-navy);
-    box-shadow: inset 0 0 0 1.5px color-mix(in srgb, var(--nl-navy) 45%, transparent);
+    color: var(--ink);
+    box-shadow: inset 0 0 0 1.5px color-mix(in srgb, var(--ink) 45%, transparent);
   }
 
   .fw-node[data-state="done"] .fw-node__label,
   .fw-node[data-state="active"] .fw-node__label {
-    color: var(--nl-navy);
+    color: var(--ink);
   }
 
   .fw-node[data-state="active"] .fw-node__disc {
-    color: var(--nl-blue);
+    color: var(--accent);
     box-shadow:
-      inset 0 0 0 1.5px var(--nl-blue),
+      inset 0 0 0 1.5px var(--accent),
       0 0 0 6px color-mix(in srgb, var(--nl-cyan) 22%, transparent),
-      0 12px 26px -10px color-mix(in srgb, var(--nl-blue) 60%, transparent);
+      0 12px 26px -10px color-mix(in srgb, var(--accent) 60%, transparent);
     transform: scale(1.04);
   }
 
@@ -645,20 +645,20 @@
     height: calc(var(--disc) + 1.25rem);
     margin-block: -0.625rem;
     width: 2.75rem;
-    color: var(--nl-navy);
+    color: var(--ink);
     --glass-top: 0.7;
     --glass-bottom: 0.45;
     --glass-blur: 10px;
   }
 
   .fw-node--gate[data-state="active"] .fw-node__disc {
-    color: var(--nl-blue);
+    color: var(--accent);
     transform: none;
     box-shadow:
-      inset 0 1px 0 0 rgb(255 255 255 / 0.95),
-      0 0 0 1.5px var(--nl-blue),
+      inset 0 1px 0 0 var(--glass-edge),
+      0 0 0 1.5px var(--accent),
       0 0 0 7px color-mix(in srgb, var(--nl-cyan) 24%, transparent),
-      0 12px 28px -10px color-mix(in srgb, var(--nl-blue) 60%, transparent);
+      0 12px 28px -10px color-mix(in srgb, var(--accent) 60%, transparent);
   }
 
   /* Bounded-window timer: a ring that drains while decoding. */
@@ -695,7 +695,7 @@
     margin-top: -1px;
     border-radius: 2px;
     overflow: hidden;
-    background-image: linear-gradient(90deg, color-mix(in srgb, var(--nl-navy) 22%, transparent) 45%, transparent 45%);
+    background-image: linear-gradient(90deg, color-mix(in srgb, var(--ink) 22%, transparent) 45%, transparent 45%);
     background-size: 7px 2px;
     transition: opacity 0.4s ease;
   }
@@ -708,11 +708,11 @@
   }
 
   .fw-line[data-state="done"] i {
-    background: color-mix(in srgb, var(--nl-blue) 45%, transparent);
+    background: color-mix(in srgb, var(--accent) 45%, transparent);
   }
 
   .fw-line[data-state="live"] i {
-    background: var(--nl-blue);
+    background: var(--accent);
   }
 
   .fw-line[data-state="live"] i::after {
@@ -723,7 +723,7 @@
 
   /* Private: thought drifts toward the gate and is stopped by it. */
   .fw-line[data-state="private"] i {
-    background-image: linear-gradient(90deg, color-mix(in srgb, var(--nl-navy) 45%, transparent) 30%, transparent 30%);
+    background-image: linear-gradient(90deg, color-mix(in srgb, var(--ink) 45%, transparent) 30%, transparent 30%);
     background-size: 9px 2px;
     -webkit-mask-image: linear-gradient(90deg, #000 30%, transparent 92%);
     mask-image: linear-gradient(90deg, #000 30%, transparent 92%);
@@ -748,7 +748,7 @@
     height: 0.875rem;
     margin-top: -0.4375rem;
     border-radius: 2px;
-    background: var(--nl-navy);
+    background: var(--ink);
   }
 
   .fw-line--boundary {
@@ -769,12 +769,12 @@
     letter-spacing: 0.06em;
     text-transform: uppercase;
     text-align: center;
-    color: var(--nl-muted);
+    color: var(--ink-muted);
     transition: color 0.4s ease;
   }
 
   .fw-line[data-state="live"] b {
-    color: var(--nl-blue);
+    color: var(--accent);
   }
 
   /* Vertical path when the simulation itself is narrow ---------------------- */
@@ -829,7 +829,7 @@
       width: 2px;
       height: auto;
       margin: 0 0 0 -1px;
-      background-image: linear-gradient(180deg, color-mix(in srgb, var(--nl-navy) 22%, transparent) 45%, transparent 45%);
+      background-image: linear-gradient(180deg, color-mix(in srgb, var(--ink) 22%, transparent) 45%, transparent 45%);
       background-size: 2px 7px;
     }
 
@@ -839,7 +839,7 @@
     }
 
     .fw-line[data-state="private"] i {
-      background-image: linear-gradient(180deg, color-mix(in srgb, var(--nl-navy) 45%, transparent) 30%, transparent 30%);
+      background-image: linear-gradient(180deg, color-mix(in srgb, var(--ink) 45%, transparent) 30%, transparent 30%);
       background-size: 2px 9px;
       -webkit-mask-image: linear-gradient(180deg, #000 30%, transparent 92%);
       mask-image: linear-gradient(180deg, #000 30%, transparent 92%);
@@ -901,7 +901,7 @@
     gap: 0.75rem;
     padding: 0.8125rem 0.875rem 0.8125rem 1.5rem;
     border-radius: 0.875rem;
-    color: var(--nl-muted);
+    color: var(--ink-muted);
     transition:
       background-color 0.4s ease,
       color 0.4s ease;
@@ -916,27 +916,27 @@
     height: 0.4375rem;
     margin-top: -0.21875rem;
     border-radius: 999px;
-    box-shadow: inset 0 0 0 1.5px color-mix(in srgb, var(--nl-navy) 35%, transparent);
+    box-shadow: inset 0 0 0 1.5px color-mix(in srgb, var(--ink) 35%, transparent);
     transition:
       background-color 0.4s ease,
       box-shadow 0.4s ease;
   }
 
   .fw-states__item[data-past="true"]::before {
-    background: color-mix(in srgb, var(--nl-blue) 55%, transparent);
+    background: color-mix(in srgb, var(--accent) 55%, transparent);
     box-shadow: none;
   }
 
   .fw-states__item[data-current="true"] {
-    background: rgb(255 255 255 / 0.8);
+    background: color-mix(in srgb, var(--thumb) 80%, transparent);
     box-shadow:
-      inset 0 0 0 1px color-mix(in srgb, var(--nl-blue) 18%, transparent),
-      0 8px 20px -14px color-mix(in srgb, var(--nl-blue) 60%, transparent);
-    color: var(--nl-navy);
+      inset 0 0 0 1px color-mix(in srgb, var(--accent) 18%, transparent),
+      0 8px 20px -14px color-mix(in srgb, var(--accent) 60%, transparent);
+    color: var(--ink);
   }
 
   .fw-states__item[data-current="true"]::before {
-    background: var(--nl-blue);
+    background: var(--accent);
     box-shadow: 0 0 0 3px color-mix(in srgb, var(--nl-cyan) 40%, transparent);
   }
 
@@ -946,7 +946,7 @@
   }
 
   .fw-states__item[data-current="true"] .fw-states__code {
-    color: var(--nl-blue);
+    color: var(--accent);
   }
 
   .fw-states__name {
@@ -979,7 +979,7 @@
   .fw-console__code {
     font-size: 0.6875rem;
     letter-spacing: 0.08em;
-    color: var(--nl-blue);
+    color: var(--accent);
   }
 
   .fw-console__name {
@@ -988,7 +988,7 @@
     font-weight: 600;
     line-height: 1.15;
     letter-spacing: -0.03em;
-    color: var(--nl-navy);
+    color: var(--ink);
   }
 
   .fw-read {
@@ -1000,15 +1000,15 @@
   .fw-read > div {
     padding: 0.75rem 0.875rem;
     border-radius: 0.875rem;
-    background: color-mix(in srgb, var(--nl-navy) 4%, transparent);
+    background: color-mix(in srgb, var(--ink) 4%, transparent);
     transition:
       background-color 0.4s ease,
       box-shadow 0.4s ease;
   }
 
   .fw-read > div[data-alert="true"] {
-    background: color-mix(in srgb, var(--nl-blue) 8%, transparent);
-    box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--nl-blue) 30%, transparent);
+    background: color-mix(in srgb, var(--accent) 8%, transparent);
+    box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--accent) 30%, transparent);
   }
 
   .fw-read dt {
@@ -1016,7 +1016,7 @@
     font-size: 0.625rem;
     letter-spacing: 0.06em;
     text-transform: uppercase;
-    color: var(--nl-muted);
+    color: var(--ink-muted);
   }
 
   .fw-read dd {
@@ -1025,16 +1025,16 @@
     font-weight: 600;
     letter-spacing: -0.015em;
     line-height: 1.25;
-    color: var(--nl-navy);
+    color: var(--ink);
   }
 
   .fw-candidate {
     padding: 0.875rem 1rem;
     border-radius: 0.875rem;
-    background: var(--nl-white);
+    background: var(--paper-raised);
     box-shadow:
-      inset 0 0 0 1px color-mix(in srgb, var(--nl-blue) 22%, transparent),
-      0 10px 24px -16px color-mix(in srgb, var(--nl-blue) 70%, transparent);
+      inset 0 0 0 1px color-mix(in srgb, var(--accent) 22%, transparent),
+      0 10px 24px -16px color-mix(in srgb, var(--accent) 70%, transparent);
   }
 
   html[data-motion="on"] .fw-candidate {
@@ -1047,7 +1047,7 @@
     font-weight: 600;
     letter-spacing: -0.035em;
     line-height: 1.1;
-    color: var(--nl-navy);
+    color: var(--ink);
   }
 
   .fw-console__actions {
@@ -1062,7 +1062,7 @@
     padding-top: 0.75rem;
     font-size: 0.6875rem;
     letter-spacing: 0.04em;
-    color: var(--nl-muted);
+    color: var(--ink-muted);
   }
 
   .fw-console__timer::before,
@@ -1074,11 +1074,11 @@
     right: 0;
     height: 2px;
     border-radius: 2px;
-    background: color-mix(in srgb, var(--nl-navy) 8%, transparent);
+    background: color-mix(in srgb, var(--ink) 8%, transparent);
   }
 
   .fw-console__timer i {
-    background: var(--nl-blue);
+    background: var(--accent);
     transform-origin: 0 50%;
     animation: nl-drain linear both;
   }
@@ -1103,11 +1103,11 @@
     font-size: 0.6875rem;
     letter-spacing: 0.06em;
     text-transform: uppercase;
-    color: var(--nl-navy);
+    color: var(--ink);
   }
 
   .fw-log__title span {
-    color: var(--nl-muted);
+    color: var(--ink-muted);
     text-transform: none;
     letter-spacing: 0.02em;
   }
@@ -1125,11 +1125,11 @@
     flex-wrap: wrap;
     gap: 0 0.5rem;
     font-size: 0.6875rem;
-    color: var(--nl-muted);
+    color: var(--ink-muted);
   }
 
   .fw-log li:last-child {
-    color: var(--nl-navy);
+    color: var(--ink);
   }
 
   .fw-log li em {
@@ -1147,7 +1147,7 @@
   .fw__note {
     font-size: 0.875rem;
     line-height: 1.5;
-    color: var(--nl-muted);
+    color: var(--ink-muted);
     max-width: 38em;
   }
 
@@ -1170,7 +1170,7 @@
 
   .layers li span {
     padding-top: 0.25rem;
-    color: var(--nl-blue);
+    color: var(--accent);
   }
 
   .privacy__aside {
@@ -1191,7 +1191,7 @@
     padding: 1.5rem;
     border-radius: var(--radius-card);
     box-shadow: inset 0 0 0 1px var(--hairline-strong);
-    background: var(--nl-white);
+    background: var(--paper-raised);
   }
 
   /* A physical slide switch, in the off position. */
@@ -1201,8 +1201,8 @@
     height: 1.5rem;
     margin-top: 0.125rem;
     border-radius: 999px;
-    background: color-mix(in srgb, var(--nl-navy) 8%, transparent);
-    box-shadow: inset 0 0 0 1.5px var(--nl-navy);
+    background: color-mix(in srgb, var(--ink) 8%, transparent);
+    box-shadow: inset 0 0 0 1.5px var(--ink);
   }
 
   .privacy__switch i {
@@ -1212,7 +1212,7 @@
     width: 1rem;
     height: 1rem;
     border-radius: 999px;
-    background: var(--nl-navy);
+    background: var(--ink);
   }
 }
 
@@ -1237,7 +1237,7 @@
     bottom: 0;
     width: 2px;
     border-radius: 2px;
-    background: var(--nl-blue);
+    background: var(--accent);
   }
 
   .research__grid {
@@ -1314,11 +1314,11 @@
   .rcard__id {
     padding: 0.3125rem 0.5rem;
     border-radius: 0.4375rem;
-    background: color-mix(in srgb, var(--nl-navy) 6%, transparent);
+    background: color-mix(in srgb, var(--ink) 6%, transparent);
     font-size: 0.6875rem;
     letter-spacing: 0.05em;
     line-height: 1;
-    color: var(--nl-navy);
+    color: var(--ink);
   }
 
   .rcard__title {
@@ -1336,7 +1336,7 @@
     padding-top: 0.75rem;
     font-size: 0.8125rem;
     line-height: 1.45;
-    color: var(--nl-muted);
+    color: var(--ink-muted);
   }
 
   /* Minimal cards: no box, only a rule — a deliberate drop in emphasis. */
@@ -1390,20 +1390,20 @@
     font-weight: 600;
     line-height: 1;
     letter-spacing: -0.045em;
-    color: var(--nl-navy);
+    color: var(--ink);
     font-feature-settings: "tnum";
   }
 
   .facts dt {
     font-size: 0.8125rem;
     line-height: 1.25;
-    color: var(--nl-muted);
+    color: var(--ink-muted);
   }
 
   /* Evidence table --------------------------------------------------------- */
   .etable {
     margin-top: 2rem;
-    border-top: 1px solid var(--nl-navy);
+    border-top: 1px solid var(--ink);
   }
 
   .etable__head,
@@ -1420,7 +1420,7 @@
     font-size: 0.6875rem;
     letter-spacing: 0.07em;
     text-transform: uppercase;
-    color: var(--nl-muted);
+    color: var(--ink-muted);
   }
 
   .etable__row {
@@ -1437,11 +1437,11 @@
     font-weight: 600;
     letter-spacing: -0.02em;
     line-height: 1.25;
-    color: var(--nl-navy);
+    color: var(--ink);
   }
 
   .etable__limit {
-    color: var(--nl-navy);
+    color: var(--ink);
   }
 
   .etable__row [data-label]::before {
@@ -1452,7 +1452,7 @@
     font-size: 0.6875rem;
     letter-spacing: 0.07em;
     text-transform: uppercase;
-    color: var(--nl-muted);
+    color: var(--ink-muted);
   }
 
   @media (min-width: 48rem) {
@@ -1479,8 +1479,8 @@
       width: 0.75rem;
       height: 0.75rem;
       border-radius: 999px;
-      box-shadow: inset 0 0 0 1.5px var(--nl-navy);
-      background: linear-gradient(135deg, transparent 44%, var(--nl-navy) 44%, var(--nl-navy) 56%, transparent 56%);
+      box-shadow: inset 0 0 0 1.5px var(--ink);
+      background: linear-gradient(135deg, transparent 44%, var(--ink) 44%, var(--ink) 56%, transparent 56%);
     }
   }
 }
@@ -1490,17 +1490,17 @@
 --------------------------------------------------------------------------- */
 @layer components {
   .technology {
-    background: linear-gradient(180deg, var(--nl-white), var(--surface) 22%, var(--surface) 78%, var(--nl-white));
+    background: linear-gradient(180deg, var(--paper), var(--surface) 22%, var(--surface) 78%, var(--paper));
   }
 
   .chain {
     --pad: clamp(1.25rem, 3vw, 2.5rem);
     border-radius: 2rem;
-    background: var(--nl-white);
+    background: var(--paper-raised);
     box-shadow:
       inset 0 0 0 1px var(--hairline),
-      0 1px 2px color-mix(in srgb, var(--nl-navy) 4%, transparent),
-      0 40px 80px -52px color-mix(in srgb, var(--nl-navy) 30%, transparent);
+      0 1px 2px color-mix(in srgb, var(--shadow) 4%, transparent),
+      0 40px 80px -52px color-mix(in srgb, var(--shadow) 30%, transparent);
     overflow: hidden;
   }
 
@@ -1541,7 +1541,7 @@
     font-size: 0.6875rem;
     letter-spacing: 0.07em;
     text-transform: uppercase;
-    color: var(--nl-muted);
+    color: var(--ink-muted);
     white-space: nowrap;
     transition:
       color 0.4s ease,
@@ -1567,13 +1567,13 @@
   }
 
   .chain__domains span[data-on="true"] {
-    color: var(--nl-blue);
-    border-color: var(--nl-blue);
+    color: var(--accent);
+    border-color: var(--accent);
   }
 
   .chain__domains span[data-on="true"]::before,
   .chain__domains span[data-on="true"]::after {
-    background: var(--nl-blue);
+    background: var(--accent);
   }
 
   .chain__block {
@@ -1585,9 +1585,9 @@
     min-height: 6.5rem;
     padding: 0.6875rem 0.625rem 0.8125rem;
     border-radius: 1rem;
-    background: var(--nl-white);
+    background: var(--paper-raised);
     text-align: left;
-    color: var(--nl-muted);
+    color: var(--ink-muted);
     box-shadow: inset 0 0 0 1px var(--hairline-strong);
     scroll-snap-align: center;
     transition:
@@ -1622,32 +1622,32 @@
     font-weight: 600;
     line-height: 1.2;
     letter-spacing: -0.02em;
-    color: var(--nl-navy);
+    color: var(--ink);
     hyphens: auto;
   }
 
   .chain__block:hover {
     transform: translateY(-2px);
     box-shadow:
-      inset 0 0 0 1px color-mix(in srgb, var(--nl-navy) 30%, transparent),
-      0 10px 22px -14px color-mix(in srgb, var(--nl-navy) 40%, transparent);
+      inset 0 0 0 1px color-mix(in srgb, var(--ink) 30%, transparent),
+      0 10px 22px -14px color-mix(in srgb, var(--shadow) 40%, transparent);
   }
 
   .chain__block.is-lit {
-    box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--nl-blue) 40%, transparent);
+    box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--accent) 40%, transparent);
   }
 
   .chain__block.is-lit + .chain__block::before,
   .chain__block.is-lit::before {
-    background: var(--nl-blue);
+    background: var(--accent);
   }
 
   .chain__block[aria-selected="true"] {
-    color: var(--nl-blue);
+    color: var(--accent);
     box-shadow:
-      inset 0 0 0 1.5px var(--nl-blue),
+      inset 0 0 0 1.5px var(--accent),
       0 0 0 5px color-mix(in srgb, var(--nl-cyan) 20%, transparent),
-      0 16px 30px -16px color-mix(in srgb, var(--nl-blue) 60%, transparent);
+      0 16px 30px -16px color-mix(in srgb, var(--accent) 60%, transparent);
   }
 
   /* Rail: lit as far as the selected stage, with a travelling highlight. */
@@ -1662,7 +1662,7 @@
   .chain__rail i {
     position: absolute;
     inset: 0;
-    background: var(--nl-blue);
+    background: var(--accent);
     transform: scaleX(calc((var(--active) + 0.5) / var(--count)));
     transform-origin: 0 50%;
     transition: transform 0.8s var(--ease-swift);
@@ -1707,14 +1707,14 @@
     display: flex;
     align-items: center;
     gap: 0.5rem;
-    color: var(--nl-muted);
+    color: var(--ink-muted);
     letter-spacing: 0.06em;
     text-transform: uppercase;
   }
 
   .chain__where b {
     font-weight: 500;
-    color: var(--nl-blue);
+    color: var(--accent);
   }
 
   .chain__where span {
@@ -1741,7 +1741,7 @@
     font-size: 0.6875rem;
     letter-spacing: 0.07em;
     text-transform: uppercase;
-    color: var(--nl-muted);
+    color: var(--ink-muted);
   }
 
   .spec dd {
@@ -1752,7 +1752,7 @@
 
   .spec__out {
     font-weight: 600;
-    color: var(--nl-navy) !important;
+    color: var(--ink) !important;
   }
 
   .chain__legend {
@@ -1781,7 +1781,7 @@
   .hardware__safety {
     margin-top: 2rem;
     padding: 1.25rem 0 0 1.25rem;
-    border-left: 2px solid var(--nl-navy);
+    border-left: 2px solid var(--ink);
   }
 
   .hardware__safety h4 {
@@ -1803,7 +1803,7 @@
     gap: 1rem;
     padding: 1.375rem 1.5rem 1.5rem;
     border-radius: var(--radius-card);
-    background: var(--nl-white);
+    background: var(--paper-raised);
     box-shadow: inset 0 0 0 1px var(--hairline);
   }
 
@@ -1816,7 +1816,7 @@
     font-size: 0.875rem;
     font-weight: 600;
     letter-spacing: 0;
-    color: var(--nl-navy);
+    color: var(--ink);
   }
 
   .specblock dl {
@@ -1837,13 +1837,13 @@
 
   .specblock dt {
     flex: none;
-    color: var(--nl-muted);
+    color: var(--ink-muted);
   }
 
   .specblock dd {
     text-align: right;
     font-weight: 500;
-    color: var(--nl-navy);
+    color: var(--ink);
   }
 }
 
@@ -1858,7 +1858,7 @@
     border-radius: 2rem;
     background:
       radial-gradient(50% 70% at 12% 50%, color-mix(in srgb, var(--nl-cyan) 8%, transparent), transparent 70%),
-      radial-gradient(50% 70% at 88% 50%, color-mix(in srgb, var(--nl-blue) 6%, transparent), transparent 70%),
+      radial-gradient(50% 70% at 88% 50%, color-mix(in srgb, var(--accent) 6%, transparent), transparent 70%),
       var(--surface);
   }
 
@@ -1898,7 +1898,7 @@
   }
 
   .xdiagram__out {
-    stroke: var(--nl-blue);
+    stroke: var(--accent);
     stroke-width: 1.75;
     stroke-dasharray: 2 7;
     stroke-linecap: round;
@@ -1910,7 +1910,7 @@
   }
 
   .xdiagram__back {
-    stroke: var(--nl-navy);
+    stroke: var(--ink);
     stroke-width: 1.5;
     stroke-linecap: round;
   }
@@ -1922,11 +1922,11 @@
   }
 
   .xdiagram__pulse--out {
-    fill: var(--nl-blue);
+    fill: var(--accent);
   }
 
   .xdiagram__pulse--back {
-    fill: var(--nl-navy);
+    fill: var(--ink);
   }
 
   @keyframes x-travel {
@@ -1949,8 +1949,8 @@
   }
 
   .xdiagram__node {
-    fill: var(--nl-white);
-    stroke: var(--nl-navy);
+    fill: var(--paper-raised);
+    stroke: var(--ink);
     stroke-width: 1.5;
   }
 
@@ -1959,7 +1959,7 @@
     font-size: 15px;
     font-weight: 600;
     letter-spacing: -0.02em;
-    fill: var(--nl-navy);
+    fill: var(--ink);
   }
 
   .xdiagram__tag,
@@ -1968,26 +1968,26 @@
     font-size: 11px;
     letter-spacing: 0.07em;
     text-transform: uppercase;
-    fill: var(--nl-muted);
+    fill: var(--ink-muted);
   }
 
   .xdiagram__tag--out,
   .xdiagram__chip-text--gate {
-    fill: var(--nl-blue);
+    fill: var(--accent);
   }
 
   .xdiagram__chip {
-    fill: var(--nl-white);
-    stroke: color-mix(in srgb, var(--nl-navy) 30%, transparent);
+    fill: var(--paper-raised);
+    stroke: color-mix(in srgb, var(--ink) 30%, transparent);
     stroke-width: 1;
   }
 
   .xdiagram__chip-text {
-    fill: var(--nl-navy);
+    fill: var(--ink);
   }
 
   .xdiagram__chip--gate {
-    stroke: var(--nl-blue);
+    stroke: var(--accent);
     stroke-width: 1.25;
   }
 
@@ -1999,8 +1999,8 @@
 
   .exchange__card--out {
     background:
-      radial-gradient(80% 60% at 0% 100%, color-mix(in srgb, var(--nl-blue) 5%, transparent), transparent 70%),
-      var(--nl-white);
+      radial-gradient(80% 60% at 0% 100%, color-mix(in srgb, var(--accent) 5%, transparent), transparent 70%),
+      var(--paper-raised);
   }
 
 
@@ -2012,22 +2012,22 @@
     font-size: 0.75rem;
     letter-spacing: 0.08em;
     text-transform: uppercase;
-    color: var(--nl-navy);
+    color: var(--ink);
   }
 
   .exchange__tag--out {
-    color: var(--nl-blue);
+    color: var(--accent);
   }
 
   .exchange__stroke {
     width: 2.5rem;
     height: 2px;
     border-radius: 2px;
-    background: var(--nl-navy);
+    background: var(--ink);
   }
 
   .exchange__stroke--dashed {
-    background: linear-gradient(90deg, var(--nl-blue) 40%, transparent 40%) 0 0 / 7px 2px;
+    background: linear-gradient(90deg, var(--accent) 40%, transparent 40%) 0 0 / 7px 2px;
   }
 
   .levels {
@@ -2050,14 +2050,14 @@
 
   .levels__n {
     padding-top: 0.1875rem;
-    color: var(--nl-blue);
+    color: var(--accent);
   }
 
   .levels__name {
     font-size: 1rem;
     font-weight: 600;
     letter-spacing: -0.02em;
-    color: var(--nl-navy);
+    color: var(--ink);
   }
 
   .levels__status {
@@ -2080,7 +2080,7 @@
     gap: 1.75rem 4rem;
     margin-top: clamp(3.5rem, 8vw, 7rem);
     padding-top: clamp(2rem, 4vw, 3rem);
-    border-top: 1px solid var(--nl-navy);
+    border-top: 1px solid var(--ink);
   }
 
   @media (min-width: 56rem) {
@@ -2095,7 +2095,7 @@
     font-weight: 600;
     line-height: 1.05;
     letter-spacing: -0.04em;
-    color: var(--nl-navy);
+    color: var(--ink);
     text-wrap: balance;
   }
 
@@ -2111,11 +2111,12 @@
 --------------------------------------------------------------------------- */
 @layer components {
   .roadmap {
-    background: linear-gradient(180deg, var(--nl-white), var(--surface) 20%, var(--surface) 80%, var(--nl-white));
+    background: linear-gradient(180deg, var(--paper), var(--surface) 20%, var(--surface) 80%, var(--paper));
   }
 
   @media (min-width: 68.75rem) {
-    .roadmap__title {
+    /* Compound selector: must outrank .t-title, which is declared later. */
+    .t-title.roadmap__title {
       font-size: clamp(2.5rem, 1rem + 3vw, 4.25rem);
     }
     .roadmap__aside {
@@ -2150,7 +2151,7 @@
     bottom: 3rem;
     left: 0.6875rem;
     width: 1px;
-    background-image: linear-gradient(180deg, color-mix(in srgb, var(--nl-navy) 32%, transparent) 50%, transparent 50%);
+    background-image: linear-gradient(180deg, color-mix(in srgb, var(--ink) 32%, transparent) 50%, transparent 50%);
     background-size: 1px 7px;
   }
 
@@ -2181,10 +2182,10 @@
   .spine__body {
     padding: 1.375rem clamp(1.125rem, 2.4vw, 1.75rem) 1.5rem;
     border-radius: var(--radius-card);
-    background: var(--nl-white);
+    background: var(--paper-raised);
     box-shadow:
       inset 0 0 0 1px var(--hairline),
-      0 1px 2px color-mix(in srgb, var(--nl-navy) 3%, transparent);
+      0 1px 2px color-mix(in srgb, var(--shadow) 3%, transparent);
     transition:
       box-shadow 0.5s ease,
       transform 0.6s var(--ease-expo);
@@ -2195,16 +2196,16 @@
       transform: translateX(3px);
       box-shadow:
         inset 0 0 0 1px var(--hairline-strong),
-        0 18px 36px -26px color-mix(in srgb, var(--nl-navy) 40%, transparent);
+        0 18px 36px -26px color-mix(in srgb, var(--shadow) 40%, transparent);
     }
   }
 
   /* Planned work is drawn with a dashed outline: visibly not yet real. */
   .spine__item[data-kind="planned"] .spine__body,
   .spine__item[data-kind="optional"] .spine__body {
-    background: rgb(255 255 255 / 0.55);
+    background: color-mix(in srgb, var(--paper-raised) 55%, transparent);
     box-shadow: none;
-    outline: 1px dashed color-mix(in srgb, var(--nl-navy) 24%, transparent);
+    outline: 1px dashed color-mix(in srgb, var(--ink) 24%, transparent);
     outline-offset: -1px;
   }
 
@@ -2217,7 +2218,7 @@
   }
 
   .spine__id {
-    color: var(--nl-blue);
+    color: var(--accent);
     letter-spacing: 0.06em;
   }
 
@@ -2248,7 +2249,7 @@
     font-size: 0.6875rem;
     letter-spacing: 0.07em;
     text-transform: uppercase;
-    color: var(--nl-muted);
+    color: var(--ink-muted);
   }
 
   .spine__facts dd {
@@ -2262,7 +2263,7 @@
     margin-top: 1rem;
     font-size: 0.875rem;
     line-height: 1.45;
-    color: var(--nl-navy);
+    color: var(--ink);
   }
 
   .hwtrack {
@@ -2297,7 +2298,7 @@
     gap: 0.75rem;
     padding: 0.875rem;
     border-radius: 0.875rem;
-    outline: 1px dashed color-mix(in srgb, var(--nl-navy) 22%, transparent);
+    outline: 1px dashed color-mix(in srgb, var(--ink) 22%, transparent);
     outline-offset: -1px;
     font-size: 0.8125rem;
     line-height: 1.35;
@@ -2312,7 +2313,7 @@
   }
 
   .hwtrack li span {
-    color: var(--nl-blue);
+    color: var(--accent);
   }
 }
 
@@ -2329,12 +2330,12 @@
     position: absolute;
     inset: 0;
     background:
-      radial-gradient(60% 50% at 85% 0%, color-mix(in srgb, var(--nl-blue) 6%, transparent), transparent 70%),
+      radial-gradient(60% 50% at 85% 0%, color-mix(in srgb, var(--accent) 6%, transparent), transparent 70%),
       radial-gradient(50% 40% at 30% 100%, color-mix(in srgb, var(--nl-cyan) 8%, transparent), transparent 70%);
     pointer-events: none;
   }
 
-  .open__title {
+  .t-display.open__title {
     font-size: clamp(3.5rem, 0.6rem + 9vw, 9.5rem);
     margin-left: -0.045em;
   }
@@ -2343,7 +2344,7 @@
     position: relative;
     display: grid;
     margin-top: clamp(3.5rem, 7vw, 6rem);
-    border-top: 1px solid var(--nl-navy);
+    border-top: 1px solid var(--ink);
   }
 
   @media (min-width: 56rem) {
@@ -2366,7 +2367,7 @@
 
   .linkrow__n {
     grid-row: span 2;
-    color: var(--nl-muted);
+    color: var(--ink-muted);
     transition: color 0.3s ease;
   }
 
@@ -2375,21 +2376,21 @@
     font-weight: 600;
     letter-spacing: -0.03em;
     line-height: 1.2;
-    color: var(--nl-navy);
+    color: var(--ink);
     transition: color 0.3s ease;
   }
 
   .linkrow__text {
     grid-column: 2;
     font-size: 0.875rem;
-    color: var(--nl-muted);
+    color: var(--ink-muted);
   }
 
   .linkrow__arrow {
     grid-column: 3;
     grid-row: 1 / span 2;
     align-self: center;
-    color: var(--nl-navy);
+    color: var(--ink);
     opacity: 0.45;
     transition:
       transform 0.5s var(--ease-expo),
@@ -2404,7 +2405,7 @@
     .linkrow:hover .linkrow__title,
     .linkrow:hover .linkrow__n,
     .linkrow:hover .linkrow__arrow {
-      color: var(--nl-blue);
+      color: var(--accent);
     }
     .linkrow:hover .linkrow__arrow {
       opacity: 1;
@@ -2416,7 +2417,7 @@
     position: relative;
     padding-block: 2.5rem 3rem;
     border-top: 1px solid var(--hairline);
-    background: var(--nl-white);
+    background: var(--paper);
   }
 
   .footer__inner {
@@ -2435,6 +2436,11 @@
     display: block;
     width: 12.5rem;
     border-radius: 1rem;
+    background: var(--logo-plate);
+  }
+
+  html[data-theme="dark"] .footer__brand {
+    padding: 0.875rem 1rem;
   }
 
   .footer__brand img {
@@ -2446,7 +2452,7 @@
     max-width: 44rem;
     font-size: 0.8125rem;
     line-height: 1.55;
-    color: var(--nl-muted);
+    color: var(--ink-muted);
   }
 
   .footer__links {

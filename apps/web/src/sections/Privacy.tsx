@@ -55,7 +55,7 @@ export function Privacy({
             <div className="privacy__aside">
               <aside className="glass privacy__evidence" data-reveal="" style={stagger(1)}>
                 <Status kind="reference">{t.evidence.tag}</Status>
-                <p className="mt-5 text-[1.0625rem] leading-[1.5] text-navy">{t.evidence.text}</p>
+                <p className="mt-5 text-[1.0625rem] leading-[1.5] text-ink">{t.evidence.text}</p>
                 <p className="mt-5 flex flex-wrap gap-x-5 gap-y-2 text-[0.875rem]">
                   <ExtLink href={refs.kunz} newTab={common.newTab}>
                     {t.evidence.cite}

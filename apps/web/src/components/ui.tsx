@@ -33,7 +33,7 @@ export function Eyebrow({ index, children }: { index: number; children: ReactNod
   return (
     <p className="t-eyebrow" data-reveal="">
       <b>{String(index).padStart(2, "0")}</b>
-      <span aria-hidden="true" className="h-px w-6 bg-navy/20" />
+      <span aria-hidden="true" className="h-px w-6 bg-ink/20" />
       {children}
     </p>
   );

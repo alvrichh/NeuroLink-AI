@@ -115,6 +115,23 @@ export function LockIcon({ open = false, ...p }: IconProps & { open?: boolean })
   );
 }
 
+export function SunIcon(p: IconProps) {
+  return (
+    <Base size={16} {...p}>
+      <circle cx="10" cy="10" r="3.250" />
+      <path d="M10 2.750v1.500M10 15.750v1.500M2.750 10h1.500M15.750 10h1.500M4.870 4.870l1.060 1.060M14.070 14.070l1.060 1.060M4.870 15.130l1.060-1.060M14.070 5.930l1.060-1.060" />
+    </Base>
+  );
+}
+
+export function MoonIcon(p: IconProps) {
+  return (
+    <Base size={16} {...p}>
+      <path d="M16.250 11.600A6.750 6.750 0 0 1 8.400 3.750a6.750 6.750 0 1 0 7.850 7.850Z" />
+    </Base>
+  );
+}
+
 export function GitHubIcon({ size = 18, ...p }: IconProps) {
   return (
     <svg

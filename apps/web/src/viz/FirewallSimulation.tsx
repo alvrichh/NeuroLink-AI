@@ -224,7 +224,7 @@ export function FirewallSimulation({
           <div className="fw-console__body" key={state}>
             <p className="t-mono fw-console__code">{state}</p>
             <p className="fw-console__name">{info.name}</p>
-            <p className="t-small mt-2 text-ink">{info.text}</p>
+            <p className="t-small mt-2 text-body">{info.text}</p>
           </div>
 
           <dl className="fw-read">
