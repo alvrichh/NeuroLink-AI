@@ -66,6 +66,7 @@ flowchart LR
 | Hardware | [Electronics (EN)](hardware/en/README.md) | [Electrónica (ES)](hardware/README.md) |
 | Diagrams | [Editable diagrams](diagrams/README.md) | [Diagramas](diagrams/README.md) |
 | Photos | [Licensed EEG reference photos](assets/real/README.md) | [Fotografías reales](assets/real/README.md) |
+| Website | [Bilingual research website (source)](apps/web/README.md) | [Sitio web bilingüe (código)](apps/web/README.md#español) |
 
 **P300 spelling** has been reclassified as a [secondary BCI reference](docs/technical/p300-secondary-baseline.md), **not** the principal interaction design.
 

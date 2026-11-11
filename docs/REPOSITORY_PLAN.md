@@ -20,6 +20,7 @@
 - `diagrams/`: Mermaid source diagrams.
 - `assets/diagrams/` and `assets/examples/`: five conceptual SVG illustrations.
 - `examples/`: explanations backed by those conceptual figures.
+- `apps/web/`: bilingual public website (Next.js, static export). Presentation only; it draws its content from the documents above and adds no claims of its own.
 
 **At this revision there are no verified hardware photos, measured ERP plots, KiCad circuit captures, PCB photos or oscilloscope traces in this repository.** They must not be represented as existing project outputs.
 
