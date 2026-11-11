@@ -54,10 +54,10 @@ function Variant({ g, copy, id, className }: { g: Geometry; copy: Copy; id: stri
     <svg className={`xdiagram ${className}`} viewBox={g.viewBox} aria-hidden="true" focusable="false">
       <defs>
         <marker id={`${id}-out`} viewBox="0 0 10 10" refX="7" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
-          <path d="M1 1.500 8 5 1 8.500" fill="none" stroke="var(--nl-blue)" strokeWidth="1.600" strokeLinecap="round" strokeLinejoin="round" />
+          <path d="M1 1.500 8 5 1 8.500" fill="none" stroke="var(--accent)" strokeWidth="1.600" strokeLinecap="round" strokeLinejoin="round" />
         </marker>
         <marker id={`${id}-back`} viewBox="0 0 10 10" refX="7" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
-          <path d="M1 1.500 8 5 1 8.500" fill="none" stroke="var(--nl-navy)" strokeWidth="1.600" strokeLinecap="round" strokeLinejoin="round" />
+          <path d="M1 1.500 8 5 1 8.500" fill="none" stroke="var(--ink)" strokeWidth="1.600" strokeLinecap="round" strokeLinejoin="round" />
         </marker>
       </defs>
 
@@ -99,7 +99,7 @@ function Variant({ g, copy, id, className }: { g: Geometry; copy: Copy; id: stri
       {/* Consent gate on the outbound path */}
       <g transform={`translate(${gateX - gateW / 2} ${g.gate.y - 17})`}>
         <rect className="xdiagram__chip xdiagram__chip--gate" width={gateW} height="34" rx="17" />
-        <g transform="translate(13 8)" fill="none" stroke="var(--nl-blue)" strokeWidth="1.500" strokeLinecap="round">
+        <g transform="translate(13 8)" fill="none" stroke="var(--accent)" strokeWidth="1.500" strokeLinecap="round">
           <rect x="1.500" y="7.500" width="13" height="9" rx="2.500" />
           <path d="M4.500 7.500V5.500a3.500 3.500 0 0 1 7 0v2" />
         </g>

@@ -45,6 +45,10 @@ const logoFiles = {
   symbol: "neurolink-ai-symbol.webp",
   wordmark: "neurolink-ai-wordmark.webp",
   lockup: "neurolink-ai-lockup.webp",
+  // Dark-background variants: transparent, with white lettering.
+  symbolDark: "neurolink-ai-symbol-dark.webp",
+  wordmarkDark: "neurolink-ai-wordmark-dark.webp",
+  lockupDark: "neurolink-ai-lockup-dark.webp",
 };
 
 /** Favicon and app icons: fixed names and sizes, copied as a set. */

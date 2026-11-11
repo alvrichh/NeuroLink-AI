@@ -1,6 +1,6 @@
 import type { CSSProperties, ReactNode } from "react";
 import type { Dictionary } from "@/content";
-import { cx } from "@/lib/site";
+import { cx, type ThemedAsset } from "@/lib/site";
 import { ArrowUpRight } from "./icons";
 
 export type StatusKind = keyof Dictionary["status"];
@@ -28,12 +28,44 @@ export function Sentences({ text }: { text: string }) {
   );
 }
 
+/**
+ * A logo that follows the theme. Both versions are in the markup and CSS shows
+ * one, so the right logo is there on first paint with no script involved.
+ * Lazy loading keeps the hidden version from being downloaded.
+ */
+export function ThemedLogo({
+  asset,
+  alt,
+  className,
+}: {
+  asset: ThemedAsset;
+  alt: string;
+  className?: string;
+}) {
+  return (
+    <>
+      {(["light", "dark"] as const).map((mode) => (
+        <img
+          key={mode}
+          className={cx(className, mode === "light" ? "only-light" : "only-dark")}
+          src={asset[mode].src}
+          alt={alt}
+          width={asset[mode].width}
+          height={asset[mode].height}
+          loading="lazy"
+          decoding="async"
+        />
+      ))}
+    </>
+  );
+}
+
 /** Numbered section eyebrow, e.g. "02 — Neural Privacy Firewall". */
 export function Eyebrow({ index, children }: { index: number; children: ReactNode }) {
   return (
     <p className="t-eyebrow" data-reveal="">
       <b>{String(index).padStart(2, "0")}</b>
-      <span aria-hidden="true" className="h-px w-6 bg-navy/20" />
+      <span aria-hidden="true" className="h-px w-6 bg-ink/20" />
       {children}
     </p>
   );

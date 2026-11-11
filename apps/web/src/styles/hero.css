@@ -10,8 +10,8 @@
     min-height: min(100svh, 68rem);
     overflow: clip;
     background:
-      radial-gradient(90% 60% at 78% 100%, color-mix(in srgb, var(--nl-blue) 5%, transparent), transparent 70%),
-      var(--nl-white);
+      radial-gradient(90% 60% at 78% 100%, color-mix(in srgb, var(--accent) 5%, transparent), transparent 70%),
+      var(--paper);
   }
 
   .hero__frame {
@@ -38,7 +38,7 @@
     width: 0.4375rem;
     height: 0.4375rem;
     border-radius: 999px;
-    background: var(--nl-blue);
+    background: var(--accent);
     box-shadow: 0 0 0 3px color-mix(in srgb, var(--nl-cyan) 35%, transparent);
   }
 
@@ -68,7 +68,7 @@
   .hero__text {
     max-width: 29em;
     margin-top: 1rem;
-    color: var(--nl-muted);
+    color: var(--ink-muted);
   }
 
   .hero__cta {
@@ -108,7 +108,7 @@
     display: grid;
     place-items: center;
     border-radius: 999px;
-    color: var(--nl-blue);
+    color: var(--accent);
     transform: translate(-50%, -50%);
     --glass-top: 0.62;
     --glass-bottom: 0.4;
@@ -130,7 +130,7 @@
     font-size: 0.6875rem;
     letter-spacing: 0.07em;
     text-transform: uppercase;
-    color: var(--nl-muted);
+    color: var(--ink-muted);
   }
 
   .hero__label-gate {
@@ -142,7 +142,7 @@
     font-size: 0.6875rem;
     letter-spacing: 0.07em;
     text-transform: uppercase;
-    color: var(--nl-blue);
+    color: var(--accent);
     white-space: nowrap;
   }
 

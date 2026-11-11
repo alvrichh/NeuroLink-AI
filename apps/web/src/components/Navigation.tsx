@@ -4,9 +4,11 @@ import { useEffect, useId, useState } from "react";
 import { localePath, locales, sectionIds, type Locale, type SectionId } from "@/content";
 import type { Dictionary } from "@/content";
 import { REPO_URL } from "@/content/links";
+import { useTheme, type Theme } from "@/lib/theme";
 import { useActiveSection } from "@/lib/useActiveSection";
 import { cx, logo, withBase } from "@/lib/site";
-import { ArrowUpRight, GitHubIcon, sectionIcons } from "./icons";
+import { ArrowUpRight, GitHubIcon, MoonIcon, SunIcon, sectionIcons } from "./icons";
+import { ThemedLogo } from "./ui";
 
 type NavProps = {
   locale: Locale;
@@ -73,6 +75,33 @@ function LanguageSwitch({
   );
 }
 
+/** Light / dark appearance. Follows the system until the visitor chooses. */
+function ThemeSwitch({ common }: { common: Dictionary["common"] }) {
+  const [theme, setTheme] = useTheme();
+  const options: Array<{ value: Theme; label: string; Icon: typeof SunIcon }> = [
+    { value: "light", label: common.themeLight, Icon: SunIcon },
+    { value: "dark", label: common.themeDark, Icon: MoonIcon },
+  ];
+  return (
+    <div className="lang-switch theme-switch" role="group" aria-label={common.theme}>
+      {options.map(({ value, label, Icon }) => (
+        <button
+          key={value}
+          type="button"
+          className="lang-switch__item"
+          aria-pressed={theme === value}
+          aria-label={label}
+          title={label}
+          onClick={() => setTheme(value)}
+        >
+          <Icon />
+        </button>
+      ))}
+      <span className="lang-switch__thumb" data-pos={theme === "dark" ? 1 : 0} aria-hidden="true" />
+    </div>
+  );
+}
+
 function SidePanel({ locale, labels, common, active, index }: PanelProps) {
   return (
     <aside className="side-nav glass" aria-label={common.sections}>
@@ -82,22 +111,8 @@ function SidePanel({ locale, labels, common, active, index }: PanelProps) {
 
       {/* Symbol over wordmark, in the same proportions as the official lockup. */}
       <a href="#overview" className="side-nav__brand" aria-label={common.home}>
-        <img
-          className="side-nav__symbol"
-          src={logo.symbol.src}
-          alt=""
-          width={logo.symbol.width}
-          height={logo.symbol.height}
-          decoding="async"
-        />
-        <img
-          className="side-nav__wordmark"
-          src={logo.wordmark.src}
-          alt={common.brand}
-          width={logo.wordmark.width}
-          height={logo.wordmark.height}
-          decoding="async"
-        />
+        <ThemedLogo asset={logo.symbol} alt="" className="side-nav__symbol" />
+        <ThemedLogo asset={logo.wordmark} alt={common.brand} className="side-nav__wordmark" />
       </a>
 
       <span className="side-nav__progress" aria-hidden="true">
@@ -135,7 +150,10 @@ function SidePanel({ locale, labels, common, active, index }: PanelProps) {
           </span>
         </p>
         <div className="side-nav__actions">
-          <LanguageSwitch locale={locale} active={active} label={common.language} />
+          <div className="side-nav__switches">
+            <LanguageSwitch locale={locale} active={active} label={common.language} />
+            <ThemeSwitch common={common} />
+          </div>
           <a
             href={REPO_URL}
             target="_blank"
@@ -178,22 +196,8 @@ function MobileBar({ locale, labels, common, active, index }: PanelProps) {
       <header className={cx("mobile-nav glass", open && "is-open")}>
         <div className="mobile-nav__bar">
           <a href="#overview" className="mobile-nav__brand" aria-label={common.home} onClick={() => setOpen(false)}>
-            <img
-              className="mobile-nav__symbol"
-              src={logo.symbol.src}
-              alt=""
-              width={logo.symbol.width}
-              height={logo.symbol.height}
-              decoding="async"
-            />
-            <img
-              className="mobile-nav__wordmark"
-              src={logo.wordmark.src}
-              alt={common.brand}
-              width={logo.wordmark.width}
-              height={logo.wordmark.height}
-              decoding="async"
-            />
+            <ThemedLogo asset={logo.symbol} alt="" className="mobile-nav__symbol" />
+            <ThemedLogo asset={logo.wordmark} alt={common.brand} className="mobile-nav__wordmark" />
           </a>
 
           <p className="mobile-nav__where" aria-live="off">
@@ -246,7 +250,10 @@ function MobileBar({ locale, labels, common, active, index }: PanelProps) {
               </ul>
             </nav>
             <div className="mobile-nav__foot">
-              <LanguageSwitch locale={locale} active={active} label={common.language} />
+              <div className="mobile-nav__switches">
+                <LanguageSwitch locale={locale} active={active} label={common.language} />
+                <ThemeSwitch common={common} />
+              </div>
               <a
                 href={REPO_URL}
                 target="_blank"

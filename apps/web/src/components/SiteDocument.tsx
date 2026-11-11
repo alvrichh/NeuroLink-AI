@@ -4,6 +4,7 @@ import { GeistSans } from "geist/font/sans";
 import type { ReactNode } from "react";
 import { getDictionary, localePath, locales, type Locale } from "@/content";
 import { icons, logo, siteUrl, withBase } from "@/lib/site";
+import { THEME_COLORS, themeBootstrap } from "@/lib/themeConfig";
 import { brand } from "@/styles/brand/tokens";
 import { Navigation } from "./Navigation";
 import { RevealObserver } from "./RevealObserver";
@@ -17,7 +18,7 @@ import "@/styles/globals.css";
 const motionBootstrap = `(function(){try{var d=document.documentElement;var still=/[?&]still\\b/.test(location.search);var reduce=window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches;d.dataset.motion=(still||reduce)?'off':'on';}catch(e){}})();`;
 
 export const viewport: Viewport = {
-  themeColor: brand.hex.white,
+  themeColor: THEME_COLORS.light,
   width: "device-width",
   initialScale: 1,
   viewportFit: "cover",
@@ -62,9 +63,9 @@ export function buildMetadata(locale: Locale): Metadata {
         ? {
             images: [
               {
-                url: logo.lockup.src,
-                width: logo.lockup.width,
-                height: logo.lockup.height,
+                url: logo.lockup.light.src,
+                width: logo.lockup.light.width,
+                height: logo.lockup.light.height,
                 alt: t.common.logoAlt,
               },
             ],
@@ -81,7 +82,7 @@ export function SiteDocument({ locale, children }: { locale: Locale; children: R
   return (
     <html lang={locale} className={`${GeistSans.variable} ${GeistMono.variable}`} suppressHydrationWarning>
       <body>
-        <script dangerouslySetInnerHTML={{ __html: motionBootstrap }} />
+        <script dangerouslySetInnerHTML={{ __html: themeBootstrap + motionBootstrap }} />
         <a className="skip-link" href="#main">
           {t.common.skip}
         </a>

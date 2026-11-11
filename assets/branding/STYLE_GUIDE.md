@@ -11,11 +11,14 @@
 | [`neurolink-ai-lockup.webp`](neurolink-ai-lockup.webp) | Full logo: symbol, wordmark and the line "Brain · Privacy · AI". Primary form. / Logotipo completo; forma principal. |
 | [`neurolink-ai-symbol.webp`](neurolink-ai-symbol.webp) | Brain-and-orbit symbol alone, for small or square spaces. / Símbolo solo, para espacios pequeños. |
 | [`neurolink-ai-wordmark.webp`](neurolink-ai-wordmark.webp) | "NeuroLink AI" lettering alone. / Solo el nombre. |
+| [`neurolink-ai-lockup-dark.webp`](neurolink-ai-lockup-dark.webp), [`neurolink-ai-symbol-dark.webp`](neurolink-ai-symbol-dark.webp), [`neurolink-ai-wordmark-dark.webp`](neurolink-ai-wordmark-dark.webp) | The same three forms **for dark backgrounds**: transparent background and white lettering; "AI", the dots and the rules keep their colours. / Las mismas tres formas **para fondos oscuros**: fondo transparente y letras blancas. |
 | [`icons/`](icons/icon-512.png) | Favicon and app icons: the whole symbol on a white tile — `favicon.ico` (16/32/48), `icon-32.png`, `icon-192.png`, `icon-512.png`, `apple-touch-icon.png` (180). / Iconos: el símbolo completo sobre una pieza blanca. |
 
-These are optimized copies of the supplied artwork: empty margins trimmed to a uniform clear space and the background set to pure white. The artwork itself is not redrawn, recoloured or re-proportioned. Keep symbol and wordmark in the lockup's proportions when they are shown together, and do not place them on coloured backgrounds.
+These are optimized copies of the supplied artwork: empty margins trimmed to a uniform clear space and the background set to pure white. The artwork itself is not redrawn or re-proportioned. Keep symbol and wordmark in the lockup's proportions when they are shown together.
 
-Son copias optimizadas del arte suministrado: márgenes vacíos recortados y fondo en blanco puro. El dibujo no se ha redibujado, recoloreado ni reproporcionado.
+The dark-background files are **derived from the same supplied artwork**, not new artwork: the white outside the symbol is made transparent while its white traces and highlights are kept, and the navy lettering is turned white. Use the standard files on white or very light backgrounds and the `-dark` files on dark ones; do not use either on mid-tone or busy backgrounds.
+
+Son copias optimizadas del arte suministrado: márgenes vacíos recortados y fondo en blanco puro. Los archivos `-dark` se **derivan del mismo arte**: el blanco exterior del símbolo se hace transparente, conservando sus trazas y brillos blancos, y las letras azul marino pasan a blanco. Usa los archivos normales sobre fondos blancos o muy claros y los `-dark` sobre fondos oscuros.
 
 [`neurolink-ai-logo.webp`](neurolink-ai-logo.webp) is the **previous logo**, superseded and kept only so that old links keep working. / Es el **logotipo anterior**, sustituido; se conserva solo para no romper enlaces antiguos.
 
@@ -46,6 +49,8 @@ The closest dominant sampled pixels were #001E55 (navy), #004EF2 with nearby #00
 - Keep diagrams, examples and hardware references visually coherent without recoloring experimental evidence.
 - Do not imply a software-only illustration or brand asset is scientific proof.
 - Use typography with clear hierarchy and adequate spacing, without excessive visual effects.
+
+**Website dark theme / Tema oscuro del sitio web.** The website offers an optional dark theme. White remains the primary canvas; the dark theme uses a deep navy mixed from `#001E55` and black, text in white mixed with navy, and a lightened `#004FF2` for links and active states only (buttons keep the exact blue). The dark theme uses the `-dark` logo files. / El sitio web ofrece un tema oscuro opcional. El blanco sigue siendo el lienzo principal; el tema oscuro usa un azul marino profundo derivado de `#001E55` y los archivos `-dark` del logotipo.
 
 Approximate contrast against white: navy **15.95:1**, blue **6.18:1**, cyan **1.44:1**. The cyan accent is **not accessible for small text on white**.
 

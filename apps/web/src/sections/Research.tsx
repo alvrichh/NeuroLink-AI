@@ -111,7 +111,7 @@ export function Research({
               <div className="rcard__body">
                 {meta("acquisition")}
                 <h3 className="rcard__title">{t.cards.acquisition.title}</h3>
-                <p className="t-small text-ink">{t.cards.acquisition.text}</p>
+                <p className="t-small text-body">{t.cards.acquisition.text}</p>
                 {cite("acquisition")}
               </div>
             </article>
@@ -121,7 +121,7 @@ export function Research({
               <article key={k} className="rcard rcard--minimal" data-reveal="" style={stagger(i)}>
                 {meta(k)}
                 <h3 className="rcard__title">{t.cards[k].title}</h3>
-                <p className="t-small text-ink">{t.cards[k].text}</p>
+                <p className="t-small text-body">{t.cards[k].text}</p>
                 {cite(k)}
               </article>
             ))}
