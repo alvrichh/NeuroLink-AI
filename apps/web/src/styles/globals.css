@@ -74,10 +74,6 @@
   --glass-rim-soft: rgb(255 255 255 / 0.25);
   --glass-sheen: rgb(255 255 255 / 0.6);
 
-  /* The logo files sit on white; in the dark theme they get a white plate. */
-  --logo-plate: transparent;
-  --logo-blend: multiply;
-
   /* Canvas illustration colours, as RGB triplets. */
   --viz-ink: 0 30 85;
   --viz-signal: 0 79 242;
@@ -120,9 +116,6 @@ html[data-theme="dark"] {
   --glass-rim: rgb(255 255 255 / 0.34);
   --glass-rim-soft: rgb(255 255 255 / 0.06);
   --glass-sheen: rgb(255 255 255 / 0.05);
-
-  --logo-plate: var(--nl-white);
-  --logo-blend: normal;
 
   --viz-ink: 216 226 246;
   --viz-signal: 126 166 249;
@@ -502,6 +495,13 @@ html[data-theme="dark"] {
         inset 0 0 0 1px var(--hairline-strong),
         0 22px 48px -28px color-mix(in srgb, var(--shadow) 35%, transparent);
     }
+  }
+
+  /* Theme-specific content: both versions are in the markup, one is shown.
+     With no data-theme at all (JavaScript disabled) the light version shows. */
+  html[data-theme="dark"] .only-light,
+  html:not([data-theme="dark"]) .only-dark {
+    display: none !important;
   }
 
   /* Skip link ------------------------------------------------------------ */

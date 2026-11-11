@@ -101,21 +101,17 @@
     border-radius: 1.25rem;
   }
 
-  /* The official files sit on white; multiply lets the glass show through
-     without altering any logo colour. */
   .side-nav__brand img,
   .mobile-nav__brand img {
     height: auto;
-    mix-blend-mode: var(--logo-blend);
   }
 
-  .side-nav__brand,
-  .mobile-nav__brand {
-    background: var(--logo-plate);
-  }
-
-  html[data-theme="dark"] .mobile-nav__brand {
-    padding-inline: 0.375rem 0.5rem;
+  /* The light-background files sit on white; multiply lets the glass show
+     through without altering any logo colour. The dark-background files are
+     transparent and need no blending. */
+  .side-nav__brand .only-light,
+  .mobile-nav__brand .only-light {
+    mix-blend-mode: multiply;
   }
 
   .side-nav__symbol {

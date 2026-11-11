@@ -63,9 +63,9 @@ export function buildMetadata(locale: Locale): Metadata {
         ? {
             images: [
               {
-                url: logo.lockup.src,
-                width: logo.lockup.width,
-                height: logo.lockup.height,
+                url: logo.lockup.light.src,
+                width: logo.lockup.light.width,
+                height: logo.lockup.light.height,
                 alt: t.common.logoAlt,
               },
             ],

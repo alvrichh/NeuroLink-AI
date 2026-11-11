@@ -2436,11 +2436,6 @@
     display: block;
     width: 12.5rem;
     border-radius: 1rem;
-    background: var(--logo-plate);
-  }
-
-  html[data-theme="dark"] .footer__brand {
-    padding: 0.875rem 1rem;
   }
 
   .footer__brand img {

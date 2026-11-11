@@ -8,6 +8,7 @@ import { useTheme, type Theme } from "@/lib/theme";
 import { useActiveSection } from "@/lib/useActiveSection";
 import { cx, logo, withBase } from "@/lib/site";
 import { ArrowUpRight, GitHubIcon, MoonIcon, SunIcon, sectionIcons } from "./icons";
+import { ThemedLogo } from "./ui";
 
 type NavProps = {
   locale: Locale;
@@ -110,22 +111,8 @@ function SidePanel({ locale, labels, common, active, index }: PanelProps) {
 
       {/* Symbol over wordmark, in the same proportions as the official lockup. */}
       <a href="#overview" className="side-nav__brand" aria-label={common.home}>
-        <img
-          className="side-nav__symbol"
-          src={logo.symbol.src}
-          alt=""
-          width={logo.symbol.width}
-          height={logo.symbol.height}
-          decoding="async"
-        />
-        <img
-          className="side-nav__wordmark"
-          src={logo.wordmark.src}
-          alt={common.brand}
-          width={logo.wordmark.width}
-          height={logo.wordmark.height}
-          decoding="async"
-        />
+        <ThemedLogo asset={logo.symbol} alt="" className="side-nav__symbol" />
+        <ThemedLogo asset={logo.wordmark} alt={common.brand} className="side-nav__wordmark" />
       </a>
 
       <span className="side-nav__progress" aria-hidden="true">
@@ -209,22 +196,8 @@ function MobileBar({ locale, labels, common, active, index }: PanelProps) {
       <header className={cx("mobile-nav glass", open && "is-open")}>
         <div className="mobile-nav__bar">
           <a href="#overview" className="mobile-nav__brand" aria-label={common.home} onClick={() => setOpen(false)}>
-            <img
-              className="mobile-nav__symbol"
-              src={logo.symbol.src}
-              alt=""
-              width={logo.symbol.width}
-              height={logo.symbol.height}
-              decoding="async"
-            />
-            <img
-              className="mobile-nav__wordmark"
-              src={logo.wordmark.src}
-              alt={common.brand}
-              width={logo.wordmark.width}
-              height={logo.wordmark.height}
-              decoding="async"
-            />
+            <ThemedLogo asset={logo.symbol} alt="" className="mobile-nav__symbol" />
+            <ThemedLogo asset={logo.wordmark} alt={common.brand} className="mobile-nav__wordmark" />
           </a>
 
           <p className="mobile-nav__where" aria-live="off">

@@ -1,6 +1,6 @@
 import type { CSSProperties, ReactNode } from "react";
 import type { Dictionary } from "@/content";
-import { cx } from "@/lib/site";
+import { cx, type ThemedAsset } from "@/lib/site";
 import { ArrowUpRight } from "./icons";
 
 export type StatusKind = keyof Dictionary["status"];
@@ -23,6 +23,38 @@ export function Sentences({ text }: { text: string }) {
         <span key={i} className="block">
           {part}
         </span>
+      ))}
+    </>
+  );
+}
+
+/**
+ * A logo that follows the theme. Both versions are in the markup and CSS shows
+ * one, so the right logo is there on first paint with no script involved.
+ * Lazy loading keeps the hidden version from being downloaded.
+ */
+export function ThemedLogo({
+  asset,
+  alt,
+  className,
+}: {
+  asset: ThemedAsset;
+  alt: string;
+  className?: string;
+}) {
+  return (
+    <>
+      {(["light", "dark"] as const).map((mode) => (
+        <img
+          key={mode}
+          className={cx(className, mode === "light" ? "only-light" : "only-dark")}
+          src={asset[mode].src}
+          alt={alt}
+          width={asset[mode].width}
+          height={asset[mode].height}
+          loading="lazy"
+          decoding="async"
+        />
       ))}
     </>
   );

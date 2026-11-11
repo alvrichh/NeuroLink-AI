@@ -14,15 +14,21 @@ function asset(entry: { file: string; width: number; height: number }): BrandAss
   return { src: withBase(`/brand/${entry.file}`), width: entry.width, height: entry.height };
 }
 
-/** The official logo, in the forms the brand provides. Never redrawn or recoloured. */
+/** A logo form in its two versions: for light and for dark backgrounds. */
+export type ThemedAsset = { light: BrandAsset; dark: BrandAsset };
+
+/**
+ * The official logo, in the forms the brand provides. Each has a version for
+ * white backgrounds and one for dark backgrounds (transparent, white lettering).
+ */
 export const logo = {
   /** Brain-and-orbit mark on its own. */
-  symbol: asset(brand.assets.symbol),
+  symbol: { light: asset(brand.assets.symbol), dark: asset(brand.assets.symbolDark) },
   /** "NeuroLink AI" lettering on its own. */
-  wordmark: asset(brand.assets.wordmark),
+  wordmark: { light: asset(brand.assets.wordmark), dark: asset(brand.assets.wordmarkDark) },
   /** Full logo: symbol, wordmark and the "Brain · Privacy · AI" line. */
-  lockup: asset(brand.assets.lockup),
-} as const;
+  lockup: { light: asset(brand.assets.lockup), dark: asset(brand.assets.lockupDark) },
+} as const satisfies Record<string, ThemedAsset>;
 
 /** Favicon and app icons: the symbol on a white tile (see /assets/branding/icons). */
 export const icons = {
