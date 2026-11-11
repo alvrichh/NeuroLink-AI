@@ -184,23 +184,102 @@ html[data-theme="dark"] {
   /* Ambient light: soft blue and cyan in the corners, fixed to the viewport.
      It keeps the canvas from reading as flat white and gives the glass
      navigation something to refract. Sections are transparent or translucent
-     so it shows through everywhere. */
-  body::before {
+     so it shows through everywhere.
+
+     Two layers, each larger than the viewport by --ambient-bleed on every
+     side, so they can drift (transform only, on the compositor) without ever
+     showing an edge. Gradient centres are placed relative to the viewport's
+     corners, which sit --ambient-bleed inside the layer. */
+  body::before,
+  body::after {
+    --ambient-bleed: 14rem;
     content: "";
     position: fixed;
-    inset: 0;
+    inset: calc(-1 * var(--ambient-bleed));
     z-index: -1;
     pointer-events: none;
+  }
+
+  /* Layer 1: the main wash, top left, and a faint echo bottom right. */
+  body::before {
     background:
-      radial-gradient(34rem 26rem at 14% -10%, var(--ambient-key-cyan), transparent 70%),
-      radial-gradient(70rem 52rem at -4% -12%, var(--ambient-key), transparent 70%),
-      radial-gradient(40rem 34rem at -4% 104%, var(--ambient-cyan), transparent 66%),
-      radial-gradient(44rem 36rem at 104% -6%, var(--ambient-blue-soft), transparent 68%),
-      radial-gradient(38rem 32rem at 102% 106%, var(--ambient-blue-soft), transparent 66%);
+      radial-gradient(
+        34rem 26rem at calc(var(--ambient-bleed) + 14vw) calc(var(--ambient-bleed) - 10vh),
+        var(--ambient-key-cyan),
+        transparent 70%
+      ),
+      radial-gradient(
+        70rem 52rem at calc(var(--ambient-bleed) - 4vw) calc(var(--ambient-bleed) - 12vh),
+        var(--ambient-key),
+        transparent 70%
+      ),
+      radial-gradient(
+        38rem 32rem at calc(100% - var(--ambient-bleed) + 2vw) calc(100% - var(--ambient-bleed) + 6vh),
+        var(--ambient-blue-soft),
+        transparent 66%
+      );
+  }
+
+  /* Layer 2: cyan bottom left, soft blue top right. */
+  body::after {
+    background:
+      radial-gradient(
+        40rem 34rem at calc(var(--ambient-bleed) - 4vw) calc(100% - var(--ambient-bleed) + 4vh),
+        var(--ambient-cyan),
+        transparent 66%
+      ),
+      radial-gradient(
+        44rem 36rem at calc(100% - var(--ambient-bleed) + 4vw) calc(var(--ambient-bleed) - 6vh),
+        var(--ambient-blue-soft),
+        transparent 68%
+      );
+  }
+
+  /* A slow drift: each layer wanders on its own loop, so the light never
+     repeats in step. Stays within --ambient-bleed. */
+  @keyframes ambient-drift-a {
+    0% {
+      transform: translate3d(0, 0, 0) scale(1);
+    }
+    33% {
+      transform: translate3d(7rem, 4rem, 0) scale(1.08);
+    }
+    66% {
+      transform: translate3d(2rem, 8rem, 0) scale(1.03);
+    }
+    100% {
+      transform: translate3d(0, 0, 0) scale(1);
+    }
+  }
+
+  @keyframes ambient-drift-b {
+    0% {
+      transform: translate3d(0, 0, 0) scale(1);
+    }
+    40% {
+      transform: translate3d(-6rem, -5rem, 0) scale(1.1);
+    }
+    75% {
+      transform: translate3d(5rem, -7rem, 0) scale(1.04);
+    }
+    100% {
+      transform: translate3d(0, 0, 0) scale(1);
+    }
+  }
+
+  html[data-motion="on"] body::before {
+    animation: ambient-drift-a 26s ease-in-out infinite;
+    will-change: transform;
+  }
+
+  html[data-motion="on"] body::after {
+    animation: ambient-drift-b 34s ease-in-out infinite;
+    will-change: transform;
   }
 
   @media print {
-    body::before {
+    body::before,
+    body::after {
       display: none;
     }
   }
