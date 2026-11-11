@@ -134,6 +134,16 @@
     margin-top: clamp(2rem, 4vw, 3rem);
   }
 
+  /* The section ends on a full-width panel, which already reads as a close:
+     the next section's own top spacing is enough of a pause. */
+  #vision {
+    padding-bottom: 0;
+  }
+
+  #vision + .section {
+    padding-top: calc(var(--section-y) * 0.7);
+  }
+
   /* Wide screens: heading pinned, content travelling past it. */
   @media (min-width: 68.75rem) {
     .vision__split {
