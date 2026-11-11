@@ -294,6 +294,20 @@
     transition: transform 0.9s var(--ease-swift);
   }
 
+  /* Self-advancing: travel from the current stage to the next over one step. */
+  @keyframes seq-travel {
+    from {
+      transform: scaleX(calc(var(--active) / (var(--count) - 1)));
+    }
+    to {
+      transform: scaleX(calc((var(--active) + 1) / (var(--count) - 1)));
+    }
+  }
+
+  html[data-motion="on"] .seq__line i[data-travel="true"] {
+    animation: seq-travel linear both;
+  }
+
   .seq__tab {
     position: relative;
     display: flex;
@@ -1729,6 +1743,19 @@
     transform-origin: 0 50%;
     transition: transform 0.8s var(--ease-swift);
     overflow: hidden;
+  }
+
+  @keyframes chain-travel {
+    from {
+      transform: scaleX(calc((var(--active) + 0.5) / var(--count)));
+    }
+    to {
+      transform: scaleX(calc((var(--active) + 1.5) / var(--count)));
+    }
+  }
+
+  html[data-motion="on"] .chain__rail i[data-travel="true"] {
+    animation: chain-travel linear both;
   }
 
   .chain__rail i::after {

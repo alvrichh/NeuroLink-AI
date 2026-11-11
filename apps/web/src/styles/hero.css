@@ -276,9 +276,12 @@
           visibility 0s linear 0s;
       }
 
+      /* The steps share the intro's cell, which is taller than they are.
+         Sit them at its bottom edge, next to the illustration, so the spare
+         height falls under the title instead of leaving a gap below them. */
       .hero__beats {
         display: grid;
-        align-content: start;
+        align-content: end;
         padding-top: clamp(1.5rem, 3.6svh, 2.5rem);
       }
 
@@ -383,7 +386,7 @@
   .hero__beat-text {
     margin-top: 1rem;
     max-width: 16em;
-    font-size: clamp(1.75rem, 1.2rem + 1.9vw, 3rem);
+    font-size: clamp(1.875rem, 1.2rem + 2.3vw, 3.5rem);
     font-weight: 600;
     line-height: 1.05;
     letter-spacing: -0.035em;

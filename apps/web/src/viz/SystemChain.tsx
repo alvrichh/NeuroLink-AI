@@ -55,6 +55,7 @@ export function SystemChain({
 }) {
   const [active, setActive] = useState(0);
   const [auto, setAuto] = useState(true);
+  const [running, setRunning] = useState(false);
   const scroller = useRef<HTMLDivElement>(null);
 
   // Walk the signal through the chain while it is on screen, until the visitor
@@ -69,6 +70,7 @@ export function SystemChain({
     const io = new IntersectionObserver(
       ([entry]) => {
         window.clearInterval(timer);
+        setRunning(Boolean(entry?.isIntersecting));
         if (entry?.isIntersecting) {
           timer = window.setInterval(() => setActive((i) => (i + 1) % stages.length), AUTO_ADVANCE_MS);
         }
@@ -164,7 +166,11 @@ export function SystemChain({
           </div>
 
           <div className="chain__rail" aria-hidden="true">
-            <i />
+            <i
+              key={auto && running ? `auto-${active}` : "manual"}
+              data-travel={auto && running && active < stages.length - 1}
+              style={{ animationDuration: `${AUTO_ADVANCE_MS}ms` }}
+            />
           </div>
         </div>
       </div>

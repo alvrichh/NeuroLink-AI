@@ -84,6 +84,8 @@ const AUTO_ADVANCE_MS = 5200;
 export function VisionSequence({ copy, conceptual }: { copy: SequenceCopy; conceptual: string }) {
   const [active, setActive] = useState(0);
   const [auto, setAuto] = useState(true);
+  // True while the timer is actually ticking (on screen, motion enabled).
+  const [running, setRunning] = useState(false);
   const rootRef = useRef<HTMLDivElement>(null);
   const tabRefs = useRef<Array<HTMLButtonElement | null>>([]);
   const baseId = useId();
@@ -97,6 +99,7 @@ export function VisionSequence({ copy, conceptual }: { copy: SequenceCopy; conce
     const io = new IntersectionObserver(
       ([entry]) => {
         window.clearInterval(timer);
+        setRunning(Boolean(entry?.isIntersecting));
         if (entry?.isIntersecting) {
           timer = window.setInterval(() => setActive((i) => (i + 1) % order.length), AUTO_ADVANCE_MS);
         }
@@ -154,8 +157,14 @@ export function VisionSequence({ copy, conceptual }: { copy: SequenceCopy; conce
           aria-orientation="horizontal"
           onKeyDown={onKeyDown}
         >
+          {/* While advancing by itself, the line travels steadily toward the
+              next stage, so it reads as a countdown; re-keyed at each step. */}
           <span className="seq__line" aria-hidden="true">
-            <i />
+            <i
+              key={auto && running ? `auto-${active}` : "manual"}
+              data-travel={auto && running && active < order.length - 1}
+              style={{ animationDuration: `${AUTO_ADVANCE_MS}ms` }}
+            />
           </span>
           {order.map((id, i) => {
             const selected = i === active;
