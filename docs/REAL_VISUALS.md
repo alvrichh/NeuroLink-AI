@@ -7,6 +7,7 @@ The repository currently embeds Wikimedia Commons originals remotely (no photo f
 - **Actual EEG electrode** — George Spilich/Gspilich2, [CC BY-SA 3.0](https://creativecommons.org/licenses/by-sa/3.0/), [source](https://commons.wikimedia.org/wiki/File:EEG_electrode.jpg).
 - **Actual 64-channel EEG cap on model** — Sdwilli, [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/), [source](https://commons.wikimedia.org/wiki/File:EEG_Cap_on_melon.jpg).
 - **Actual historical OpenBCI 32-bit ChipKIT v3 board** — Omphalosskeptic, [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/), [source](https://commons.wikimedia.org/wiki/File:Openbci-brain-computer-interface-by-omphalosskeptic.png).
+- **Actual 2013 BCI cursor experiment** — Laurens R. Krol, [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/), [source](https://commons.wikimedia.org/wiki/File:Brain-computer_interface_experiment.jpg). Not a P300 speller or a NeuroLink AI experiment.
 
 The photographs belong to other people and portray reference equipment **not built or operated by NeuroLink AI**. See [photographic gallery](../assets/real/README.md).
 

@@ -9,6 +9,7 @@
 | EEG electrode | George Spilich / Gspilich2 | [CC BY-SA 3.0](https://creativecommons.org/licenses/by-sa/3.0/) | [Commons](https://commons.wikimedia.org/wiki/File:EEG_electrode.jpg) | No modification | Embedded remotely with attribution; not copied |
 | EEG cap on model | Sdwilli | [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/) | [Commons](https://commons.wikimedia.org/wiki/File:EEG_Cap_on_melon.jpg) | No modification | Embedded remotely with attribution; not copied |
 | Historical OpenBCI 32-bit ChipKIT v3 board (2014) | Omphalosskeptic | [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/) | [Commons](https://commons.wikimedia.org/wiki/File:Openbci-brain-computer-interface-by-omphalosskeptic.png) | No modification (Wikimedia thumbnail used) | Embedded remotely with attribution; not copied |
+| Real 2013 EEG cursor-control study photograph | Laurens R. Krol | [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/) | [Commons](https://commons.wikimedia.org/wiki/File:Brain-computer_interface_experiment.jpg) | No modification (Wikimedia 960px preview) | Embedded remotely with attribution; not copied |
 
 Rights checked 2026-11-11 against the individual Wikimedia Commons file pages. Original files are hosted by Wikimedia Commons; no photographic bytes are committed to this repository. **Attribution is retained next to each embed.**
 

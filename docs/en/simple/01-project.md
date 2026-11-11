@@ -8,6 +8,12 @@ A person could focus on a target letter within a visual spelling interface. An E
 
 This is called a **brain–computer interface** (BCI). It does **not** mean the AI can automatically understand any arbitrary private thought. P300 spelling measures a response to a defined stimulus and requires a specific task, timing and calibration.
 
+## A real-world BCI research example
+
+![Real EEG laboratory experiment from 2013](https://upload.wikimedia.org/wikipedia/commons/thumb/7/7c/Brain-computer_interface_experiment.jpg/960px-Brain-computer_interface_experiment.jpg)
+
+*Real BCI cursor-control research, 2013. Photo by Laurens R. Krol, [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/), [original](https://commons.wikimedia.org/wiki/File:Brain-computer_interface_experiment.jpg). No alterations; **not** NeuroLink AI and **not** our P300 spelling experiment.*
+
 ## Why three phases?
 
 1. **Brain → AI:** select characters and compose messages.
