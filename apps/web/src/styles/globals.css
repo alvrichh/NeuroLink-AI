@@ -1,0 +1,472 @@
+@import "tailwindcss";
+@import "./brand/tokens.css";
+@import "./glass.css";
+@import "./motion.css";
+@import "./nav.css";
+@import "./hero.css";
+@import "./sections.css";
+
+/* ---------------------------------------------------------------------------
+   Design tokens
+   The four brand colours come verbatim from /assets/branding/tokens.css
+   (--nl-white, --nl-navy, --nl-blue, --nl-cyan). Tailwind's default palette is
+   removed so that no competing blue or cyan can be introduced by accident:
+   every tint on the site is one of the brand colours at reduced opacity.
+--------------------------------------------------------------------------- */
+@theme {
+  --color-*: initial;
+  --color-white: var(--nl-white);
+  --color-navy: var(--nl-navy);
+  --color-blue: var(--nl-blue);
+  --color-cyan: var(--nl-cyan);
+  --color-line: var(--nl-border);
+  --color-muted: var(--nl-muted);
+  --color-surface: var(--surface);
+  --color-ink: var(--ink-body);
+  --color-transparent: transparent;
+  --color-current: currentColor;
+
+  --font-sans: var(--font-geist-sans), ui-sans-serif, system-ui, -apple-system, "Helvetica Neue",
+    Arial, sans-serif;
+  --font-mono: var(--font-geist-mono), ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+
+  --breakpoint-nav: 68.75rem;
+
+  --ease-expo: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-swift: cubic-bezier(0.32, 0.72, 0, 1);
+
+  --radius-panel: 1.75rem;
+  --radius-card: 1.5rem;
+  --radius-inner: 1rem;
+}
+
+:root {
+  /* Neutrals derived from brand navy (never new hues). */
+  --surface: color-mix(in srgb, var(--nl-navy) 2.5%, var(--nl-white));
+  --surface-strong: color-mix(in srgb, var(--nl-navy) 4.5%, var(--nl-white));
+  --ink-body: color-mix(in srgb, var(--nl-navy) 80%, var(--nl-white));
+  --hairline: color-mix(in srgb, var(--nl-navy) 10%, transparent);
+  --hairline-strong: color-mix(in srgb, var(--nl-navy) 16%, transparent);
+
+  /* Layout: the floating navigation reserves space only on wide screens. */
+  --gutter: clamp(1.25rem, 5vw, 4rem);
+  --nav-w: 0rem;
+  --nav-inset: 0rem;
+  --nav-space: 0rem;
+  --bar-h: 3.5rem;
+  --section-y: clamp(5.5rem, 11vw, 10.5rem);
+
+  color-scheme: light;
+}
+
+@media (min-width: 68.75rem) {
+  :root {
+    --nav-w: 14.5rem;
+    --nav-inset: 1rem;
+    --nav-space: calc(var(--nav-w) + var(--nav-inset));
+  }
+}
+
+/* ---------------------------------------------------------------------------
+   Base
+--------------------------------------------------------------------------- */
+@layer base {
+  html {
+    background: var(--nl-white);
+    color: var(--nl-navy);
+    -webkit-text-size-adjust: 100%;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    scroll-behavior: smooth;
+    scroll-padding-top: 1.5rem;
+    font-feature-settings: "ss01", "cv11";
+  }
+
+  @media (max-width: 68.74rem) {
+    html {
+      scroll-padding-top: calc(var(--bar-h) + 1.5rem);
+    }
+  }
+
+  body {
+    min-height: 100svh;
+    background: var(--nl-white);
+    font-family: var(--font-sans);
+    font-size: 1.0625rem;
+    line-height: 1.55;
+    color: var(--ink-body);
+    overflow-x: clip;
+  }
+
+  ::selection {
+    background: color-mix(in srgb, var(--nl-blue) 18%, transparent);
+    color: var(--nl-navy);
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    color: var(--nl-navy);
+    text-wrap: balance;
+  }
+
+  p {
+    text-wrap: pretty;
+  }
+
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--nl-blue);
+    outline-offset: 3px;
+    border-radius: 0.375rem;
+  }
+
+  button {
+    cursor: pointer;
+  }
+
+  button:disabled {
+    cursor: default;
+  }
+
+  img {
+    max-width: 100%;
+    height: auto;
+  }
+}
+
+/* ---------------------------------------------------------------------------
+   Layout primitives
+--------------------------------------------------------------------------- */
+@layer components {
+  /* Sections are full-bleed so visuals can pass beneath the glass navigation;
+     `.frame` offsets their content past it. */
+  .frame {
+    padding-left: var(--nav-space);
+  }
+
+  .wrap {
+    width: min(100% - 2 * var(--gutter), 70rem);
+    margin-inline: auto;
+  }
+
+  .section {
+    position: relative;
+    padding-block: var(--section-y);
+  }
+
+  .rule {
+    height: 1px;
+    background: var(--hairline);
+  }
+
+  /* Type scale ----------------------------------------------------------- */
+  .t-display {
+    font-size: clamp(4.25rem, 1.2rem + 9.8vw, 10.25rem);
+    font-weight: 600;
+    line-height: 0.9;
+    letter-spacing: -0.058em;
+    color: var(--nl-navy);
+  }
+
+  .t-title {
+    font-size: clamp(2.5rem, 1.45rem + 3.9vw, 5.25rem);
+    font-weight: 600;
+    line-height: 0.98;
+    letter-spacing: -0.045em;
+  }
+
+  .t-heading {
+    font-size: clamp(1.625rem, 1.3rem + 1.3vw, 2.5rem);
+    font-weight: 600;
+    line-height: 1.08;
+    letter-spacing: -0.032em;
+  }
+
+  .t-lead {
+    font-size: clamp(1.25rem, 1.08rem + 0.72vw, 1.75rem);
+    font-weight: 450;
+    line-height: 1.28;
+    letter-spacing: -0.02em;
+    color: var(--nl-navy);
+  }
+
+  .t-body {
+    font-size: 1.0625rem;
+    line-height: 1.58;
+    color: var(--ink-body);
+  }
+
+  .t-small {
+    font-size: 0.875rem;
+    line-height: 1.5;
+    color: var(--nl-muted);
+  }
+
+  .t-eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.625rem;
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    font-weight: 500;
+    line-height: 1;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--nl-muted);
+  }
+
+  .t-eyebrow b {
+    font-weight: 500;
+    color: var(--nl-blue);
+  }
+
+  .t-mono {
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    letter-spacing: 0.02em;
+    font-feature-settings: "zero";
+  }
+
+  /* Links inside running text ------------------------------------------- */
+  .link {
+    color: var(--nl-blue);
+    text-decoration: underline;
+    text-decoration-color: color-mix(in srgb, var(--nl-blue) 30%, transparent);
+    text-decoration-thickness: 1px;
+    text-underline-offset: 0.22em;
+    transition: text-decoration-color 0.25s ease;
+  }
+
+  .link:hover {
+    text-decoration-color: var(--nl-blue);
+  }
+
+  /* Buttons -------------------------------------------------------------- */
+  .btn {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.625rem;
+    min-height: 3rem;
+    padding: 0 1.375rem;
+    border-radius: 999px;
+    font-size: 0.9375rem;
+    font-weight: 500;
+    letter-spacing: -0.01em;
+    white-space: nowrap;
+    transition:
+      transform 0.35s var(--ease-expo),
+      box-shadow 0.35s var(--ease-expo),
+      background-color 0.25s ease;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  .btn:active {
+    transform: scale(0.975);
+  }
+
+  .btn-primary {
+    background: var(--nl-blue);
+    color: var(--nl-white);
+    box-shadow:
+      inset 0 1px 0 rgb(255 255 255 / 0.22),
+      0 1px 2px color-mix(in srgb, var(--nl-navy) 20%, transparent),
+      0 8px 20px -8px color-mix(in srgb, var(--nl-blue) 55%, transparent);
+  }
+
+  .btn-primary:hover {
+    box-shadow:
+      inset 0 1px 0 rgb(255 255 255 / 0.22),
+      0 1px 2px color-mix(in srgb, var(--nl-navy) 20%, transparent),
+      0 14px 28px -10px color-mix(in srgb, var(--nl-blue) 70%, transparent);
+    transform: translateY(-1px);
+  }
+
+  .btn-primary:disabled {
+    background: color-mix(in srgb, var(--nl-navy) 12%, var(--nl-white));
+    color: var(--nl-muted);
+    box-shadow: none;
+    transform: none;
+  }
+
+  .btn-quiet {
+    background: var(--nl-white);
+    color: var(--nl-navy);
+    box-shadow:
+      inset 0 0 0 1px var(--hairline-strong),
+      0 1px 2px color-mix(in srgb, var(--nl-navy) 5%, transparent);
+  }
+
+  .btn-quiet:hover {
+    box-shadow:
+      inset 0 0 0 1px color-mix(in srgb, var(--nl-navy) 28%, transparent),
+      0 6px 16px -8px color-mix(in srgb, var(--nl-navy) 22%, transparent);
+    transform: translateY(-1px);
+  }
+
+  .btn-sm {
+    min-height: 2.5rem;
+    padding: 0 1.125rem;
+    font-size: 0.875rem;
+  }
+
+  .btn .arrow {
+    transition: transform 0.35s var(--ease-expo);
+  }
+
+  .btn:hover .arrow {
+    transform: translateX(3px);
+  }
+
+  .btn:hover .arrow-down {
+    transform: translateY(3px);
+  }
+
+  /* Status indicator ----------------------------------------------------- */
+  .status {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-family: var(--font-mono);
+    font-size: 0.6875rem;
+    font-weight: 500;
+    line-height: 1;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--nl-navy);
+    white-space: nowrap;
+  }
+
+  .status-mark {
+    position: relative;
+    width: 0.625rem;
+    height: 0.625rem;
+    flex: none;
+    border-radius: 999px;
+    box-shadow: inset 0 0 0 1.5px var(--nl-navy);
+  }
+
+  /* documented: solid navy */
+  .status-mark[data-kind="documented"] {
+    background: var(--nl-navy);
+  }
+  /* prototype: half-filled blue */
+  .status-mark[data-kind="prototype"] {
+    box-shadow: inset 0 0 0 1.5px var(--nl-blue);
+    background: linear-gradient(90deg, var(--nl-blue) 50%, transparent 50%);
+  }
+  /* planned: hollow */
+  .status-mark[data-kind="planned"] {
+    box-shadow: inset 0 0 0 1.5px color-mix(in srgb, var(--nl-navy) 55%, transparent);
+  }
+  /* optional / open question: dashed ring */
+  .status-mark[data-kind="optional"],
+  .status-mark[data-kind="question"] {
+    box-shadow: none;
+    border: 1.5px dashed color-mix(in srgb, var(--nl-navy) 55%, transparent);
+  }
+  /* external reference: square */
+  .status-mark[data-kind="reference"] {
+    border-radius: 2px;
+    box-shadow: inset 0 0 0 1.5px color-mix(in srgb, var(--nl-navy) 55%, transparent);
+    background: color-mix(in srgb, var(--nl-navy) 14%, transparent);
+  }
+
+  /* Evidence label (CONCEPTUAL / PHOTOGRAPH …), per docs/VISUAL_STANDARDS.md */
+  .evidence-label {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-family: var(--font-mono);
+    font-size: 0.6875rem;
+    line-height: 1.3;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: var(--nl-muted);
+  }
+
+  .evidence-label::before {
+    content: "";
+    width: 0.875rem;
+    height: 1px;
+    background: currentColor;
+    opacity: 0.6;
+  }
+
+  /* Cards ---------------------------------------------------------------- */
+  .card {
+    position: relative;
+    border-radius: var(--radius-card);
+    background: var(--nl-white);
+    box-shadow:
+      inset 0 0 0 1px var(--hairline),
+      0 1px 2px color-mix(in srgb, var(--nl-navy) 3%, transparent);
+  }
+
+  .card-soft {
+    position: relative;
+    border-radius: var(--radius-card);
+    background: var(--surface);
+  }
+
+  .card-lift {
+    transition:
+      transform 0.6s var(--ease-expo),
+      box-shadow 0.6s var(--ease-expo);
+  }
+
+  @media (hover: hover) {
+    .card-lift:hover {
+      transform: translateY(-3px);
+      box-shadow:
+        inset 0 0 0 1px var(--hairline-strong),
+        0 22px 48px -28px color-mix(in srgb, var(--nl-navy) 35%, transparent);
+    }
+  }
+
+  /* Skip link ------------------------------------------------------------ */
+  .skip-link {
+    position: fixed;
+    top: 0.75rem;
+    left: 0.75rem;
+    z-index: 100;
+    padding: 0.75rem 1rem;
+    border-radius: 0.75rem;
+    background: var(--nl-navy);
+    color: var(--nl-white);
+    font-size: 0.875rem;
+    font-weight: 500;
+    transform: translateY(-200%);
+    transition: transform 0.2s ease;
+  }
+
+  .skip-link:focus-visible {
+    transform: none;
+    outline-color: var(--nl-cyan);
+  }
+}
+
+@utility scrollbar-none {
+  scrollbar-width: none;
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+@media print {
+  .side-nav,
+  .mobile-nav {
+    display: none !important;
+  }
+  .frame {
+    padding-left: 0;
+  }
+}

@@ -35,6 +35,17 @@ The following were created as *conceptual mockups*, **not recordings, photos or 
 
 They remain to avoid breaking existing links. New entry pages link to the engineering Mermaid diagrams instead; those legacy images may be archived when all referencing documents are migrated.
 
+## Website / Sitio web (`apps/web`)
+
+| Visual | Label | Provenance |
+| --- | --- | --- |
+| Hero thread animation, interaction sequence, bidirectional diagram, speller matrix | CONCEPTUAL / MOCKUP | First-party code-drawn graphics. Labelled on the page as conceptual; no signal traces or plots |
+| Neural Privacy Firewall demonstration | SIMULATED | First-party. Runs a TypeScript mirror of `src/neurolink_ai/privacy_gate.py` driven by button presses and timers; the candidate text is a fixed synthetic string. No EEG and no intent detection |
+| EEG cap on model, OpenBCI 32-bit board, 2013 BCI experiment | PHOTOGRAPH / LICENSED | The three Wikimedia Commons photographs registered above, **embedded remotely with attribution next to each figure; not copied** |
+| Logo and colours | Brand asset | Synced at build time from `assets/branding/`; not modified |
+
+The website shows no measured data. The register of exact photo URLs used by the site is `apps/web/src/content/media.ts`; keep it consistent with this file.
+
 ## Publishing real measurements
 
 For each plot: dataset or acquisition device, legal permission to reuse data, subject/session where not personally identifying, preprocessing steps, plotting code/version, axis labels, units, evaluation split, and whether generated from recorded or synthetic EEG. No invented ERP curves or fabricated scope traces.

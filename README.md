@@ -1,6 +1,6 @@
 # NeuroLink AI
 
-<p align="center"><img src="assets/branding/neurolink-ai-logo.webp" width="320" alt="NeuroLink AI logo: brain and inner speech secured by shield, with bidirectional arrows" /></p>
+<p align="center"><img src="assets/branding/neurolink-ai-lockup.webp" width="420" alt="NeuroLink AI logo: a blue brain crossed by circuit traces and circled by an orbit, above the NeuroLink AI wordmark and the line Brain · Privacy · AI" /></p>
 
 <p align="center"><strong>Inner speech → AI · Lenguaje interior → IA</strong></p>
 
@@ -66,6 +66,7 @@ flowchart LR
 | Hardware | [Electronics (EN)](hardware/en/README.md) | [Electrónica (ES)](hardware/README.md) |
 | Diagrams | [Editable diagrams](diagrams/README.md) | [Diagramas](diagrams/README.md) |
 | Photos | [Licensed EEG reference photos](assets/real/README.md) | [Fotografías reales](assets/real/README.md) |
+| Website | [Bilingual research website (source)](apps/web/README.md) | [Sitio web bilingüe (código)](apps/web/README.md#español) |
 
 **P300 spelling** has been reclassified as a [secondary BCI reference](docs/technical/p300-secondary-baseline.md), **not** the principal interaction design.
 

@@ -39,6 +39,12 @@
 
 **Traducción:** las fotografías y gráficos pueden compartirse; traducir etiquetas, leyendas, texto alternativo y explicaciones. Un resumen en inglés no equivale a documentación íntegra traducida.
 
+## Website / Sitio web
+
+**EN:** The public website (`apps/web`) is a presentation layer, not engineering documentation. It may use the brand's interface materials — including translucent navigation panels — as *interface chrome*. Every rule above still applies to its content: each visual carries an evidence label, decorative motion is marked as conceptual, simulations are named as simulations, third-party photographs keep author, licence and source, and nothing planned is shown as demonstrated. Engineering diagrams in `diagrams/` keep their neutral style.
+
+**ES:** El sitio web público (`apps/web`) es una capa de presentación, no documentación de ingeniería. Puede usar los materiales de interfaz de la marca —incluidos paneles de navegación translúcidos— como *elementos de interfaz*. Todas las normas anteriores siguen aplicándose a su contenido: cada elemento visual lleva su etiqueta de evidencia, la animación decorativa se marca como conceptual, las simulaciones se nombran como simulaciones, las fotografías de terceros conservan autor, licencia y fuente, y nada planificado se muestra como demostrado. Los diagramas de ingeniería de `diagrams/` mantienen su estilo neutro.
+
 ## Caption pattern / Plantilla de pie de figura
 
 ```text

@@ -1,0 +1,202 @@
+/* ---------------------------------------------------------------------------
+   Hero — "Beyond words."
+--------------------------------------------------------------------------- */
+@layer components {
+  .hero {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    /* Capped so full-height capture tools do not stretch the composition. */
+    min-height: min(100svh, 68rem);
+    overflow: clip;
+    background:
+      radial-gradient(90% 60% at 78% 100%, color-mix(in srgb, var(--nl-blue) 5%, transparent), transparent 70%),
+      var(--nl-white);
+  }
+
+  .hero__frame {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    padding-top: calc(var(--bar-h) + 3.25rem);
+    padding-bottom: 1.5rem;
+  }
+
+  @media (min-width: 68.75rem) {
+    .hero__frame {
+      padding-top: clamp(2.5rem, 7svh, 6rem);
+    }
+  }
+
+  .hero__content {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .hero__mark {
+    width: 0.4375rem;
+    height: 0.4375rem;
+    border-radius: 999px;
+    background: var(--nl-blue);
+    box-shadow: 0 0 0 3px color-mix(in srgb, var(--nl-cyan) 35%, transparent);
+  }
+
+  @media (max-width: 30rem) {
+    .hero__eyebrow-note {
+      display: none;
+    }
+  }
+
+  .hero__title {
+    margin-top: clamp(1.25rem, 3svh, 2rem);
+    /* optical alignment of the first glyph with the text column */
+    margin-left: -0.045em;
+  }
+
+  .hero__title[data-long="true"] {
+    font-size: clamp(3.25rem, 0.9rem + 7vw, 7.5rem);
+    line-height: 0.93;
+    letter-spacing: -0.052em;
+  }
+
+  .hero__lead {
+    max-width: 21em;
+    margin-top: clamp(1.5rem, 3.6svh, 2.5rem);
+  }
+
+  .hero__text {
+    max-width: 29em;
+    margin-top: 1rem;
+    color: var(--nl-muted);
+  }
+
+  .hero__cta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    margin-top: clamp(1.75rem, 4svh, 2.5rem);
+  }
+
+  /* Visualisation band --------------------------------------------------- */
+  .hero__viz {
+    position: relative;
+    flex: none;
+    height: clamp(13.5rem, 34svh, 23rem);
+    --gate-left: calc(var(--nav-space) + (100% - var(--nav-space)) * 0.56);
+  }
+
+  @media (max-width: 68.74rem) {
+    .hero__viz {
+      --gate-left: 54%;
+    }
+  }
+
+  .hero__canvas {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+  }
+
+  .hero__gate {
+    position: absolute;
+    top: 50%;
+    left: var(--gate-left);
+    width: 2.75rem;
+    height: min(58%, 8.5rem);
+    display: grid;
+    place-items: center;
+    border-radius: 999px;
+    color: var(--nl-blue);
+    transform: translate(-50%, -50%);
+    --glass-top: 0.62;
+    --glass-bottom: 0.4;
+    --glass-blur: 9px;
+  }
+
+  .hero__labels {
+    position: absolute;
+    inset: auto 0 1.125rem 0;
+    pointer-events: none;
+  }
+
+  .hero__labels-row {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    font-family: var(--font-mono);
+    font-size: 0.6875rem;
+    letter-spacing: 0.07em;
+    text-transform: uppercase;
+    color: var(--nl-muted);
+  }
+
+  .hero__label-gate {
+    position: absolute;
+    bottom: 1.125rem;
+    left: var(--gate-left);
+    transform: translateX(-50%);
+    font-family: var(--font-mono);
+    font-size: 0.6875rem;
+    letter-spacing: 0.07em;
+    text-transform: uppercase;
+    color: var(--nl-blue);
+    white-space: nowrap;
+  }
+
+  .hero__caption {
+    position: absolute;
+    top: 0;
+    right: var(--gutter);
+  }
+
+  @media (max-width: 40rem) {
+    .hero__caption {
+      right: auto;
+      left: var(--gutter);
+    }
+    .hero__labels-row span:first-child,
+    .hero__labels-row span:last-child {
+      max-width: 6.5rem;
+      line-height: 1.35;
+    }
+    .hero__labels-row span:last-child {
+      text-align: right;
+    }
+  }
+
+  /* Scroll-linked exit: the copy lifts and fades as the story begins. */
+  @keyframes hero-copy-out {
+    to {
+      opacity: 0;
+      transform: translate3d(0, -3rem, 0);
+    }
+  }
+
+  @keyframes hero-viz-out {
+    to {
+      transform: translate3d(0, 4rem, 0);
+      opacity: 0.35;
+    }
+  }
+
+  @supports (animation-timeline: scroll()) {
+    html[data-motion="on"] .hero__content {
+      animation: hero-copy-out linear both;
+      animation-timeline: scroll(root block);
+      animation-range: 12svh 78svh;
+    }
+    html[data-motion="on"] .hero__viz-inner {
+      animation: hero-viz-out linear both;
+      animation-timeline: scroll(root block);
+      animation-range: 0svh 100svh;
+    }
+  }
+
+  .hero__viz-inner {
+    position: absolute;
+    inset: 0;
+  }
+}

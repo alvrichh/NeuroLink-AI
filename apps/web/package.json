@@ -1,0 +1,38 @@
+{
+  "name": "@neurolink-ai/web",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "NeuroLink AI research website (Next.js, static export).",
+  "scripts": {
+    "sync:brand": "node scripts/sync-brand.mjs",
+    "predev": "npm run sync:brand",
+    "dev": "next dev",
+    "prebuild": "npm run sync:brand",
+    "build": "next build",
+    "start": "npx --yes serve@14 out -l 3000",
+    "lint": "eslint .",
+    "typecheck": "npm run sync:brand && tsc --noEmit",
+    "test": "node --test \"src/**/*.test.ts\"",
+    "check": "npm run lint && npm run typecheck && npm test && npm run build"
+  },
+  "engines": {
+    "node": ">=22.18"
+  },
+  "dependencies": {
+    "geist": "^1.9.2",
+    "next": "^16.4.6",
+    "react": "^19.3.1",
+    "react-dom": "^19.3.1"
+  },
+  "devDependencies": {
+    "@tailwindcss/postcss": "^4.3.5",
+    "@types/node": "^22.20.5",
+    "@types/react": "^19.3.0",
+    "@types/react-dom": "^19.3.0",
+    "eslint": "^9.39.5",
+    "eslint-config-next": "^16.4.6",
+    "tailwindcss": "^4.3.5",
+    "typescript": "^5.9.3"
+  }
+}
