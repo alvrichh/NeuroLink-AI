@@ -35,6 +35,8 @@ const domainSpans: Array<{ domain: Domain; span: number }> = [
 
 const legendKinds: StatusKind[] = ["reference", "prototype", "planned"];
 
+const AUTO_ADVANCE_MS = 4200;
+
 /**
  * Interactive architecture: EEG acquisition → AFE → ADC → MCU → signal
  * processing → decoder → privacy firewall → AI. The lit part of the rail shows
@@ -51,9 +53,40 @@ export function SystemChain({
   common: Dictionary["common"];
   locale: Locale;
 }) {
-  const [active, setActive] = useState(6); // open on our own work: the firewall
-  const tabs = useRef<Array<HTMLButtonElement | null>>([]);
+  const [active, setActive] = useState(0);
+  const [auto, setAuto] = useState(true);
   const scroller = useRef<HTMLDivElement>(null);
+
+  // Walk the signal through the chain while it is on screen, until the visitor
+  // picks a stage. Off when motion is disabled.
+  useEffect(() => {
+    if (!auto || document.documentElement.dataset.motion !== "on") return;
+    // Watch the strip of stages, not the whole panel, which can be taller than
+    // the viewport and so never count as "mostly visible".
+    const el = scroller.current;
+    if (!el) return;
+    let timer: number | undefined;
+    const io = new IntersectionObserver(
+      ([entry]) => {
+        window.clearInterval(timer);
+        if (entry?.isIntersecting) {
+          timer = window.setInterval(() => setActive((i) => (i + 1) % stages.length), AUTO_ADVANCE_MS);
+        }
+      },
+      { threshold: 0.6 },
+    );
+    io.observe(el);
+    return () => {
+      io.disconnect();
+      window.clearInterval(timer);
+    };
+  }, [auto]);
+
+  const choose = (index: number) => {
+    setAuto(false);
+    setActive(index);
+  };
+  const tabs = useRef<Array<HTMLButtonElement | null>>([]);
   const baseId = useId();
 
   // On narrow screens the chain scrolls sideways: keep the selected stage
@@ -85,7 +118,7 @@ export function SystemChain({
               : null;
     if (next === null) return;
     event.preventDefault();
-    setActive(next);
+    choose(next);
     tabs.current[next]?.focus({ preventScroll: true });
   };
 
@@ -117,7 +150,7 @@ export function SystemChain({
                   aria-controls={`${baseId}-panel`}
                   tabIndex={selected ? 0 : -1}
                   className={cx("chain__block", i < active && "is-lit")}
-                  onClick={() => setActive(i)}
+                  onClick={() => choose(i)}
                 >
                   <span className="chain__block-top">
                     <span className="t-mono">{String(i + 1).padStart(2, "0")}</span>

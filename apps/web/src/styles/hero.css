@@ -4,7 +4,6 @@
 @layer components {
   .hero {
     position: relative;
-    background: var(--paper);
   }
 
   /* The visible hero. Normally it is simply the section's content; in pinned
@@ -17,8 +16,7 @@
     min-height: min(100svh, 68rem);
     overflow: clip;
     background:
-      radial-gradient(90% 60% at 78% 100%, color-mix(in srgb, var(--accent) 5%, transparent), transparent 70%),
-      var(--paper);
+      radial-gradient(90% 60% at 78% 100%, color-mix(in srgb, var(--accent) 5%, transparent), transparent 70%);
   }
 
   .hero__frame {

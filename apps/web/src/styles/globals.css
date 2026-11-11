@@ -63,6 +63,12 @@
   --hairline-strong: color-mix(in srgb, var(--ink) 16%, transparent);
   --thumb: var(--nl-white); /* knob of a segmented control */
   --scrim: color-mix(in srgb, var(--nl-navy) 10%, transparent); /* behind an open menu */
+  /* Tinted section bands and the ambient corner light: translucent, so the
+     page background shows through them. */
+  --band: color-mix(in srgb, var(--nl-navy) 2.5%, transparent);
+  --ambient-blue: color-mix(in srgb, var(--nl-blue) 13%, transparent);
+  --ambient-blue-soft: color-mix(in srgb, var(--nl-blue) 7%, transparent);
+  --ambient-cyan: color-mix(in srgb, var(--nl-cyan) 14%, transparent);
 
   /* Glass material */
   --glass-rgb: 255 255 255;
@@ -107,6 +113,10 @@ html[data-theme="dark"] {
   --shadow: #000;
   --thumb: color-mix(in srgb, var(--nl-white) 14%, var(--paper-raised));
   --scrim: rgb(0 0 0 / 0.5);
+  --band: color-mix(in srgb, var(--nl-blue) 5%, transparent);
+  --ambient-blue: color-mix(in srgb, var(--nl-blue) 30%, transparent);
+  --ambient-blue-soft: color-mix(in srgb, var(--nl-blue) 16%, transparent);
+  --ambient-cyan: color-mix(in srgb, var(--nl-cyan) 11%, transparent);
 
   --glass-rgb: 4 24 62; /* brand navy at ~72% brightness */
   --glass-edge: rgb(255 255 255 / 0.16);
@@ -156,12 +166,37 @@ html[data-theme="dark"] {
 
   body {
     min-height: 100svh;
-    background: var(--paper);
+    /* The page colour lives on <html>; body stays clear so the ambient layer
+       below can sit between the two. */
+    background: transparent;
     font-family: var(--font-sans);
     font-size: 1.0625rem;
     line-height: 1.55;
     color: var(--ink-body);
     overflow-x: clip;
+  }
+
+  /* Ambient light: soft blue and cyan in the corners, fixed to the viewport.
+     It keeps the canvas from reading as flat white and gives the glass
+     navigation something to refract. Sections are transparent or translucent
+     so it shows through everywhere. */
+  body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    pointer-events: none;
+    background:
+      radial-gradient(46rem 38rem at -6% -8%, var(--ambient-blue), transparent 68%),
+      radial-gradient(40rem 34rem at -4% 104%, var(--ambient-cyan), transparent 66%),
+      radial-gradient(44rem 36rem at 104% -6%, var(--ambient-blue-soft), transparent 68%),
+      radial-gradient(38rem 32rem at 102% 106%, var(--ambient-blue-soft), transparent 66%);
+  }
+
+  @media print {
+    body::before {
+      display: none;
+    }
   }
 
   ::selection {
