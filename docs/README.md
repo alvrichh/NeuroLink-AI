@@ -1,23 +1,28 @@
-# Centro de documentación
+# Documentation / Documentación
 
-El contenido se organiza **por público y por tipo de trabajo**. No se mezclan explicaciones básicas, ciencia, ingeniería y ejemplos visuales.
+Choose a language / Selecciona un idioma:
 
-| ¿Qué buscas? | Entra en |
+| Language / Idioma | Entry / Portada | Current status / Estado |
+| --- | --- | --- |
+| **English** | [docs/en/README.md](en/README.md) | Overview available; complete translations pending / Resumen disponible; traducciones completas pendientes |
+| **Español** | [docs/es/README.md](es/README.md) | Existing technical and research documentation is in Spanish / Documentación principal actual en español |
+
+## By subject / Por temática
+
+| Area | Link |
 | --- | --- |
-| Comprender el proyecto sin fórmulas | [Documentación sencilla](simple/README.md) |
-| Ver experimentos, procesamiento EEG y arquitectura de software | [Documentación técnica](technical/README.md) |
-| Revisar evidencia científica, fuentes y objetivos | [Investigación](research/README.md) |
-| Entender y diseñar circuitos de adquisición EEG | [Hardware y electrónica](../hardware/README.md) |
-| Abrir diagramas editables | [Diagramas](../diagrams/README.md) |
-| Ver ejemplos ilustrados | [Ejemplos](../examples/README.md) |
+| Concepts and FAQs / Conceptos y preguntas | [Simple / Sencillo](simple/README.md) |
+| Software, EEG analysis and experiments / Software, EEG y experimentos | [Technical / Técnico](technical/README.md) |
+| Evidence, publications and decisions / Ciencia y decisiones | [Research / Investigación](research/README.md) |
+| Electronic acquisition and HDL / Electrónica y HDL | [Hardware](../hardware/README.md) |
+| Editable source drawings / Fuentes de diagramas editables | [Diagrams / Diagramas](../diagrams/README.md) |
+| Mockups and walkthroughs / Maquetas y ejemplos | [Examples / Ejemplos](../examples/README.md) |
 
-## Reglas editoriales
+## Documentation governance / Normas de documentación
 
-1. Un concepto tiene **un documento canónico**; las demás páginas enlazan a él.
-2. Las imágenes de `assets/` son **conceptuales** salvo que indiquen lo contrario.
-3. Cada diagrama editable vive en `diagrams/` y puede tener exportación SVG en `assets/diagrams/`.
-4. `hardware/` contiene arquitectura y prototipos digitales; no esquemas aprobados para conexión a personas.
-5. **No atribuir a señales EEG texto que haya inventado o completado un modelo de lenguaje.**
-6. Ningún estado pasa a «probado» sin artefactos, procedimiento, métricas y controles.
+- [Repository translation and migration plan / Plan bilingüe](REPOSITORY_PLAN.md)
+- [Visual and evidence policy / Política visual](VISUAL_STANDARDS.md)
+- [Figure-by-figure replacement audit / Auditoría de figuras](VISUAL_AUDIT.md)
+- [Asset provenance and licenses / Procedencia y licencias](../assets/SOURCES.md)
 
-[Volver al README](../README.md).
+The figures remain conceptual until replaced by validated measurements, actual product captures or properly licensed photographs. / Las figuras siguen siendo conceptuales hasta que se sustituyan por mediciones verificadas, capturas reales o fotografías con licencia comprobada.
