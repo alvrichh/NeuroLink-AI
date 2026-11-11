@@ -69,6 +69,9 @@
   --ambient-blue: color-mix(in srgb, var(--nl-blue) 13%, transparent);
   --ambient-blue-soft: color-mix(in srgb, var(--nl-blue) 7%, transparent);
   --ambient-cyan: color-mix(in srgb, var(--nl-cyan) 14%, transparent);
+  /* The main wash, top right: the strongest of the four. */
+  --ambient-key: color-mix(in srgb, var(--nl-blue) 24%, transparent);
+  --ambient-key-cyan: color-mix(in srgb, var(--nl-cyan) 20%, transparent);
 
   /* Glass material */
   --glass-rgb: 255 255 255;
@@ -117,6 +120,8 @@ html[data-theme="dark"] {
   --ambient-blue: color-mix(in srgb, var(--nl-blue) 30%, transparent);
   --ambient-blue-soft: color-mix(in srgb, var(--nl-blue) 16%, transparent);
   --ambient-cyan: color-mix(in srgb, var(--nl-cyan) 11%, transparent);
+  --ambient-key: color-mix(in srgb, var(--nl-blue) 46%, transparent);
+  --ambient-key-cyan: color-mix(in srgb, var(--nl-cyan) 13%, transparent);
 
   --glass-rgb: 4 24 62; /* brand navy at ~72% brightness */
   --glass-edge: rgb(255 255 255 / 0.16);
@@ -189,7 +194,8 @@ html[data-theme="dark"] {
     background:
       radial-gradient(46rem 38rem at -6% -8%, var(--ambient-blue), transparent 68%),
       radial-gradient(40rem 34rem at -4% 104%, var(--ambient-cyan), transparent 66%),
-      radial-gradient(44rem 36rem at 104% -6%, var(--ambient-blue-soft), transparent 68%),
+      radial-gradient(34rem 26rem at 86% -10%, var(--ambient-key-cyan), transparent 70%),
+      radial-gradient(70rem 52rem at 104% -12%, var(--ambient-key), transparent 70%),
       radial-gradient(38rem 32rem at 102% 106%, var(--ambient-blue-soft), transparent 66%);
   }
 
