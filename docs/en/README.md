@@ -1,31 +1,25 @@
 # NeuroLink AI — English documentation
 
-**Status:** English entry point and bilingual README are available. Full translations of the existing Spanish documentation are scheduled but **not yet complete**.
+**Research status:** specifications and reference material exist; the software decoder, EEG acquisition hardware and experimental claims have **not** been validated.
 
-NeuroLink AI is an experimental software and electronics research project for **voluntary communication with an AI through non-invasive brain signals**. Our current focus is P300 spelling: choosing characters by attending to visual stimuli, rather than unrestricted thought-reading.
+Start with the topic you need rather than reading the entire project chronologically.
 
-## Research sequence
+| Reader | Topic | English documents |
+| --- | --- | --- |
+| Non-technical | What is NeuroLink AI? | [The project](simple/01-project.md) · [Three phases](simple/02-phases.md) |
+| Neuroscience | What has actually been demonstrated? | [Scientific evidence](research/state-of-the-science.md) |
+| Developer | How will signals become characters? | [Software architecture](technical/architecture.md) · [P300 protocol](technical/phase-1-eeg-to-text.md) |
+| Electronics | Do we need circuits or Verilog? | [Hardware engineering](../../hardware/en/README.md) · [Acquisition diagram](../../diagrams/hardware-signal-chain.md) |
+| Project contributor | What should be built next? | [Research roadmap](research/roadmap.md) |
+| Everyone | Is it safe? | [Safety and privacy](technical/safety-privacy.md) · [Original hardware safety document (ES)](../../hardware/safety-review.md) |
 
-1. **Brain → AI:** reproducible EEG analysis, P300 classification, character spelling, user confirmation.
-2. **AI → person:** text and speech output; later non-invasive tactile codes. Direct brain stimulation is outside the independent build.
-3. **Internet (optional):** read-only tools first, explicit authorization and confirmation.
+**Additional detailed files are still in Spanish:** [Technical index (ES)](../technical/README.md), [Research index (ES)](../research/README.md), [Hardware index (ES)](../../hardware/README.md). They are linked transparently rather than presenting incomplete English translations as finished.
 
-## Documentation available now
+## Figures and sources
 
-The documents linked below are currently **in Spanish** and have not been presented as translated:
+- [Editable engineering diagrams](../../diagrams/README.md)
+- [Real, appropriately credited EEG photographs](../../assets/real/README.md)
+- [Image provenance](../../assets/SOURCES.md)
+- [Translation and visual migration plan](../REPOSITORY_PLAN.md)
 
-- [Simple explanations (ES)](../simple/README.md)
-- [Engineering and BCI protocol (ES)](../technical/README.md)
-- [Scientific research and roadmap (ES)](../research/README.md)
-- [Hardware design research (ES)](../../hardware/README.md)
-- [Original conceptual diagrams](../../diagrams/README.md)
-- [Visual examples, currently mockups](../../examples/README.md)
-
-## Editorial and migration plan
-
-- [Bilingual migration plan](../REPOSITORY_PLAN.md)
-- [Visual quality and evidence standards](../VISUAL_STANDARDS.md)
-- [Review of five existing graphics](../VISUAL_AUDIT.md)
-- [Image license and source register](../../assets/SOURCES.md)
-
-**Scientific caution:** neither the planned P300 speller nor existing repo drawings demonstrate free-form thought reading or direct semantic information transfer to the brain. No measured results are claimed at this stage.
+[Main bilingual README](../../README.md) · [Spanish starting point](../es/README.md)

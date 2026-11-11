@@ -2,7 +2,7 @@
 
 Esta es la sección **exclusiva para circuitos, adquisición física, firmware y lógica digital**. Se mantiene separada de la explicación sencilla, el procesamiento software y las revisiones científicas.
 
-![Cadena electrónica EEG](../assets/diagrams/hardware.svg)
+**Diagrama técnico editable:** [cadena de adquisición EEG](../diagrams/hardware-signal-chain.md). **Fotografías reales con licencias:** [galería de referencias](../assets/real/README.md). Los SVG anteriores quedan como ejemplos conceptuales, no como esquemas para fabricar.
 
 ## Qué debemos construir —y qué no—
 

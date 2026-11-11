@@ -1,31 +1,32 @@
 # NeuroLink AI — Documentación en español
 
-**Estado:** documentación principal redactada en español; migración progresiva a rutas paralelas `docs/es/` y `docs/en/`.
+[English](../en/README.md) · [README bilingüe](../../README.md)
 
-## Empieza por aquí
+La documentación técnica original del proyecto está redactada principalmente en español. La versión inglesa se está ampliando con páginas equivalentes de los temas fundamentales. **Ninguno de los diagramas o ejemplos supone resultados experimentales conseguidos.**
 
-- [¿Qué es NeuroLink AI?](../simple/01-el-proyecto.md)
-- [Las tres fases del proyecto](../simple/02-las-fases.md)
-- [¿Por qué necesitamos electrónica?](../simple/03-la-electronica.md)
+## Comprender el proyecto
+
+- [Qué queremos construir](../simple/01-el-proyecto.md)
+- [Las tres fases](../simple/02-las-fases.md)
+- [Por qué necesitamos electrónica](../simple/03-la-electronica.md)
 - [Preguntas frecuentes](../simple/04-preguntas.md)
 
-## Para investigar y desarrollar
+## Investigación y desarrollo
 
-- [Arquitectura de software](../technical/architecture.md)
-- [Decodificación EEG y P300](../technical/phase-1-eeg-to-text.md)
-- [Protocolo de experimentación](../technical/research-protocol.md)
-- [Ingeniería electrónica y FPGA](../../hardware/README.md)
-- [Evidencia científica y referencias](../research/README.md)
-- [Diagramas editables](../../diagrams/README.md)
-- [Ejemplos visuales](../../examples/README.md)
+- [Arquitectura software](../technical/architecture.md)
+- [Fase 1: EEG a texto](../technical/phase-1-eeg-to-text.md)
+- [Fase 2: recepción de respuestas](../technical/phase-2-bidirectional.md)
+- [Fase 3: Internet opcional](../technical/phase-3-internet.md)
+- [Protocolo experimental](../technical/research-protocol.md)
+- [Seguridad y privacidad](../technical/safety-privacy.md)
+- [Estado científico actual](../research/state-of-the-science.md)
+- [Hoja de ruta](../research/roadmap.md)
 
-## Criterio visual y bilingüe
+## Electrónica y material visual
 
-- [Plan de reorganización](../REPOSITORY_PLAN.md)
-- [Reglas para las imágenes y los diagramas](../VISUAL_STANDARDS.md)
-- [Auditoría visual de las cinco imágenes actuales](../VISUAL_AUDIT.md)
-- [Registro de fuentes y licencias](../../assets/SOURCES.md)
+- [Hardware: analógico, digital y Verilog](../../hardware/README.md)
+- [Diagramas de ingeniería editables](../../diagrams/README.md)
+- [Fotos reales con licencia](../../assets/real/README.md)
+- [Normas para figuras y evidencias](../VISUAL_STANDARDS.md)
 
-**Nota:** esta portada enlaza a documentos existentes; todavía no hemos duplicado su contenido bajo las nuevas rutas `docs/es/`. Los cambios se harán con enlaces de compatibilidad para no romper el repositorio.
-
-[Inicio en inglés / English](../en/README.md) · [Volver a la portada](../../README.md)
+Los archivos permanecen en sus rutas originales durante la migración para no romper enlaces a investigaciones previas.

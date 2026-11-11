@@ -8,7 +8,7 @@
 | [Enviar un mensaje a la IA](conversacion.md) | Confirmación de texto y respuesta |
 | [La cadena electrónica](cadena-electronica.md) | Qué sucede antes de que el ordenador vea datos |
 
-![Ilustración de selección de letras](../assets/examples/p300-keyboard.svg)
+**Referencias visuales:** [fotografías reales de electrodos y gorros EEG](../assets/real/README.md). Las antiguas imágenes SVG son *mockups*, no capturas reales del software.
 
 Para leer los conceptos sin tecnicismos: [explicación sencilla](../docs/simple/README.md).  
 Para ver circuitos, especificaciones y HDL: [hardware](../hardware/README.md).

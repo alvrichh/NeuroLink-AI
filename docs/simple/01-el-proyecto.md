@@ -4,7 +4,7 @@ Queremos desarrollar una forma de comunicarnos con una inteligencia artificial m
 
 Piensa en escribir «HOLA IA» sin usar los dedos. Una pantalla podría mostrar letras y el sistema buscaría señales EEG relacionadas con la letra a la que estás prestando atención.
 
-![Pantalla de selección de letras](../../assets/examples/p300-keyboard.svg)
+La [matriz P300 del ejemplo](../../examples/teclado-p300.md) es una **maqueta conceptual**, no una captura de un decodificador funcionando. Para ver material auténtico, consulta las [fotografías reales de EEG](../../assets/real/README.md).
 
 **Primero aprenderemos a seleccionar letras.** Eso ya es diferente de leer cualquier pensamiento: no sabemos convertir libremente en texto todas las frases que alguien imagina.
 
