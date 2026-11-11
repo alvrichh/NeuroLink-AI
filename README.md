@@ -1,9 +1,13 @@
 # NeuroLink AI
 
+<p align="center"><img src="assets/branding/neurolink-ai-logo.webp" width="320" alt="NeuroLink AI logo: brain and inner speech secured by shield, with bidirectional arrows" /></p>
+
+<p align="center"><strong>Inner speech → AI · Lenguaje interior → IA</strong></p>
+
 **Inner speech → AI, with privacy by design.**  
 **Lenguaje interior → IA, con privacidad desde el diseño.**
 
-[English](#english) · [Español](#español) · [Neural Privacy Firewall](docs/technical/neural-privacy-firewall.md) · [Scientific evidence](docs/research/inner-speech-datasets.md) · [Engineering diagrams](diagrams/README.md)
+[English](#english) · [Español](#español) · [Neural Privacy Firewall](docs/technical/neural-privacy-firewall.md) · [Scientific evidence](docs/research/inner-speech-datasets.md) · [Engineering diagrams](diagrams/README.md) · [Brand style guide](assets/branding/STYLE_GUIDE.md)
 
 > **Research / Investigación.** A reliable system for unrestricted, non-invasive inner-speech transcription is **not yet available**. NeuroLink AI has not produced validated neural decoding, human-subject tests or a custom patient-ready electronic device.
 

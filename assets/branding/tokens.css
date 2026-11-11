@@ -1,0 +1,15 @@
+/* NeuroLink AI brand standard — canonical logo colors */
+:root {
+  --nl-white: #FFFFFF;
+  --nl-navy: #001E55;
+  --nl-blue: #004FF2;
+  --nl-cyan: #00F0E5;
+  --nl-background: var(--nl-white);
+  --nl-text: var(--nl-navy);
+  --nl-link: var(--nl-blue);
+  --nl-action: var(--nl-blue);
+  --nl-accent: var(--nl-cyan);
+  /* Secondary utility tokens, not extracted from logo */
+  --nl-border: #E4EBF3;
+  --nl-muted: #46617F;
+}
