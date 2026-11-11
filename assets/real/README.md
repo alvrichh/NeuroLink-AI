@@ -1,0 +1,31 @@
+# Real research references / Referencias fotográficas reales
+
+These are **real photographs of EEG equipment** hosted by Wikimedia Commons and embedded with attribution. They are *not* NeuroLink AI prototypes, captures or measured results.
+
+Estas son **fotografías reales de equipos de EEG**, alojadas en Wikimedia Commons y mostradas con atribución. No son prototipos ni resultados de NeuroLink AI.
+
+## 1. EEG electrode / Electrodo EEG
+
+![Photograph of a physical EEG electrode](https://upload.wikimedia.org/wikipedia/commons/b/b7/EEG_electrode.jpg)
+
+**Photo / Foto:** George Spilich (Commons: Gspilich2).  
+**License / Licencia:** [Creative Commons Attribution–ShareAlike 3.0](https://creativecommons.org/licenses/by-sa/3.0/).  
+**Original / Original:** [Wikimedia Commons – EEG electrode.jpg](https://commons.wikimedia.org/wiki/File:EEG_electrode.jpg).  
+**Changes / Cambios:** none / ninguno.  
+**Interpretation:** an individual electrode, *not* a complete acquisition system.
+
+## 2. EEG cap on a model / Gorro EEG colocado sobre un modelo
+
+![Real 64-channel EEG cap photographed on a physical demonstration model](https://upload.wikimedia.org/wikipedia/commons/5/58/EEG_Cap_on_melon.jpg)
+
+**Photo / Foto:** Sdwilli.  
+**License / Licencia:** [Creative Commons Attribution–ShareAlike 4.0](https://creativecommons.org/licenses/by-sa/4.0/).  
+**Original / Original:** [Wikimedia Commons – EEG Cap on melon.jpg](https://commons.wikimedia.org/wiki/File:EEG_Cap_on_melon.jpg).  
+**Changes / Cambios:** none / ninguno.  
+**Interpretation:** an electrode cap on a model; **not** our experimental rig.
+
+## Vendor hardware / Hardware de fabricantes
+
+For a real photograph of the **OpenBCI Cyton board**, consult the [official getting started documentation](https://docs.openbci.com/GettingStarted/Boards/CytonGS/) and [hardware schematic information](https://docs.openbci.com/ForDevelopers/HardwareDevelopment/). We currently **link** to vendor photos rather than redistribute them until photo-specific permissions are documented. The same rule applies to TI evaluation board photos.
+
+[Media/source register](../SOURCES.md) · [Circuit block diagram](../../diagrams/hardware-signal-chain.md) · [Hardware research](../../hardware/README.md).
