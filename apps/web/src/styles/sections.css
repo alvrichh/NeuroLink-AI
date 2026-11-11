@@ -91,7 +91,13 @@
   }
 
   /* ---- Vision ---------------------------------------------------------- */
+  .vision__split {
+    display: grid;
+    gap: clamp(2.5rem, 6vw, 4rem) 4rem;
+  }
+
   .vision__statement {
+    margin-top: clamp(1.75rem, 4vw, 2.5rem);
     font-size: clamp(1.875rem, 1.3rem + 2.3vw, 3.25rem);
     font-weight: 600;
     line-height: 1.04;
@@ -99,6 +105,62 @@
     color: var(--ink);
     text-wrap: balance;
     max-width: 12em;
+  }
+
+  .vision__flow {
+    display: grid;
+    gap: clamp(2rem, 4vw, 3rem);
+    min-width: 0;
+  }
+
+  .vision__copy {
+    display: grid;
+    gap: 1.25rem;
+  }
+
+  .vision__cards {
+    display: grid;
+    gap: 1rem;
+  }
+
+  /* Tablet: the two cards sit side by side, as there is no sticky column. */
+  @media (min-width: 48rem) and (max-width: 68.74rem) {
+    .vision__cards {
+      grid-template-columns: minmax(0, 0.82fr) minmax(0, 1.18fr);
+    }
+  }
+
+  .vision__sequence {
+    margin-top: clamp(2rem, 4vw, 3rem);
+  }
+
+  /* Wide screens: heading pinned, content travelling past it. */
+  @media (min-width: 68.75rem) {
+    .vision__split {
+      grid-template-columns: minmax(0, 0.84fr) minmax(0, 1.16fr);
+    }
+
+    .vision__aside {
+      position: sticky;
+      top: 4.5rem;
+      align-self: start;
+    }
+
+    /* Compound selector: must outrank .t-title, which is declared later. */
+    .t-title.vision__title {
+      font-size: clamp(2.5rem, 1rem + 3vw, 4.25rem);
+    }
+
+    .vision__statement {
+      font-size: clamp(1.5rem, 0.9rem + 1vw, 2rem);
+      line-height: 1.12;
+      letter-spacing: -0.03em;
+      max-width: 15em;
+    }
+
+    .vision__copy {
+      padding-top: 0.5rem;
+    }
   }
 
   .vision__not,

@@ -84,6 +84,8 @@ The site contains no EEG plots, signal traces or experimental results, because t
 ## Motion and accessibility
 
 - Motion is opt-in: an inline script sets `<html data-motion="on">` before first paint unless the visitor prefers reduced motion. Without JavaScript the page is static and fully visible. Only `opacity` and `transform` are animated; the hero canvas pauses when off screen or in a hidden tab.
+- **Pinned hero:** on screens large enough to hold it (at least 768 px wide and 704 px tall), the hero stays in place for one viewport of scrolling while three short steps replace the lead and the canvas follows the story (gate closed → opened → message flowing). At scroll 0 it is exactly the unpinned hero. `components/HeroScroll.tsx` is the site's only scroll listener (passive, throttled to animation frames, no React state): it writes the progress to `--hero-p` and the step to `data-beat` on the section; `styles/hero.css` and `viz/HeroThreads.tsx` do the rest. Phones, short viewports, reduced motion, `?still` and no-JavaScript keep the plain hero.
+- **Pinned headings:** in the Vision and Roadmap sections the heading column is `position: sticky` on wide screens, so the content travels past it. Pure CSS.
 - **Full-page captures:** append `?still` to the URL (for example `/?still` or `/es/?still`) to render every section in its final state with animation off — scroll-triggered reveals never fire in a full-page screenshot otherwise.
 - Glass surfaces use a real `backdrop-filter` with fallbacks for unsupported browsers, `prefers-reduced-transparency` and forced-colours mode (`styles/glass.css`).
 - Landmarks, a skip link, keyboard-operable tab interfaces (arrow keys, Home/End), visible focus, `aria-current` navigation tracking and a live region for the simulation state. Status marks differ by shape as well as colour.
@@ -100,7 +102,7 @@ The site contains no EEG plots, signal traces or experimental results, because t
 ## Known limitations
 
 - Photographs are hot-linked from Wikimedia Commons, as the repository's media policy currently requires. If Wikimedia is unreachable or rate-limits a visitor, the figure shows a labelled fallback with the source link. Self-hosting optimised copies is permitted by the licences (with attribution and share-alike) but would first require updating `assets/SOURCES.md`.
-- Scroll-linked effects (navigation sheen, hero parallax, mobile progress line) use CSS scroll-driven animations and are a progressive enhancement; browsers without support simply omit them.
+- The navigation sheen, the mobile progress line and the phone hero's scroll fade use CSS scroll-driven animations and are a progressive enhancement; browsers without support simply omit them. The pinned hero does not depend on them.
 
 ---
 

@@ -4,6 +4,13 @@
 @layer components {
   .hero {
     position: relative;
+    background: var(--paper);
+  }
+
+  /* The visible hero. Normally it is simply the section's content; in pinned
+     mode (below) it is held in place while the section scrolls behind it. */
+  .hero__pin {
+    position: relative;
     display: flex;
     flex-direction: column;
     /* Capped so full-height capture tools do not stretch the composition. */
@@ -76,6 +83,32 @@
     flex-wrap: wrap;
     gap: 0.75rem;
     margin-top: clamp(1.75rem, 4svh, 2.5rem);
+  }
+
+  /* The lead, text and buttons share one grid cell with the scroll steps. */
+  .hero__stage {
+    display: grid;
+    width: 100%;
+  }
+
+  .hero__stage > * {
+    grid-area: 1 / 1;
+    min-width: 0;
+  }
+
+  .hero__intro {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  /* Scroll steps exist only in pinned mode. */
+  .hero__beats {
+    display: none;
+  }
+
+  .hero__lock-open {
+    display: none;
   }
 
   /* Visualisation band --------------------------------------------------- */
@@ -193,6 +226,163 @@
       animation-timeline: scroll(root block);
       animation-range: 0svh 100svh;
     }
+  }
+
+  /* -----------------------------------------------------------------------
+     Pinned mode
+     On screens large enough to hold the whole hero, and only with motion
+     enabled, the hero stays in place for one viewport of scrolling. During
+     that travel HeroScroll sets data-beat (0–3) on the section: the lead and
+     buttons give way to three short steps, and the canvas follows along.
+     At scroll 0 everything is exactly the unpinned hero.
+     Not applied: phones, short or very tall viewports, reduced motion, ?still,
+     no JavaScript, or when the content would not fit (data-pin="off").
+  ----------------------------------------------------------------------- */
+  @media (min-width: 48rem) and (min-height: 44rem) and (max-height: 100rem) {
+    html[data-motion="on"] .hero:not([data-pin="off"]) {
+      height: 200svh;
+
+      .hero__pin {
+        position: sticky;
+        top: 0;
+        height: 100svh;
+        min-height: 0;
+      }
+
+      /* The band may give up height so the copy always fits. */
+      .hero__viz {
+        flex: 0 1 clamp(13.5rem, 34svh, 23rem);
+        height: auto;
+        min-height: 8rem;
+      }
+
+      /* Replaced by the stepped sequence below. */
+      .hero__content,
+      .hero__viz-inner {
+        animation: none;
+      }
+
+      .hero__intro,
+      .hero__beats li {
+        transition:
+          opacity 0.5s ease,
+          transform 0.7s var(--ease-expo),
+          visibility 0s linear 0s;
+      }
+
+      .hero__beats {
+        display: grid;
+        align-content: start;
+        padding-top: clamp(1.5rem, 3.6svh, 2.5rem);
+      }
+
+      .hero__beats li {
+        grid-area: 1 / 1;
+        opacity: 0;
+        visibility: hidden;
+        transform: translate3d(0, 1.25rem, 0);
+      }
+
+      /* Once a step is past, it leaves upward. */
+      &[data-beat="2"] .hero__beats li:nth-child(1),
+      &[data-beat="3"] .hero__beats li:nth-child(-n + 2) {
+        transform: translate3d(0, -1.25rem, 0);
+      }
+
+      &[data-beat="1"] .hero__beats li:nth-child(1),
+      &[data-beat="2"] .hero__beats li:nth-child(2),
+      &[data-beat="3"] .hero__beats li:nth-child(3) {
+        opacity: 1;
+        visibility: visible;
+        transform: none;
+      }
+
+      /* The intro leaves; its buttons leave the tab order with it. */
+      &:not([data-beat="0"]) .hero__intro {
+        opacity: 0;
+        visibility: hidden;
+        transform: translate3d(0, -1.25rem, 0);
+        transition:
+          opacity 0.4s ease,
+          transform 0.6s var(--ease-expo),
+          visibility 0s linear 0.4s;
+      }
+
+      /* The illustration's own labels follow the steps. */
+      .hero__label-in,
+      .hero__label-out,
+      .hero__label-gate {
+        transition: color 0.5s ease;
+      }
+
+      &[data-beat="1"] .hero__label-in {
+        color: var(--ink);
+      }
+
+      &[data-beat="1"] .hero__label-gate {
+        color: var(--ink-muted);
+      }
+
+      &[data-beat="3"] .hero__label-out {
+        color: var(--accent);
+      }
+
+      .hero__gate {
+        transition: box-shadow 0.6s ease;
+      }
+
+      &[data-beat="2"] .hero__gate,
+      &[data-beat="3"] .hero__gate {
+        box-shadow:
+          inset 0 1px 0 0 var(--glass-edge),
+          0 0 0 1.5px var(--accent),
+          0 0 0 7px color-mix(in srgb, var(--nl-cyan) 22%, transparent),
+          0 12px 28px -10px color-mix(in srgb, var(--accent) 60%, transparent);
+      }
+
+      &[data-beat="2"] .hero__lock-closed,
+      &[data-beat="3"] .hero__lock-closed {
+        display: none;
+      }
+
+      &[data-beat="2"] .hero__lock-open,
+      &[data-beat="3"] .hero__lock-open {
+        display: block;
+      }
+    }
+  }
+
+  .hero__beat-step {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.625rem;
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--ink-muted);
+  }
+
+  .hero__beat-step b {
+    font-weight: 500;
+    color: var(--accent);
+  }
+
+  .hero__beat-step span {
+    width: 1.5rem;
+    height: 1px;
+    background: color-mix(in srgb, var(--ink) 20%, transparent);
+  }
+
+  .hero__beat-text {
+    margin-top: 1rem;
+    max-width: 16em;
+    font-size: clamp(1.75rem, 1.2rem + 1.9vw, 3rem);
+    font-weight: 600;
+    line-height: 1.05;
+    letter-spacing: -0.035em;
+    color: var(--ink);
+    text-wrap: balance;
   }
 
   .hero__viz-inner {
