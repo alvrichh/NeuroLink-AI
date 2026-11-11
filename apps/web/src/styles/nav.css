@@ -18,10 +18,11 @@
     flex-direction: column;
     padding: 0.75rem;
     border-radius: var(--radius-panel);
-    /* Thinner than the default glass, so the ambient light behind it shows. */
-    --glass-top: 0.66;
-    --glass-bottom: 0.46;
-    --glass-blur: 30px;
+    /* Almost clear glass: about 90% transparent, so the ambient light behind it
+       reads through. The blur, rim and shadow still define the panel. */
+    --glass-top: 0.14;
+    --glass-bottom: 0.08;
+    --glass-blur: 26px;
   }
 
   @media (min-width: 68.75rem) {
@@ -110,13 +111,6 @@
     height: auto;
   }
 
-  /* The light-background files sit on white; multiply lets the glass show
-     through without altering any logo colour. The dark-background files are
-     transparent and need no blending. */
-  .side-nav__brand .only-light,
-  .mobile-nav__brand .only-light {
-    mix-blend-mode: multiply;
-  }
 
   .side-nav__symbol {
     width: 6.5rem;

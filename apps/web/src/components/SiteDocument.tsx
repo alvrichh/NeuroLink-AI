@@ -3,7 +3,7 @@ import { GeistMono } from "geist/font/mono";
 import { GeistSans } from "geist/font/sans";
 import type { ReactNode } from "react";
 import { getDictionary, localePath, locales, type Locale } from "@/content";
-import { icons, logo, siteUrl, withBase } from "@/lib/site";
+import { icons, logoOnWhite, siteUrl, withBase } from "@/lib/site";
 import { THEME_COLORS, themeBootstrap } from "@/lib/themeConfig";
 import { brand } from "@/styles/brand/tokens";
 import { Navigation } from "./Navigation";
@@ -63,9 +63,9 @@ export function buildMetadata(locale: Locale): Metadata {
         ? {
             images: [
               {
-                url: logo.lockup.light.src,
-                width: logo.lockup.light.width,
-                height: logo.lockup.light.height,
+                url: logoOnWhite.src,
+                width: logoOnWhite.width,
+                height: logoOnWhite.height,
                 alt: t.common.logoAlt,
               },
             ],

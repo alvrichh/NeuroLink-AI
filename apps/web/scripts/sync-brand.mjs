@@ -45,8 +45,12 @@ const logoFiles = {
   symbol: "neurolink-ai-symbol.webp",
   wordmark: "neurolink-ai-wordmark.webp",
   lockup: "neurolink-ai-lockup.webp",
-  // Dark-background variants: transparent, with white lettering.
-  symbolDark: "neurolink-ai-symbol-dark.webp",
+  // Transparent versions, used on the site so no white box shows on tinted or
+  // translucent surfaces. The symbol works on any background; the lettering
+  // has a navy version for light backgrounds and a white one for dark.
+  symbolClear: "neurolink-ai-symbol-transparent.webp",
+  wordmarkClear: "neurolink-ai-wordmark-transparent.webp",
+  lockupClear: "neurolink-ai-lockup-transparent.webp",
   wordmarkDark: "neurolink-ai-wordmark-dark.webp",
   lockupDark: "neurolink-ai-lockup-dark.webp",
 };

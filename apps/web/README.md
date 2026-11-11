@@ -48,9 +48,9 @@ Content, styles, motion and visualisations are kept in separate layers: sections
 
 ## Brand tokens
 
-`/assets/branding` is the single source of truth. `scripts/sync-brand.mjs` copies the logo files (lockup, symbol and wordmark, each for light and dark backgrounds, and the favicon/app-icon set) and `tokens.css` verbatim into the app and generates a typed `tokens.ts` with the colour values (for canvas drawing) and each logo file's pixel size. It **fails the build** if `tokens.css` and `tokens.json` disagree. The copies are git-ignored.
+`/assets/branding` is the single source of truth. `scripts/sync-brand.mjs` copies the logo files (lockup, symbol and wordmark in their white-background, transparent and dark-background versions, and the favicon/app-icon set) and `tokens.css` verbatim into the app and generates a typed `tokens.ts` with the colour values (for canvas drawing) and each logo file's pixel size. It **fails the build** if `tokens.css` and `tokens.json` disagree. The copies are git-ignored.
 
-`src/styles/globals.css` removes Tailwind's default colour palette and exposes only `white`, `navy`, `blue`, `cyan` plus neutrals derived from navy, so an off-brand blue or cyan cannot be introduced by accident. Cyan is used for accents only, never for text. The site never alters the logo itself; it only chooses between the official light-background and dark-background files. The navigation shows the symbol over the wordmark in the lockup's proportions, the footer and social preview use the full lockup, and the favicon, Apple touch icon and web manifest use the symbol on a white tile.
+`src/styles/globals.css` removes Tailwind's default colour palette and exposes only `white`, `navy`, `blue`, `cyan` plus neutrals derived from navy, so an off-brand blue or cyan cannot be introduced by accident. Cyan is used for accents only, never for text. The site never alters the logo itself; it only chooses among the official files: transparent ones on the page, the white-background lockup for link previews. The navigation shows the symbol over the wordmark in the lockup's proportions, the footer and social preview use the full lockup, and the favicon, Apple touch icon and web manifest use the symbol on a white tile.
 
 ## Light and dark themes
 
@@ -59,7 +59,7 @@ The site is designed light-first; a dark theme is available from the sun/moon sw
 - **Which theme loads:** the visitor's saved choice, otherwise their system preference. An inline script applies it before first paint, so there is no flash. To make light the default regardless of the system, change the fallback in `src/lib/themeConfig.ts`.
 - **How it works:** components never use the brand constants for text or surfaces directly. They use semantic tokens (`--paper`, `--paper-raised`, `--ink`, `--ink-muted`, `--accent`, `--shadow`, glass tokens) defined in `src/styles/globals.css`, which `html[data-theme="dark"]` redefines. Tailwind exposes them as `ink`, `body`, `muted`, `accent` and `paper`.
 - **Dark palette:** deep navy rather than black — the brand navy mixed toward black — with text in white mixed with navy. Brand blue is too dark for text on navy, so links and active states use a lightened brand blue; buttons keep the exact brand blue. No new hues are introduced.
-- **Logo:** each form has a dark-background file in `/assets/branding` (transparent, white lettering). Both versions are in the markup and CSS shows the one for the active theme (`ThemedLogo` in `components/ui.tsx`), so the right logo is there on first paint; lazy loading keeps the hidden one from downloading.
+- **Logo:** the site uses the transparent files from `/assets/branding`, so no white box shows on tinted or translucent surfaces: navy lettering in the light theme, white lettering in the dark theme, and one symbol file for both. Both lettering versions are in the markup and CSS shows the one for the active theme (`ThemedLogo` in `components/ui.tsx`), so the right logo is there on first paint; lazy loading keeps the hidden one from downloading.
 - The hero canvas reads its colours from the theme (`--viz-*`) and redraws when the theme changes.
 
 ## Content and languages

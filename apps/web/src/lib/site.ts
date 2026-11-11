@@ -18,17 +18,21 @@ function asset(entry: { file: string; width: number; height: number }): BrandAss
 export type ThemedAsset = { light: BrandAsset; dark: BrandAsset };
 
 /**
- * The official logo, in the forms the brand provides. Each has a version for
- * white backgrounds and one for dark backgrounds (transparent, white lettering).
+ * The official logo, in the forms the brand provides. The site uses the
+ * transparent files, so the logo sits directly on tinted or translucent
+ * surfaces: navy lettering on light backgrounds, white lettering on dark ones.
  */
 export const logo = {
-  /** Brain-and-orbit mark on its own. */
-  symbol: { light: asset(brand.assets.symbol), dark: asset(brand.assets.symbolDark) },
+  /** Brain-and-orbit mark on its own. One file works on any background. */
+  symbol: { light: asset(brand.assets.symbolClear), dark: asset(brand.assets.symbolClear) },
   /** "NeuroLink AI" lettering on its own. */
-  wordmark: { light: asset(brand.assets.wordmark), dark: asset(brand.assets.wordmarkDark) },
+  wordmark: { light: asset(brand.assets.wordmarkClear), dark: asset(brand.assets.wordmarkDark) },
   /** Full logo: symbol, wordmark and the "Brain · Privacy · AI" line. */
-  lockup: { light: asset(brand.assets.lockup), dark: asset(brand.assets.lockupDark) },
+  lockup: { light: asset(brand.assets.lockupClear), dark: asset(brand.assets.lockupDark) },
 } as const satisfies Record<string, ThemedAsset>;
+
+/** The full logo on its white background, for link previews. */
+export const logoOnWhite = asset(brand.assets.lockup);
 
 /** Favicon and app icons: the symbol on a white tile (see /assets/branding/icons). */
 export const icons = {

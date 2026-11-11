@@ -42,6 +42,11 @@ export function ThemedLogo({
   alt: string;
   className?: string;
 }) {
+  // One file for both themes: nothing to switch.
+  if (asset.light.src === asset.dark.src) {
+    const { src, width, height } = asset.light;
+    return <img className={className} src={src} alt={alt} width={width} height={height} decoding="async" />;
+  }
   return (
     <>
       {(["light", "dark"] as const).map((mode) => (
