@@ -1,0 +1,49 @@
+# NeuroLink AI — nunca publicar registros neuronales ni secretos
+.env
+.env.*
+!.env.example
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.ipynb_checkpoints/
+dist/
+build/
+*.egg-info/
+node_modules/
+.next/
+coverage/
+.DS_Store
+
+# EEG, recordings and participant-level data (do not commit)
+data/
+raw_data/
+recordings/
+participants/
+private/
+secrets/
+*.edf
+*.bdf
+*.fif
+*.set
+*.vhdr
+*.vmrk
+*.eeg
+*.xdf
+*.mat
+
+# Local model checkpoints/artifacts
+checkpoints/
+models/
+*.pt
+*.pth
+*.ckpt
+*.onnx
+
+# Local experiment logs (publish only audited aggregated exports)
+runs/
+logs/
+results/private/
