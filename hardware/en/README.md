@@ -15,6 +15,12 @@ Electrodes -> patient-interface safety (requires professional design)
 
 **Verilog does not replace the analog front end.** A hardware description language describes digital logic, e.g. FPGA pipelines or deterministic acquisition control. An MCU is often sufficient for an initial data pipeline; FPGA is optional if measurements later justify its costs.
 
+## Real hardware reference image
+
+![OpenBCI 32-bit ChipKIT v3 board photographed in 2014](https://upload.wikimedia.org/wikipedia/commons/thumb/b/ba/Openbci-brain-computer-interface-by-omphalosskeptic.png/960px-Openbci-brain-computer-interface-by-omphalosskeptic.png)
+
+*OpenBCI 32-bit ChipKIT v3, 2014. Photograph: Omphalosskeptic, [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/), [source](https://commons.wikimedia.org/wiki/File:Openbci-brain-computer-interface-by-omphalosskeptic.png). Unmodified. This is a historical third-party board, not NeuroLink AI hardware.*
+
 ## Studied reference components
 
 - **Texas Instruments ADS1299:** specialized EEG analog front end, multiple simultaneous biopotential channels, 24-bit nominal conversion, SPI. [Official product documentation](https://www.ti.com/product/ADS1299).

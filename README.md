@@ -70,6 +70,12 @@ flowchart LR
 
 ## Hardware reference / Referencia física
 
+![OpenBCI 32-bit ChipKIT v3 photographed hardware reference](https://upload.wikimedia.org/wikipedia/commons/thumb/b/ba/Openbci-brain-computer-interface-by-omphalosskeptic.png/960px-Openbci-brain-computer-interface-by-omphalosskeptic.png)
+
+*OpenBCI 32-bit ChipKIT v3, historical 2014 photograph by Omphalosskeptic, [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/), [original source](https://commons.wikimedia.org/wiki/File:Openbci-brain-computer-interface-by-omphalosskeptic.png). Unmodified. Not a NeuroLink AI build.*
+
+
+
 ![Real photograph of an EEG electrode](https://upload.wikimedia.org/wikipedia/commons/b/b7/EEG_electrode.jpg)
 
 *Real EEG electrode photograph / Fotografía real de un electrodo EEG. George Spilich (Gspilich2), [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:EEG_electrode.jpg), [CC BY-SA 3.0](https://creativecommons.org/licenses/by-sa/3.0/), unmodified / sin modificar. This is **not** hardware developed by NeuroLink AI.*

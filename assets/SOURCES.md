@@ -8,6 +8,7 @@
 | --- | --- | --- | --- | --- | --- |
 | EEG electrode | George Spilich / Gspilich2 | [CC BY-SA 3.0](https://creativecommons.org/licenses/by-sa/3.0/) | [Commons](https://commons.wikimedia.org/wiki/File:EEG_electrode.jpg) | No modification | Embedded remotely with attribution; not copied |
 | EEG cap on model | Sdwilli | [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/) | [Commons](https://commons.wikimedia.org/wiki/File:EEG_Cap_on_melon.jpg) | No modification | Embedded remotely with attribution; not copied |
+| Historical OpenBCI 32-bit ChipKIT v3 board (2014) | Omphalosskeptic | [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/) | [Commons](https://commons.wikimedia.org/wiki/File:Openbci-brain-computer-interface-by-omphalosskeptic.png) | No modification (Wikimedia thumbnail used) | Embedded remotely with attribution; not copied |
 
 Rights checked 2026-11-11 against the individual Wikimedia Commons file pages. Original files are hosted by Wikimedia Commons; no photographic bytes are committed to this repository. **Attribution is retained next to each embed.**
 
@@ -15,7 +16,7 @@ Rights checked 2026-11-11 against the individual Wikimedia Commons file pages. O
 
 | Source | Reference URL | Decision |
 | --- | --- | --- |
-| OpenBCI Cyton board and circuit documentation | https://docs.openbci.com/ForDevelopers/HardwareDevelopment/ | Link to official source, verify each photo's license before copying |
+| Current OpenBCI Cyton board and circuit documentation | https://docs.openbci.com/ForDevelopers/HardwareDevelopment/ | Link to official source, verify each photo's license before copying |
 | Texas Instruments ADS1299 AFE and evaluation board | https://www.ti.com/product/ADS1299 | Link only, verify TI permissions before copying |
 | MNE EEG/ERP plots | https://mne.tools/stable/auto_tutorials/evoked/30_eeg_erp.html | Link to methods; create our own plots only when real licensed data have been processed |
 | Our HDL simulator waveform | `hardware/hdl/` | Add actual capture only after testbench execution with simulator version and test result |

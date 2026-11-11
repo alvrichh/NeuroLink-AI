@@ -24,6 +24,17 @@ Estas son **fotografías reales de equipos de EEG**, alojadas en Wikimedia Commo
 **Changes / Cambios:** none / ninguno.  
 **Interpretation:** an electrode cap on a model; **not** our experimental rig.
 
+
+## 3. Historical OpenBCI acquisition board / Placa OpenBCI histórica
+
+![Real photograph of an original OpenBCI 32-bit ChipKIT v3 board](https://upload.wikimedia.org/wikipedia/commons/thumb/b/ba/Openbci-brain-computer-interface-by-omphalosskeptic.png/960px-Openbci-brain-computer-interface-by-omphalosskeptic.png)
+
+**Photo / Foto:** Omphalosskeptic.  
+**License / Licencia:** [Creative Commons Attribution–ShareAlike 4.0](https://creativecommons.org/licenses/by-sa/4.0/).  
+**Original / Original:** [Wikimedia Commons – OpenBCI v3 board](https://commons.wikimedia.org/wiki/File:Openbci-brain-computer-interface-by-omphalosskeptic.png).  
+**Changes / Cambios:** no modifications / sin modificaciones (the Wikimedia-generated preview is scaled).  
+**Interpretation / Interpretación:** an actual early OpenBCI 32-bit ChipKIT board photographed in 2014; **not a newly built NeuroLink AI PCB and not a photo of the latest Cyton revision**.
+
 ## Vendor hardware / Hardware de fabricantes
 
 For a real photograph of the **OpenBCI Cyton board**, consult the [official getting started documentation](https://docs.openbci.com/GettingStarted/Boards/CytonGS/) and [hardware schematic information](https://docs.openbci.com/ForDevelopers/HardwareDevelopment/). We currently **link** to vendor photos rather than redistribute them until photo-specific permissions are documented. The same rule applies to TI evaluation board photos.
