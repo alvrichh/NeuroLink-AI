@@ -125,6 +125,14 @@
     }
   }
 
+  /* Tablets and up: a taller band, so the illustration sits closer to the copy
+     instead of hugging the bottom edge. */
+  @media (min-width: 48rem) {
+    .hero__viz {
+      height: clamp(15rem, 46svh, 32rem);
+    }
+  }
+
   .hero__canvas {
     position: absolute;
     inset: 0;
@@ -251,7 +259,7 @@
 
       /* The band may give up height so the copy always fits. */
       .hero__viz {
-        flex: 0 1 clamp(13.5rem, 34svh, 23rem);
+        flex: 0 1 clamp(15rem, 46svh, 32rem);
         height: auto;
         min-height: 8rem;
       }
