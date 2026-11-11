@@ -48,9 +48,9 @@ Content, styles, motion and visualisations are kept in separate layers: sections
 
 ## Brand tokens
 
-`/assets/branding` is the single source of truth. `scripts/sync-brand.mjs` copies `neurolink-ai-logo.webp` and `tokens.css` verbatim into the app and generates a typed `tokens.ts` from `tokens.json` (for canvas drawing). It **fails the build** if `tokens.css` and `tokens.json` disagree. The copies are git-ignored.
+`/assets/branding` is the single source of truth. `scripts/sync-brand.mjs` copies the logo files (lockup, symbol, wordmark, icon) and `tokens.css` verbatim into the app and generates a typed `tokens.ts` with the colour values (for canvas drawing) and each logo file's pixel size. It **fails the build** if `tokens.css` and `tokens.json` disagree. The copies are git-ignored.
 
-`src/styles/globals.css` removes Tailwind's default colour palette and exposes only `white`, `navy`, `blue`, `cyan` plus neutrals derived from navy, so an off-brand blue or cyan cannot be introduced by accident. Cyan is used for accents only, never for text. The logo is always shown whole and unmodified.
+`src/styles/globals.css` removes Tailwind's default colour palette and exposes only `white`, `navy`, `blue`, `cyan` plus neutrals derived from navy, so an off-brand blue or cyan cannot be introduced by accident. Cyan is used for accents only, never for text. The logo is never redrawn or recoloured: the navigation shows the symbol over the wordmark in the lockup's proportions, the footer and social preview use the full lockup, and the favicon uses the square symbol.
 
 ## Content and languages
 
@@ -90,7 +90,6 @@ The site contains no EEG plots, signal traces or experimental results, because t
 ## Known limitations
 
 - Photographs are hot-linked from Wikimedia Commons, as the repository's media policy currently requires. If Wikimedia is unreachable or rate-limits a visitor, the figure shows a labelled fallback with the source link. Self-hosting optimised copies is permitted by the licences (with attribution and share-alike) but would first require updating `assets/SOURCES.md`.
-- The official logo file is 320 × 320 px, so it is never displayed larger than 160 CSS px.
 - Scroll-linked effects (navigation sheen, hero parallax, mobile progress line) use CSS scroll-driven animations and are a progressive enhancement; browsers without support simply omit them.
 
 ---

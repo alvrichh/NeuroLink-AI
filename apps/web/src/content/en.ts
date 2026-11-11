@@ -15,8 +15,9 @@ export const en = {
   },
   common: {
     skip: "Skip to content",
+    brand: "NeuroLink AI",
     logoAlt:
-      "NeuroLink AI logo: a brain containing a speech bubble, protected by a shield with a padlock, between two arrows pointing in opposite directions",
+      "NeuroLink AI logo: a blue brain crossed by circuit traces and circled by an orbit, above the NeuroLink AI wordmark and the line “Brain · Privacy · AI”",
     home: "NeuroLink AI — back to top",
     sections: "Sections",
     menuOpen: "Open navigation",

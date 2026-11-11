@@ -2,7 +2,7 @@ import type { Dictionary, Locale } from "@/content";
 import { REPO_URL, repoLink } from "@/content/links";
 import { ArrowUpRight, GitHubIcon } from "@/components/icons";
 import { Eyebrow, stagger } from "@/components/ui";
-import { logoSrc } from "@/lib/site";
+import { logo } from "@/lib/site";
 
 type LinkKey = keyof Dictionary["open"]["links"];
 
@@ -94,7 +94,14 @@ export function SiteFooter({
       <div className="frame">
         <div className="wrap footer__inner">
           <a href="#overview" className="footer__brand" aria-label={common.home}>
-            <img src={logoSrc} alt={common.logoAlt} width={320} height={320} loading="lazy" decoding="async" />
+            <img
+              src={logo.lockup.src}
+              alt={common.logoAlt}
+              width={logo.lockup.width}
+              height={logo.lockup.height}
+              loading="lazy"
+              decoding="async"
+            />
           </a>
           <div className="footer__text">
             <p>{footer.statement}</p>

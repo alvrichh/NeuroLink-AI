@@ -5,7 +5,7 @@ import { localePath, locales, sectionIds, type Locale, type SectionId } from "@/
 import type { Dictionary } from "@/content";
 import { REPO_URL } from "@/content/links";
 import { useActiveSection } from "@/lib/useActiveSection";
-import { cx, logoSrc, withBase } from "@/lib/site";
+import { cx, logo, withBase } from "@/lib/site";
 import { ArrowUpRight, GitHubIcon, sectionIcons } from "./icons";
 
 type NavProps = {
@@ -80,8 +80,24 @@ function SidePanel({ locale, labels, common, active, index }: PanelProps) {
         <span />
       </div>
 
+      {/* Symbol over wordmark, in the same proportions as the official lockup. */}
       <a href="#overview" className="side-nav__brand" aria-label={common.home}>
-        <img src={logoSrc} alt={common.logoAlt} width={320} height={320} decoding="async" />
+        <img
+          className="side-nav__symbol"
+          src={logo.symbol.src}
+          alt=""
+          width={logo.symbol.width}
+          height={logo.symbol.height}
+          decoding="async"
+        />
+        <img
+          className="side-nav__wordmark"
+          src={logo.wordmark.src}
+          alt={common.brand}
+          width={logo.wordmark.width}
+          height={logo.wordmark.height}
+          decoding="async"
+        />
       </a>
 
       <span className="side-nav__progress" aria-hidden="true">
@@ -162,7 +178,22 @@ function MobileBar({ locale, labels, common, active, index }: PanelProps) {
       <header className={cx("mobile-nav glass", open && "is-open")}>
         <div className="mobile-nav__bar">
           <a href="#overview" className="mobile-nav__brand" aria-label={common.home} onClick={() => setOpen(false)}>
-            <img src={logoSrc} alt={common.logoAlt} width={320} height={320} decoding="async" />
+            <img
+              className="mobile-nav__symbol"
+              src={logo.symbol.src}
+              alt=""
+              width={logo.symbol.width}
+              height={logo.symbol.height}
+              decoding="async"
+            />
+            <img
+              className="mobile-nav__wordmark"
+              src={logo.wordmark.src}
+              alt={common.brand}
+              width={logo.wordmark.width}
+              height={logo.wordmark.height}
+              decoding="async"
+            />
           </a>
 
           <p className="mobile-nav__where" aria-live="off">

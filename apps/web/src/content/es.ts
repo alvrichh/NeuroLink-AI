@@ -17,8 +17,9 @@ export const es: Dictionary = {
   },
   common: {
     skip: "Saltar al contenido",
+    brand: "NeuroLink AI",
     logoAlt:
-      "Logotipo de NeuroLink AI: un cerebro con un bocadillo de diálogo, protegido por un escudo con candado, entre dos flechas en sentidos opuestos",
+      "Logotipo de NeuroLink AI: un cerebro azul atravesado por pistas de circuito y rodeado por una órbita, sobre el nombre NeuroLink AI y el lema «Brain · Privacy · AI»",
     home: "NeuroLink AI — volver al inicio",
     sections: "Secciones",
     menuOpen: "Abrir navegación",

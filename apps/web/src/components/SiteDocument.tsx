@@ -3,7 +3,7 @@ import { GeistMono } from "geist/font/mono";
 import { GeistSans } from "geist/font/sans";
 import type { ReactNode } from "react";
 import { getDictionary, localePath, locales, type Locale } from "@/content";
-import { logoSrc, siteUrl, withBase } from "@/lib/site";
+import { logo, siteUrl, withBase } from "@/lib/site";
 import { brand } from "@/styles/brand/tokens";
 import { Navigation } from "./Navigation";
 import { RevealObserver } from "./RevealObserver";
@@ -30,7 +30,7 @@ export function buildMetadata(locale: Locale): Metadata {
     title: t.meta.title,
     description: t.meta.description,
     applicationName: brand.name,
-    icons: { icon: logoSrc, apple: logoSrc },
+    icons: { icon: logo.icon.src, apple: logo.icon.src },
     // Canonical and hreflang must be absolute URLs, so they are emitted only
     // when the deployment origin is known (NEXT_PUBLIC_SITE_URL).
     alternates: siteUrl
@@ -50,9 +50,20 @@ export function buildMetadata(locale: Locale): Metadata {
       locale: locale === "es" ? "es_ES" : "en_US",
       // An absolute URL is required for social previews; only emit it when the
       // deployment origin is known (NEXT_PUBLIC_SITE_URL).
-      ...(siteUrl ? { images: [{ url: logoSrc, width: 320, height: 320, alt: t.common.logoAlt }] } : {}),
+      ...(siteUrl
+        ? {
+            images: [
+              {
+                url: logo.lockup.src,
+                width: logo.lockup.width,
+                height: logo.lockup.height,
+                alt: t.common.logoAlt,
+              },
+            ],
+          }
+        : {}),
     },
-    twitter: { card: "summary", title: t.meta.title, description: t.meta.description },
+    twitter: { card: "summary_large_image", title: t.meta.title, description: t.meta.description },
   };
 }
 

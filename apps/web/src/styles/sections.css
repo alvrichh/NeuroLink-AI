@@ -2433,13 +2433,13 @@
 
   .footer__brand {
     display: block;
-    width: 5.5rem;
+    width: 12.5rem;
     border-radius: 1rem;
   }
 
   .footer__brand img {
-    width: 5.5rem;
-    height: 5.5rem;
+    width: 100%;
+    height: auto;
   }
 
   .footer__text {
