@@ -32,7 +32,7 @@ export function OpenResearch({
       <div className="open__field" aria-hidden="true" />
       <div className="frame">
         <div className="wrap">
-          <Eyebrow index={7}>{t.eyebrow}</Eyebrow>
+          <Eyebrow index={8}>{t.eyebrow}</Eyebrow>
           <h2 id="open-title" className="t-display open__title mt-6" data-reveal="" style={stagger(1)}>
             {t.title}
           </h2>

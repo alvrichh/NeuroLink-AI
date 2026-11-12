@@ -8,6 +8,7 @@ Start with the topic you need rather than reading the entire project chronologic
 | --- | --- | --- |
 | Non-technical | What is NeuroLink AI? | [The project](simple/01-project.md) · [Three phases](simple/02-phases.md) |
 | Neuroscience | What has actually been demonstrated? | [Scientific evidence](research/state-of-the-science.md) · [Inner speech dataset](research/inner-speech-datasets.md) |
+| Curious reader | Can the brain create an immersive inner world? | [Lucid dreams, consciousness and sleep](research/lucid-dreams.md) |
 | Developer | How will we decode inner speech safely? | [Software architecture](technical/architecture.md) · [Inner speech](technical/phase-1-eeg-to-text.md) · [Privacy firewall](technical/neural-privacy-firewall.md) |
 | Electronics | Do we need circuits or Verilog? | [Hardware engineering](../../hardware/en/README.md) · [Acquisition diagram](../../diagrams/hardware-signal-chain.md) |
 | Project contributor | What should be built next? | [Research roadmap](research/roadmap.md) |

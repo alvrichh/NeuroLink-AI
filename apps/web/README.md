@@ -68,6 +68,13 @@ The site is designed light-first; a dark theme is available from the sun/moon sw
 - Every repository document linked from the site is listed in `links.ts` and verified to exist by `content.test.ts`.
 - Routes: `/` (English, default) and `/es/` (Spanish). The language switch keeps the reader's current section.
 
+The `#dreams` section is a bilingual literature note about lucid dreaming,
+sleep paralysis, out-of-body experiences and sleep quality. It distinguishes
+published findings from hypothetical future work and links directly to the
+studies. Its native `<details>` disclosures work without JavaScript. The full
+note is also available in [English](../../docs/en/research/lucid-dreams.md) and
+[Spanish](../../docs/research/lucid-dreams.md).
+
 **Editorial rule.** Follow [`docs/VISUAL_STANDARDS.md`](../../docs/VISUAL_STANDARDS.md): never present a planned or conceptual item as demonstrated. Figures quoted on the site (dataset sizes, published accuracies) belong to the cited authors and are labelled as such. Statuses shown in the roadmap and technology sections (`documented`, `software prototype`, `planned`, `optional`, `external reference`) must match the repository — update `sections/Roadmap.tsx` and `viz/SystemChain.tsx` only when the evidence exists.
 
 ## Visuals and evidence labels
@@ -101,6 +108,10 @@ The site contains no EEG plots, signal traces or experimental results, because t
 - **Canonical / social URLs:** set `NEXT_PUBLIC_SITE_URL=https://example.org` to emit absolute Open Graph image URLs.
 - **Vercel:** import the repository, set **Root Directory** to `apps/web` and keep the Next.js preset — no other settings are needed. Leave "Include files outside the Root Directory" enabled (the default), because the build reads the logo and tokens from `/assets/branding`. Canonical and social URLs use the project's production domain automatically.
 - **GitHub Pages:** the workflow [`.github/workflows/web.yml`](../../.github/workflows/web.yml) checks every pull request, and has a manually triggered *deploy* job. To use it, enable Pages with "GitHub Actions" as the source in the repository settings, then run the workflow from the Actions tab.
+
+The root and app `vercel.json` files disable automatic Vercel deployment for
+`content/lucid-dreams-consciousness` only. This content branch is for review;
+merging or publishing remains a separate action.
 
 ## Known limitations
 

@@ -53,6 +53,7 @@ export const en = {
     research: "Research",
     technology: "Technology",
     exchange: "Bidirectional",
+    dreams: "Dreams",
     roadmap: "Roadmap",
     open: "Open Research",
   },
@@ -549,6 +550,85 @@ export const en = {
     statementNote:
       "Clinical studies with implanted electrodes have evoked limited tactile sensations such as shape and motion. That is not the transfer of text, memories or meaning.",
     statementCite: "NIH Research Matters (2025)",
+  },
+  dreams: {
+    "eyebrow": "Dreams & consciousness",
+    "title": "A world within the mind.",
+    "lead": "Could we consciously explore an experience created entirely by the brain?",
+    "intro": "Dreams already create immersive experiences. Lucid dreaming adds awareness that the experience is a dream, sometimes with voluntary control. Designing a stable, programmable world remains an open question.",
+    "reviewed": "Literature reviewed · 12 November 2026",
+    "scope": "Published research by other teams. NeuroLink AI has not run a sleep experiment or built a dream interface.",
+    "evidenceTitle": "What the evidence supports",
+    "evidence": [
+      {
+        "label": "Demonstrated in a laboratory",
+        "title": "Limited dialogue during dreams",
+        "text": "In a 2021 study, six of 36 participants gave 29 correct answers during verified REM sleep, using eye movements or facial muscle signals. Communication was intermittent, not a continuous conversation.",
+        "source": "Konkoly et al. · 2021"
+      },
+      {
+        "label": "Experimental influence",
+        "title": "Suggesting a theme",
+        "text": "Dormio used audio prompts around sleep onset to influence reported dream themes. This is partial dream incubation, not the ability to write a scene or guarantee a lucid dream.",
+        "source": "Haar Horowitz et al. · 2020"
+      },
+      {
+        "label": "Not demonstrated",
+        "title": "A programmable inner world",
+        "text": "These studies do not establish a way to upload a complete experience, freely read a dream or create a shared external reality. An immersive experience and precise technological control are different claims.",
+        "source": "Read the research and its limits"
+      }
+    ],
+    "articleTitle": "Lucid dreams, the body and rest",
+    "articleHint": "Open a question to explore the evidence.",
+    "questions": {
+      "lucidity": {
+        "title": "Is lucid dreaming real, and how might it work?",
+        "paragraphs": [
+          "Lucidity means knowing that you are dreaming while the dream continues. It does not guarantee control over the story, emotions or awakening. Laboratory studies combine sleep recordings with pre-agreed eye signals to identify lucid episodes.",
+          "A 2025 EEG study found differences in brain activity and connectivity associated with lucid REM sleep. These are correlates of awareness, not proof of a single mechanism or a reliable switch for lucidity. Eye-movement artifacts remain important when interpreting EEG."
+        ],
+        "source": "Demirel et al. · EEG study, 2025"
+      },
+      "body": {
+        "title": "Are sleep paralysis and “astral travel” the same thing?",
+        "paragraphs": [
+          "Sleep paralysis is temporary inability to move or speak when falling asleep or waking. It can include a vivid sense of presence and can be frightening, but is usually harmless. It is not required for lucid dreaming.",
+          "An out-of-body experience can feel convincing without showing that consciousness has physically left the body. In one patient evaluated for epilepsy, focal brain stimulation repeatedly elicited this sensation. This supports a role for how the brain integrates bodily signals; it does not explain every such experience."
+        ],
+        "source": "Blanke et al. · Single-patient report, 2002"
+      },
+      "rest": {
+        "title": "Does an immersive dream wear out neurons?",
+        "paragraphs": [
+          "There is no established evidence that occasional lucid dreaming wears out or kills neurons. That is not proof that intensive induction is risk-free: long-term effects are insufficiently studied, and mental effort or tiredness should not be equated with neuronal damage.",
+          "In a short study of 355 participants, successful induction was not associated with worse self-reported sleep quality. The study did not measure neuronal damage. Techniques involving repeated awakenings can disrupt rest; lucid nightmares and distress are also possible. Persistent sleep problems deserve clinical attention."
+        ],
+        "source": "Aspy · Induction study, 2020"
+      },
+      "learning": {
+        "title": "Can lucidity be learned?",
+        "paragraphs": [
+          "Some techniques increase the likelihood of lucidity, but none promises full control every night. MILD uses an intention to remember that one is dreaming. A systematic review found it promising, while noting limitations in the evidence.",
+          "Preserving sleep takes priority over induction. This article is not a protocol for sleep deprivation, deliberate sleep paralysis, medication or brain stimulation. Frequent frightening paralysis, fear of sleeping or persistent daytime tiredness are reasons to seek professional advice."
+        ],
+        "source": "Tan & Fan · Systematic review, 2023"
+      }
+    },
+    "futureTitle": "A research question for NeuroLink AI",
+    "future": "A possible future study could combine sleep staging, a pre-agreed eye signal for lucidity and a simple auditory question, measuring correct responses, awakenings and next-day sleepiness. This would require a separate protocol, appropriate oversight and consent; it is not an implemented feature or part of the imagined-word EEG pilot.",
+    "privacy": "Consent to a bounded sleep study is not permission to record or transmit private dream content. Any future work would need explicit recording limits, data minimisation and a clear withdrawal process.",
+    "sourcesTitle": "Read the sources",
+    "sources": {
+      "dialogue": "Limited REM dialogue · Konkoly et al., 2021",
+      "incubation": "Dream incubation · Haar Horowitz et al., 2020",
+      "neural": "EEG correlates of lucidity · Demirel et al., 2025",
+      "body": "Out-of-body sensations · Blanke et al., 2002",
+      "rest": "Induction and sleep quality · Aspy, 2020",
+      "induction": "Induction techniques · Tan & Fan, 2023",
+      "paralysis": "Sleep paralysis · NHS guidance"
+    },
+    "document": "Read the full research note"
   },
   roadmap: {
     eyebrow: "Roadmap",
