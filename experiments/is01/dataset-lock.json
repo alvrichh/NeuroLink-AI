@@ -1,0 +1,26 @@
+{
+  "dataset": "ds003626",
+  "version": "2.1.2",
+  "commit": "d96743351ae4e5d0ee7a1384320ea8d52a2ce698",
+  "license": "CC0",
+  "files": [
+    {
+      "path": "sub-01/ses-01/eeg/sub-01_ses-01_task-innerspeech_eeg.bdf",
+      "bytes": 771058176,
+      "md5": "99304b3e9f43792d625ad36cf4153f3e",
+      "url": "https://s3.amazonaws.com/openneuro.org/ds003626/sub-01/ses-01/eeg/sub-01_ses-01_task-innerspeech_eeg.bdf?versionId=_epuv8s0yl8cjb4l5uTKzAXIwzu4zBec"
+    },
+    {
+      "path": "sub-01/ses-02/eeg/sub-01_ses-02_task-innerspeech_eeg.bdf",
+      "bytes": 702878208,
+      "md5": "e0ba741cc1f219f8a11c5ef183e6efc2",
+      "url": "https://s3.amazonaws.com/openneuro.org/ds003626/sub-01/ses-02/eeg/sub-01_ses-02_task-innerspeech_eeg.bdf?versionId=Qe7z_MsozLj.Ly7NI8BeFdsTZ2hUxEmb"
+    },
+    {
+      "path": "sub-01/ses-03/eeg/sub-01_ses-03_task-innerspeech_eeg.bdf",
+      "bytes": 408271605,
+      "md5": "4de9738d5fcc3fa13d2f522715bc9221",
+      "url": "https://s3.amazonaws.com/openneuro.org/ds003626/sub-01/ses-03/eeg/sub-01_ses-03_task-innerspeech_eeg.bdf?versionId=m1p8GPQ8WV8w9lL8pDWXYVU0RNTIAKs7"
+    }
+  ]
+}

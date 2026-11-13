@@ -58,7 +58,15 @@ flowchart LR
   A --> F["Text / Audio"]
 ```
 
-*Architecture only: no model or hardware has been built or validated here.*
+*Architecture only: the offline IS-01 classifier is not connected to this flow; no neural communication gate or custom hardware has been validated.*
+
+## IS-01 pilot / Piloto IS-01
+
+Real EEG, one participant and three held-out sessions: **26.5% pooled balanced accuracy**, 25% chance baseline, permutation **p=0.46**. No evidence of above-chance inner-speech classification; no spontaneous thought decoding or validated intention detection.
+
+EEG real, una persona y tres sesiones separadas: **26,5% balanced accuracy agrupada**, frente al 25% de referencia; **p=0,46**. Sin evidencia de clasificación superior al azar.
+
+[Reproduce / Reproducir](experiments/is01/README.md) · [Results and limitations / Resultados y limitaciones](experiments/is01/reports/pilot-sub01.md). The experiment is separate from the website simulations.
 
 ## Start here / Empieza aquí
 

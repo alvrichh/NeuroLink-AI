@@ -1,6 +1,8 @@
-# Protocolo IS-01 / NPF-01 — propuesta
+# Protocolo IS-01 / NPF-01
 
-**Estado:** sin ejecución ni métricas todavía.  
+**Estado IS-01 (2026-11-12):** piloto ejecutado con EEG real de un participante y tres sesiones (200 ensayos de habla interna). Balanced accuracy agrupada 26,5 %, macro-F1 0,2637; permutación de la media por sesión p=0,46 (199 permutaciones). Sin evidencia de mejora sobre el azar. Generalización entre participantes y validación del firewall neuronal pendientes.
+
+[Implementación reproducible](../../experiments/is01/README.md) · [Resultados y limitaciones](../../experiments/is01/reports/pilot-sub01.md).
 [English](../en/technical/inner-speech-protocol.md)
 
 ## IS-01: clasificación de habla imaginada
