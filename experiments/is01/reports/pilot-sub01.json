@@ -1,0 +1,2154 @@
+{
+  "status": "REAL_EEG_EXECUTED",
+  "seed": 20261112,
+  "dataset": {
+    "dataset": "ds003626",
+    "version": "2.1.2",
+    "commit": "d96743351ae4e5d0ee7a1384320ea8d52a2ce698",
+    "license": "CC0",
+    "files": [
+      {
+        "path": "sub-01/ses-01/eeg/sub-01_ses-01_task-innerspeech_eeg.bdf",
+        "bytes": 771058176,
+        "md5": "99304b3e9f43792d625ad36cf4153f3e",
+        "url": "https://s3.amazonaws.com/openneuro.org/ds003626/sub-01/ses-01/eeg/sub-01_ses-01_task-innerspeech_eeg.bdf?versionId=_epuv8s0yl8cjb4l5uTKzAXIwzu4zBec"
+      },
+      {
+        "path": "sub-01/ses-02/eeg/sub-01_ses-02_task-innerspeech_eeg.bdf",
+        "bytes": 702878208,
+        "md5": "e0ba741cc1f219f8a11c5ef183e6efc2",
+        "url": "https://s3.amazonaws.com/openneuro.org/ds003626/sub-01/ses-02/eeg/sub-01_ses-02_task-innerspeech_eeg.bdf?versionId=Qe7z_MsozLj.Ly7NI8BeFdsTZ2hUxEmb"
+      },
+      {
+        "path": "sub-01/ses-03/eeg/sub-01_ses-03_task-innerspeech_eeg.bdf",
+        "bytes": 408271605,
+        "md5": "4de9738d5fcc3fa13d2f522715bc9221",
+        "url": "https://s3.amazonaws.com/openneuro.org/ds003626/sub-01/ses-03/eeg/sub-01_ses-03_task-innerspeech_eeg.bdf?versionId=m1p8GPQ8WV8w9lL8pDWXYVU0RNTIAKs7"
+      }
+    ]
+  },
+  "software": {
+    "numpy": "2.3.5",
+    "scipy": "1.17.0",
+    "scikit-learn": "1.8.0",
+    "mne": "1.10.2"
+  },
+  "python": "3.12.14",
+  "git_head_at_execution": "2e8edd3578fdee1e16158a314b7d6f8c8cf77236",
+  "git_working_tree_dirty": false,
+  "source_sha256": "d0d4cdb4140f8b7b4748db969b2a8e88178f61333cb2420cf475f9952ab2d1b3",
+  "labels": [
+    "arriba",
+    "abajo",
+    "derecha",
+    "izquierda"
+  ],
+  "audit": [
+    {
+      "file": "sub-01/ses-01/eeg/sub-01_ses-01_task-innerspeech_eeg.bdf",
+      "accepted": 200,
+      "rejected": {},
+      "event_counts": {
+        "11": 1,
+        "13": 1,
+        "14": 1,
+        "15": 5,
+        "21": 1,
+        "42": 200,
+        "34": 50,
+        "44": 200,
+        "45": 200,
+        "46": 199,
+        "31": 50,
+        "33": 50,
+        "32": 50,
+        "16": 5,
+        "51": 4,
+        "22": 2,
+        "17": 45,
+        "61": 9,
+        "62": 14,
+        "63": 13,
+        "64": 9,
+        "23": 2,
+        "12": 1
+      },
+      "counts": {
+        "pronounced/izquierda": 10,
+        "pronounced/arriba": 10,
+        "pronounced/derecha": 10,
+        "pronounced/abajo": 10,
+        "inner/abajo": 20,
+        "inner/izquierda": 20,
+        "inner/arriba": 20,
+        "inner/derecha": 20,
+        "visualized/arriba": 20,
+        "visualized/derecha": 20,
+        "visualized/abajo": 20,
+        "visualized/izquierda": 20
+      }
+    },
+    {
+      "file": "sub-01/ses-02/eeg/sub-01_ses-02_task-innerspeech_eeg.bdf",
+      "accepted": 200,
+      "rejected": {},
+      "event_counts": {
+        "11": 1,
+        "13": 1,
+        "14": 1,
+        "15": 5,
+        "21": 1,
+        "42": 200,
+        "31": 50,
+        "44": 200,
+        "45": 200,
+        "46": 200,
+        "33": 50,
+        "34": 50,
+        "32": 50,
+        "16": 5,
+        "51": 4,
+        "22": 2,
+        "17": 12,
+        "62": 4,
+        "61": 5,
+        "64": 3,
+        "23": 2,
+        "12": 1
+      },
+      "counts": {
+        "pronounced/arriba": 10,
+        "pronounced/derecha": 10,
+        "pronounced/izquierda": 10,
+        "pronounced/abajo": 10,
+        "inner/abajo": 20,
+        "inner/derecha": 20,
+        "inner/izquierda": 20,
+        "inner/arriba": 20,
+        "visualized/izquierda": 20,
+        "visualized/arriba": 20,
+        "visualized/abajo": 20,
+        "visualized/derecha": 20
+      }
+    },
+    {
+      "file": "sub-01/ses-03/eeg/sub-01_ses-03_task-innerspeech_eeg.bdf",
+      "accepted": 100,
+      "rejected": {},
+      "event_counts": {
+        "11": 1,
+        "13": 1,
+        "14": 1,
+        "15": 5,
+        "21": 1,
+        "42": 100,
+        "33": 25,
+        "44": 100,
+        "45": 100,
+        "46": 100,
+        "31": 25,
+        "32": 25,
+        "34": 25,
+        "16": 5,
+        "51": 4,
+        "22": 2,
+        "17": 4,
+        "63": 1,
+        "62": 1,
+        "23": 2,
+        "64": 1,
+        "61": 1,
+        "12": 1
+      },
+      "counts": {
+        "pronounced/derecha": 5,
+        "pronounced/arriba": 5,
+        "pronounced/abajo": 5,
+        "pronounced/izquierda": 5,
+        "inner/derecha": 10,
+        "inner/abajo": 10,
+        "inner/arriba": 10,
+        "inner/izquierda": 10,
+        "visualized/izquierda": 10,
+        "visualized/derecha": 10,
+        "visualized/abajo": 10,
+        "visualized/arriba": 10
+      }
+    }
+  ],
+  "channels": [
+    "A1",
+    "A2",
+    "A3",
+    "A4",
+    "A5",
+    "A6",
+    "A7",
+    "A8",
+    "A9",
+    "A10",
+    "A11",
+    "A12",
+    "A13",
+    "A14",
+    "A15",
+    "A16",
+    "A17",
+    "A18",
+    "A19",
+    "A20",
+    "A21",
+    "A22",
+    "A23",
+    "A24",
+    "A25",
+    "A26",
+    "A27",
+    "A28",
+    "A29",
+    "A30",
+    "A31",
+    "A32",
+    "B1",
+    "B2",
+    "B3",
+    "B4",
+    "B5",
+    "B6",
+    "B7",
+    "B8",
+    "B9",
+    "B10",
+    "B11",
+    "B12",
+    "B13",
+    "B14",
+    "B15",
+    "B16",
+    "B17",
+    "B18",
+    "B19",
+    "B20",
+    "B21",
+    "B22",
+    "B23",
+    "B24",
+    "B25",
+    "B26",
+    "B27",
+    "B28",
+    "B29",
+    "B30",
+    "B31",
+    "B32",
+    "C1",
+    "C2",
+    "C3",
+    "C4",
+    "C5",
+    "C6",
+    "C7",
+    "C8",
+    "C9",
+    "C10",
+    "C11",
+    "C12",
+    "C13",
+    "C14",
+    "C15",
+    "C16",
+    "C17",
+    "C18",
+    "C19",
+    "C20",
+    "C21",
+    "C22",
+    "C23",
+    "C24",
+    "C25",
+    "C26",
+    "C27",
+    "C28",
+    "C29",
+    "C30",
+    "C31",
+    "C32",
+    "D1",
+    "D2",
+    "D3",
+    "D4",
+    "D5",
+    "D6",
+    "D7",
+    "D8",
+    "D9",
+    "D10",
+    "D11",
+    "D12",
+    "D13",
+    "D14",
+    "D15",
+    "D16",
+    "D17",
+    "D18",
+    "D19",
+    "D20",
+    "D21",
+    "D22",
+    "D23",
+    "D24",
+    "D25",
+    "D26",
+    "D27",
+    "D28",
+    "D29",
+    "D30",
+    "D31",
+    "D32",
+    "EXG1",
+    "EXG2",
+    "EXG3",
+    "EXG4",
+    "EXG5",
+    "EXG6",
+    "EXG7",
+    "EXG8"
+  ],
+  "experiments": {
+    "inner/eeg": {
+      "pooled": {
+        "n": 200,
+        "balanced_accuracy": 0.265,
+        "macro_f1": 0.2636881304840213,
+        "confusion_matrix": [
+          [
+            13,
+            15,
+            12,
+            10
+          ],
+          [
+            16,
+            15,
+            8,
+            11
+          ],
+          [
+            17,
+            14,
+            9,
+            10
+          ],
+          [
+            10,
+            17,
+            7,
+            16
+          ]
+        ],
+        "log_loss": 2.877178156834179,
+        "multiclass_brier": 1.1135524015321396
+      },
+      "majority": {
+        "n": 200,
+        "balanced_accuracy": 0.25,
+        "macro_f1": 0.1,
+        "confusion_matrix": [
+          [
+            50,
+            0,
+            0,
+            0
+          ],
+          [
+            50,
+            0,
+            0,
+            0
+          ],
+          [
+            50,
+            0,
+            0,
+            0
+          ],
+          [
+            50,
+            0,
+            0,
+            0
+          ]
+        ]
+      },
+      "folds": [
+        {
+          "held_out": "sub-01/ses-01",
+          "all_trials": {
+            "n": 80,
+            "balanced_accuracy": 0.3,
+            "macro_f1": 0.286863711001642,
+            "confusion_matrix": [
+              [
+                7,
+                7,
+                3,
+                3
+              ],
+              [
+                5,
+                9,
+                3,
+                3
+              ],
+              [
+                7,
+                8,
+                2,
+                3
+              ],
+              [
+                3,
+                10,
+                1,
+                6
+              ]
+            ]
+          },
+          "artifact_sensitivity": {
+            "n": 61,
+            "balanced_accuracy": 0.3174731615134092,
+            "macro_f1": 0.2941488336225178,
+            "confusion_matrix": [
+              [
+                5,
+                3,
+                3,
+                3
+              ],
+              [
+                4,
+                6,
+                4,
+                3
+              ],
+              [
+                6,
+                7,
+                2,
+                4
+              ],
+              [
+                1,
+                5,
+                0,
+                5
+              ]
+            ]
+          },
+          "retained_train": 106,
+          "total_train": 120,
+          "coverage": 0.7625,
+          "rejected_test_by_class": [
+            6,
+            3,
+            1,
+            9
+          ]
+        },
+        {
+          "held_out": "sub-01/ses-02",
+          "all_trials": {
+            "n": 80,
+            "balanced_accuracy": 0.2625,
+            "macro_f1": 0.25808210075944626,
+            "confusion_matrix": [
+              [
+                4,
+                4,
+                8,
+                4
+              ],
+              [
+                7,
+                4,
+                2,
+                7
+              ],
+              [
+                4,
+                4,
+                5,
+                7
+              ],
+              [
+                4,
+                5,
+                3,
+                8
+              ]
+            ]
+          },
+          "artifact_sensitivity": {
+            "n": 73,
+            "balanced_accuracy": 0.26294289645682833,
+            "macro_f1": 0.2595627301509654,
+            "confusion_matrix": [
+              [
+                6,
+                5,
+                5,
+                1
+              ],
+              [
+                3,
+                5,
+                3,
+                7
+              ],
+              [
+                7,
+                5,
+                4,
+                3
+              ],
+              [
+                4,
+                6,
+                5,
+                4
+              ]
+            ]
+          },
+          "retained_train": 103,
+          "total_train": 120,
+          "coverage": 0.9125,
+          "rejected_test_by_class": [
+            3,
+            2,
+            1,
+            1
+          ]
+        },
+        {
+          "held_out": "sub-01/ses-03",
+          "all_trials": {
+            "n": 40,
+            "balanced_accuracy": 0.2,
+            "macro_f1": 0.20513157894736841,
+            "confusion_matrix": [
+              [
+                2,
+                4,
+                1,
+                3
+              ],
+              [
+                4,
+                2,
+                3,
+                1
+              ],
+              [
+                6,
+                2,
+                2,
+                0
+              ],
+              [
+                3,
+                2,
+                3,
+                2
+              ]
+            ]
+          },
+          "artifact_sensitivity": {
+            "n": 36,
+            "balanced_accuracy": 0.21904761904761905,
+            "macro_f1": 0.2101461038961039,
+            "confusion_matrix": [
+              [
+                3,
+                3,
+                1,
+                3
+              ],
+              [
+                3,
+                1,
+                4,
+                2
+              ],
+              [
+                3,
+                0,
+                1,
+                3
+              ],
+              [
+                3,
+                2,
+                1,
+                3
+              ]
+            ]
+          },
+          "retained_train": 140,
+          "total_train": 160,
+          "coverage": 0.9,
+          "rejected_test_by_class": [
+            0,
+            0,
+            3,
+            1
+          ]
+        }
+      ],
+      "mean_session_balanced_accuracy": 0.25416666666666665,
+      "permutation": {
+        "n": 199,
+        "statistic": "mean session balanced accuracy",
+        "null_mean": 0.24991624790619762,
+        "p_value": 0.46
+      },
+      "descriptive_session_bootstrap_95": [
+        0.20000000000000004,
+        0.3
+      ]
+    },
+    "inner/eog": {
+      "pooled": {
+        "n": 200,
+        "balanced_accuracy": 0.28500000000000003,
+        "macro_f1": 0.28009066625571477,
+        "confusion_matrix": [
+          [
+            17,
+            14,
+            7,
+            12
+          ],
+          [
+            10,
+            15,
+            11,
+            14
+          ],
+          [
+            15,
+            15,
+            8,
+            12
+          ],
+          [
+            16,
+            9,
+            8,
+            17
+          ]
+        ],
+        "log_loss": 1.5132785383027516,
+        "multiclass_brier": 0.7980217896589763
+      },
+      "majority": {
+        "n": 200,
+        "balanced_accuracy": 0.25,
+        "macro_f1": 0.1,
+        "confusion_matrix": [
+          [
+            50,
+            0,
+            0,
+            0
+          ],
+          [
+            50,
+            0,
+            0,
+            0
+          ],
+          [
+            50,
+            0,
+            0,
+            0
+          ],
+          [
+            50,
+            0,
+            0,
+            0
+          ]
+        ]
+      },
+      "folds": [
+        {
+          "held_out": "sub-01/ses-01",
+          "all_trials": {
+            "n": 80,
+            "balanced_accuracy": 0.3,
+            "macro_f1": 0.2882394168769274,
+            "confusion_matrix": [
+              [
+                10,
+                3,
+                0,
+                7
+              ],
+              [
+                5,
+                5,
+                7,
+                3
+              ],
+              [
+                13,
+                1,
+                2,
+                4
+              ],
+              [
+                12,
+                0,
+                1,
+                7
+              ]
+            ]
+          },
+          "artifact_sensitivity": {
+            "n": 61,
+            "balanced_accuracy": 0.3060140324072213,
+            "macro_f1": 0.28386572020112394,
+            "confusion_matrix": [
+              [
+                9,
+                1,
+                1,
+                3
+              ],
+              [
+                4,
+                5,
+                6,
+                2
+              ],
+              [
+                15,
+                0,
+                2,
+                2
+              ],
+              [
+                7,
+                0,
+                2,
+                2
+              ]
+            ]
+          },
+          "retained_train": 106,
+          "total_train": 120,
+          "coverage": 0.7625,
+          "rejected_test_by_class": [
+            6,
+            3,
+            1,
+            9
+          ]
+        },
+        {
+          "held_out": "sub-01/ses-02",
+          "all_trials": {
+            "n": 80,
+            "balanced_accuracy": 0.2875,
+            "macro_f1": 0.2828149635095818,
+            "confusion_matrix": [
+              [
+                4,
+                7,
+                5,
+                4
+              ],
+              [
+                4,
+                5,
+                2,
+                9
+              ],
+              [
+                2,
+                8,
+                5,
+                5
+              ],
+              [
+                4,
+                4,
+                3,
+                9
+              ]
+            ]
+          },
+          "artifact_sensitivity": {
+            "n": 73,
+            "balanced_accuracy": 0.22970416236670105,
+            "macro_f1": 0.2266392144440925,
+            "confusion_matrix": [
+              [
+                2,
+                6,
+                7,
+                2
+              ],
+              [
+                0,
+                4,
+                4,
+                10
+              ],
+              [
+                1,
+                7,
+                6,
+                5
+              ],
+              [
+                2,
+                6,
+                6,
+                5
+              ]
+            ]
+          },
+          "retained_train": 103,
+          "total_train": 120,
+          "coverage": 0.9125,
+          "rejected_test_by_class": [
+            3,
+            2,
+            1,
+            1
+          ]
+        },
+        {
+          "held_out": "sub-01/ses-03",
+          "all_trials": {
+            "n": 40,
+            "balanced_accuracy": 0.25,
+            "macro_f1": 0.24620374465575703,
+            "confusion_matrix": [
+              [
+                3,
+                4,
+                2,
+                1
+              ],
+              [
+                1,
+                5,
+                2,
+                2
+              ],
+              [
+                0,
+                6,
+                1,
+                3
+              ],
+              [
+                0,
+                5,
+                4,
+                1
+              ]
+            ]
+          },
+          "artifact_sensitivity": {
+            "n": 36,
+            "balanced_accuracy": 0.1777777777777778,
+            "macro_f1": 0.1685185185185185,
+            "confusion_matrix": [
+              [
+                2,
+                3,
+                2,
+                3
+              ],
+              [
+                1,
+                4,
+                2,
+                3
+              ],
+              [
+                0,
+                5,
+                0,
+                2
+              ],
+              [
+                2,
+                5,
+                1,
+                1
+              ]
+            ]
+          },
+          "retained_train": 140,
+          "total_train": 160,
+          "coverage": 0.9,
+          "rejected_test_by_class": [
+            0,
+            0,
+            3,
+            1
+          ]
+        }
+      ],
+      "mean_session_balanced_accuracy": 0.2791666666666666,
+      "permutation": {
+        "n": 0,
+        "statistic": "mean session balanced accuracy",
+        "null_mean": null,
+        "p_value": null
+      },
+      "descriptive_session_bootstrap_95": [
+        0.25,
+        0.3
+      ]
+    },
+    "inner/emg": {
+      "pooled": {
+        "n": 200,
+        "balanced_accuracy": 0.275,
+        "macro_f1": 0.2624392843771978,
+        "confusion_matrix": [
+          [
+            20,
+            4,
+            15,
+            11
+          ],
+          [
+            18,
+            6,
+            12,
+            14
+          ],
+          [
+            21,
+            4,
+            18,
+            7
+          ],
+          [
+            18,
+            5,
+            16,
+            11
+          ]
+        ],
+        "log_loss": 1.4645030675929758,
+        "multiclass_brier": 0.7849879556561257
+      },
+      "majority": {
+        "n": 200,
+        "balanced_accuracy": 0.25,
+        "macro_f1": 0.1,
+        "confusion_matrix": [
+          [
+            50,
+            0,
+            0,
+            0
+          ],
+          [
+            50,
+            0,
+            0,
+            0
+          ],
+          [
+            50,
+            0,
+            0,
+            0
+          ],
+          [
+            50,
+            0,
+            0,
+            0
+          ]
+        ]
+      },
+      "folds": [
+        {
+          "held_out": "sub-01/ses-01",
+          "all_trials": {
+            "n": 80,
+            "balanced_accuracy": 0.275,
+            "macro_f1": 0.21005376344086024,
+            "confusion_matrix": [
+              [
+                16,
+                1,
+                0,
+                3
+              ],
+              [
+                14,
+                1,
+                1,
+                4
+              ],
+              [
+                17,
+                0,
+                2,
+                1
+              ],
+              [
+                13,
+                3,
+                1,
+                3
+              ]
+            ]
+          },
+          "artifact_sensitivity": {
+            "n": 61,
+            "balanced_accuracy": 0.2828092959671907,
+            "macro_f1": 0.20353923647932132,
+            "confusion_matrix": [
+              [
+                8,
+                0,
+                0,
+                6
+              ],
+              [
+                8,
+                0,
+                0,
+                9
+              ],
+              [
+                8,
+                0,
+                2,
+                9
+              ],
+              [
+                3,
+                1,
+                2,
+                5
+              ]
+            ]
+          },
+          "retained_train": 106,
+          "total_train": 120,
+          "coverage": 0.7625,
+          "rejected_test_by_class": [
+            6,
+            3,
+            1,
+            9
+          ]
+        },
+        {
+          "held_out": "sub-01/ses-02",
+          "all_trials": {
+            "n": 80,
+            "balanced_accuracy": 0.25,
+            "macro_f1": 0.2336715367965368,
+            "confusion_matrix": [
+              [
+                3,
+                3,
+                9,
+                5
+              ],
+              [
+                3,
+                4,
+                9,
+                4
+              ],
+              [
+                3,
+                4,
+                10,
+                3
+              ],
+              [
+                3,
+                2,
+                12,
+                3
+              ]
+            ]
+          },
+          "artifact_sensitivity": {
+            "n": 73,
+            "balanced_accuracy": 0.2692638458892329,
+            "macro_f1": 0.23146825396825396,
+            "confusion_matrix": [
+              [
+                3,
+                1,
+                13,
+                0
+              ],
+              [
+                2,
+                2,
+                13,
+                1
+              ],
+              [
+                3,
+                0,
+                13,
+                3
+              ],
+              [
+                3,
+                0,
+                14,
+                2
+              ]
+            ]
+          },
+          "retained_train": 103,
+          "total_train": 120,
+          "coverage": 0.9125,
+          "rejected_test_by_class": [
+            3,
+            2,
+            1,
+            1
+          ]
+        },
+        {
+          "held_out": "sub-01/ses-03",
+          "all_trials": {
+            "n": 40,
+            "balanced_accuracy": 0.325,
+            "macro_f1": 0.28249158249158246,
+            "confusion_matrix": [
+              [
+                1,
+                0,
+                6,
+                3
+              ],
+              [
+                1,
+                1,
+                2,
+                6
+              ],
+              [
+                1,
+                0,
+                6,
+                3
+              ],
+              [
+                2,
+                0,
+                3,
+                5
+              ]
+            ]
+          },
+          "artifact_sensitivity": {
+            "n": 36,
+            "balanced_accuracy": 0.2662698412698412,
+            "macro_f1": 0.21068376068376068,
+            "confusion_matrix": [
+              [
+                7,
+                0,
+                2,
+                1
+              ],
+              [
+                4,
+                0,
+                2,
+                4
+              ],
+              [
+                4,
+                0,
+                1,
+                2
+              ],
+              [
+                5,
+                1,
+                1,
+                2
+              ]
+            ]
+          },
+          "retained_train": 140,
+          "total_train": 160,
+          "coverage": 0.9,
+          "rejected_test_by_class": [
+            0,
+            0,
+            3,
+            1
+          ]
+        }
+      ],
+      "mean_session_balanced_accuracy": 0.2833333333333334,
+      "permutation": {
+        "n": 0,
+        "statistic": "mean session balanced accuracy",
+        "null_mean": null,
+        "p_value": null
+      },
+      "descriptive_session_bootstrap_95": [
+        0.25,
+        0.325
+      ]
+    },
+    "inner/cue_eeg": {
+      "pooled": {
+        "n": 200,
+        "balanced_accuracy": 0.21000000000000002,
+        "macro_f1": 0.20972645207924956,
+        "confusion_matrix": [
+          [
+            12,
+            15,
+            13,
+            10
+          ],
+          [
+            12,
+            8,
+            17,
+            13
+          ],
+          [
+            9,
+            9,
+            13,
+            19
+          ],
+          [
+            14,
+            16,
+            11,
+            9
+          ]
+        ],
+        "log_loss": 3.55014540533013,
+        "multiclass_brier": 1.2330417838640322
+      },
+      "majority": {
+        "n": 200,
+        "balanced_accuracy": 0.25,
+        "macro_f1": 0.1,
+        "confusion_matrix": [
+          [
+            50,
+            0,
+            0,
+            0
+          ],
+          [
+            50,
+            0,
+            0,
+            0
+          ],
+          [
+            50,
+            0,
+            0,
+            0
+          ],
+          [
+            50,
+            0,
+            0,
+            0
+          ]
+        ]
+      },
+      "folds": [
+        {
+          "held_out": "sub-01/ses-01",
+          "all_trials": {
+            "n": 80,
+            "balanced_accuracy": 0.2375,
+            "macro_f1": 0.2342049842049842,
+            "confusion_matrix": [
+              [
+                6,
+                5,
+                3,
+                6
+              ],
+              [
+                6,
+                2,
+                6,
+                6
+              ],
+              [
+                4,
+                5,
+                5,
+                6
+              ],
+              [
+                6,
+                5,
+                3,
+                6
+              ]
+            ]
+          },
+          "artifact_sensitivity": {
+            "n": 61,
+            "balanced_accuracy": 0.22182461501346948,
+            "macro_f1": 0.21127450980392154,
+            "confusion_matrix": [
+              [
+                2,
+                6,
+                2,
+                4
+              ],
+              [
+                4,
+                2,
+                5,
+                6
+              ],
+              [
+                2,
+                7,
+                5,
+                5
+              ],
+              [
+                2,
+                2,
+                3,
+                4
+              ]
+            ]
+          },
+          "retained_train": 106,
+          "total_train": 120,
+          "coverage": 0.7625,
+          "rejected_test_by_class": [
+            6,
+            3,
+            1,
+            9
+          ]
+        },
+        {
+          "held_out": "sub-01/ses-02",
+          "all_trials": {
+            "n": 80,
+            "balanced_accuracy": 0.2,
+            "macro_f1": 0.19475623582766438,
+            "confusion_matrix": [
+              [
+                5,
+                4,
+                7,
+                4
+              ],
+              [
+                3,
+                4,
+                9,
+                4
+              ],
+              [
+                4,
+                3,
+                6,
+                7
+              ],
+              [
+                8,
+                4,
+                7,
+                1
+              ]
+            ]
+          },
+          "artifact_sensitivity": {
+            "n": 73,
+            "balanced_accuracy": 0.16473168214654282,
+            "macro_f1": 0.16410046142372842,
+            "confusion_matrix": [
+              [
+                3,
+                5,
+                8,
+                1
+              ],
+              [
+                2,
+                3,
+                8,
+                5
+              ],
+              [
+                4,
+                5,
+                4,
+                6
+              ],
+              [
+                5,
+                4,
+                8,
+                2
+              ]
+            ]
+          },
+          "retained_train": 103,
+          "total_train": 120,
+          "coverage": 0.9125,
+          "rejected_test_by_class": [
+            3,
+            2,
+            1,
+            1
+          ]
+        },
+        {
+          "held_out": "sub-01/ses-03",
+          "all_trials": {
+            "n": 40,
+            "balanced_accuracy": 0.175,
+            "macro_f1": 0.17496947496947496,
+            "confusion_matrix": [
+              [
+                1,
+                6,
+                3,
+                0
+              ],
+              [
+                3,
+                2,
+                2,
+                3
+              ],
+              [
+                1,
+                1,
+                2,
+                6
+              ],
+              [
+                0,
+                7,
+                1,
+                2
+              ]
+            ]
+          },
+          "artifact_sensitivity": {
+            "n": 36,
+            "balanced_accuracy": 0.24126984126984127,
+            "macro_f1": 0.24007352941176469,
+            "confusion_matrix": [
+              [
+                2,
+                3,
+                4,
+                1
+              ],
+              [
+                1,
+                4,
+                3,
+                2
+              ],
+              [
+                1,
+                2,
+                1,
+                3
+              ],
+              [
+                1,
+                5,
+                1,
+                2
+              ]
+            ]
+          },
+          "retained_train": 140,
+          "total_train": 160,
+          "coverage": 0.9,
+          "rejected_test_by_class": [
+            0,
+            0,
+            3,
+            1
+          ]
+        }
+      ],
+      "mean_session_balanced_accuracy": 0.2041666666666667,
+      "permutation": {
+        "n": 0,
+        "statistic": "mean session balanced accuracy",
+        "null_mean": null,
+        "p_value": null
+      },
+      "descriptive_session_bootstrap_95": [
+        0.17499999999999996,
+        0.23749999999999996
+      ]
+    },
+    "pronounced/eeg": {
+      "pooled": {
+        "n": 100,
+        "balanced_accuracy": 0.33,
+        "macro_f1": 0.3233404280549007,
+        "confusion_matrix": [
+          [
+            10,
+            2,
+            9,
+            4
+          ],
+          [
+            10,
+            4,
+            8,
+            3
+          ],
+          [
+            7,
+            4,
+            11,
+            3
+          ],
+          [
+            6,
+            7,
+            4,
+            8
+          ]
+        ],
+        "log_loss": 3.316411413414759,
+        "multiclass_brier": 1.041855598802646
+      },
+      "majority": {
+        "n": 100,
+        "balanced_accuracy": 0.25,
+        "macro_f1": 0.1,
+        "confusion_matrix": [
+          [
+            25,
+            0,
+            0,
+            0
+          ],
+          [
+            25,
+            0,
+            0,
+            0
+          ],
+          [
+            25,
+            0,
+            0,
+            0
+          ],
+          [
+            25,
+            0,
+            0,
+            0
+          ]
+        ]
+      },
+      "folds": [
+        {
+          "held_out": "sub-01/ses-01",
+          "all_trials": {
+            "n": 40,
+            "balanced_accuracy": 0.4,
+            "macro_f1": 0.34523809523809523,
+            "confusion_matrix": [
+              [
+                6,
+                0,
+                3,
+                1
+              ],
+              [
+                6,
+                0,
+                3,
+                1
+              ],
+              [
+                3,
+                0,
+                4,
+                3
+              ],
+              [
+                3,
+                0,
+                1,
+                6
+              ]
+            ]
+          },
+          "artifact_sensitivity": {
+            "n": 37,
+            "balanced_accuracy": 0.375,
+            "macro_f1": 0.33369565217391306,
+            "confusion_matrix": [
+              [
+                5,
+                1,
+                1,
+                3
+              ],
+              [
+                4,
+                0,
+                4,
+                1
+              ],
+              [
+                2,
+                1,
+                4,
+                2
+              ],
+              [
+                2,
+                0,
+                2,
+                5
+              ]
+            ]
+          },
+          "retained_train": 51,
+          "total_train": 60,
+          "coverage": 0.925,
+          "rejected_test_by_class": [
+            0,
+            1,
+            1,
+            1
+          ]
+        },
+        {
+          "held_out": "sub-01/ses-02",
+          "all_trials": {
+            "n": 40,
+            "balanced_accuracy": 0.3,
+            "macro_f1": 0.29126984126984123,
+            "confusion_matrix": [
+              [
+                2,
+                0,
+                6,
+                2
+              ],
+              [
+                2,
+                3,
+                5,
+                0
+              ],
+              [
+                2,
+                3,
+                5,
+                0
+              ],
+              [
+                2,
+                4,
+                2,
+                2
+              ]
+            ]
+          },
+          "artifact_sensitivity": {
+            "n": 36,
+            "balanced_accuracy": 0.3069444444444444,
+            "macro_f1": 0.30992002063983487,
+            "confusion_matrix": [
+              [
+                2,
+                1,
+                5,
+                2
+              ],
+              [
+                1,
+                4,
+                4,
+                0
+              ],
+              [
+                2,
+                4,
+                3,
+                0
+              ],
+              [
+                2,
+                1,
+                3,
+                2
+              ]
+            ]
+          },
+          "retained_train": 52,
+          "total_train": 60,
+          "coverage": 0.9,
+          "rejected_test_by_class": [
+            0,
+            1,
+            1,
+            2
+          ]
+        },
+        {
+          "held_out": "sub-01/ses-03",
+          "all_trials": {
+            "n": 20,
+            "balanced_accuracy": 0.25,
+            "macro_f1": 0.25,
+            "confusion_matrix": [
+              [
+                2,
+                2,
+                0,
+                1
+              ],
+              [
+                2,
+                1,
+                0,
+                2
+              ],
+              [
+                2,
+                1,
+                2,
+                0
+              ],
+              [
+                1,
+                3,
+                1,
+                0
+              ]
+            ]
+          },
+          "artifact_sensitivity": {
+            "n": 8,
+            "balanced_accuracy": 0.29166666666666663,
+            "macro_f1": 0.29166666666666663,
+            "confusion_matrix": [
+              [
+                1,
+                1,
+                0,
+                0
+              ],
+              [
+                0,
+                0,
+                0,
+                1
+              ],
+              [
+                1,
+                0,
+                2,
+                0
+              ],
+              [
+                0,
+                1,
+                1,
+                0
+              ]
+            ]
+          },
+          "retained_train": 71,
+          "total_train": 80,
+          "coverage": 0.4,
+          "rejected_test_by_class": [
+            3,
+            4,
+            2,
+            3
+          ]
+        }
+      ],
+      "mean_session_balanced_accuracy": 0.31666666666666665,
+      "permutation": {
+        "n": 0,
+        "statistic": "mean session balanced accuracy",
+        "null_mean": null,
+        "p_value": null
+      },
+      "descriptive_session_bootstrap_95": [
+        0.25,
+        0.4000000000000001
+      ]
+    },
+    "visualized/eeg": {
+      "pooled": {
+        "n": 200,
+        "balanced_accuracy": 0.315,
+        "macro_f1": 0.3141943582733056,
+        "confusion_matrix": [
+          [
+            12,
+            12,
+            9,
+            17
+          ],
+          [
+            10,
+            19,
+            7,
+            14
+          ],
+          [
+            12,
+            11,
+            15,
+            12
+          ],
+          [
+            11,
+            12,
+            10,
+            17
+          ]
+        ],
+        "log_loss": 2.8129782450741794,
+        "multiclass_brier": 1.0812274328912612
+      },
+      "majority": {
+        "n": 200,
+        "balanced_accuracy": 0.25,
+        "macro_f1": 0.1,
+        "confusion_matrix": [
+          [
+            50,
+            0,
+            0,
+            0
+          ],
+          [
+            50,
+            0,
+            0,
+            0
+          ],
+          [
+            50,
+            0,
+            0,
+            0
+          ],
+          [
+            50,
+            0,
+            0,
+            0
+          ]
+        ]
+      },
+      "folds": [
+        {
+          "held_out": "sub-01/ses-01",
+          "all_trials": {
+            "n": 80,
+            "balanced_accuracy": 0.375,
+            "macro_f1": 0.37171139671139675,
+            "confusion_matrix": [
+              [
+                4,
+                5,
+                5,
+                6
+              ],
+              [
+                7,
+                9,
+                1,
+                3
+              ],
+              [
+                3,
+                5,
+                9,
+                3
+              ],
+              [
+                3,
+                5,
+                4,
+                8
+              ]
+            ]
+          },
+          "artifact_sensitivity": {
+            "n": 72,
+            "balanced_accuracy": 0.34907120743034054,
+            "macro_f1": 0.3444669913419913,
+            "confusion_matrix": [
+              [
+                3,
+                6,
+                4,
+                6
+              ],
+              [
+                7,
+                9,
+                1,
+                2
+              ],
+              [
+                3,
+                4,
+                8,
+                2
+              ],
+              [
+                3,
+                6,
+                3,
+                5
+              ]
+            ]
+          },
+          "retained_train": 110,
+          "total_train": 120,
+          "coverage": 0.9,
+          "rejected_test_by_class": [
+            1,
+            1,
+            3,
+            3
+          ]
+        },
+        {
+          "held_out": "sub-01/ses-02",
+          "all_trials": {
+            "n": 80,
+            "balanced_accuracy": 0.2875,
+            "macro_f1": 0.28622766122766125,
+            "confusion_matrix": [
+              [
+                5,
+                3,
+                3,
+                9
+              ],
+              [
+                2,
+                5,
+                6,
+                7
+              ],
+              [
+                5,
+                2,
+                5,
+                8
+              ],
+              [
+                4,
+                3,
+                5,
+                8
+              ]
+            ]
+          },
+          "artifact_sensitivity": {
+            "n": 30,
+            "balanced_accuracy": 0.32380952380952377,
+            "macro_f1": 0.3181547619047619,
+            "confusion_matrix": [
+              [
+                2,
+                1,
+                2,
+                4
+              ],
+              [
+                0,
+                1,
+                3,
+                1
+              ],
+              [
+                1,
+                0,
+                3,
+                3
+              ],
+              [
+                3,
+                1,
+                1,
+                4
+              ]
+            ]
+          },
+          "retained_train": 104,
+          "total_train": 120,
+          "coverage": 0.375,
+          "rejected_test_by_class": [
+            11,
+            15,
+            13,
+            11
+          ]
+        },
+        {
+          "held_out": "sub-01/ses-03",
+          "all_trials": {
+            "n": 40,
+            "balanced_accuracy": 0.25,
+            "macro_f1": 0.22701372701372702,
+            "confusion_matrix": [
+              [
+                3,
+                4,
+                1,
+                2
+              ],
+              [
+                1,
+                5,
+                0,
+                4
+              ],
+              [
+                4,
+                4,
+                1,
+                1
+              ],
+              [
+                4,
+                4,
+                1,
+                1
+              ]
+            ]
+          },
+          "artifact_sensitivity": {
+            "n": 38,
+            "balanced_accuracy": 0.2861111111111111,
+            "macro_f1": 0.2708333333333333,
+            "confusion_matrix": [
+              [
+                3,
+                4,
+                1,
+                1
+              ],
+              [
+                1,
+                5,
+                1,
+                3
+              ],
+              [
+                4,
+                3,
+                2,
+                1
+              ],
+              [
+                3,
+                3,
+                2,
+                1
+              ]
+            ]
+          },
+          "retained_train": 142,
+          "total_train": 160,
+          "coverage": 0.95,
+          "rejected_test_by_class": [
+            1,
+            0,
+            0,
+            1
+          ]
+        }
+      ],
+      "mean_session_balanced_accuracy": 0.30416666666666664,
+      "permutation": {
+        "n": 0,
+        "statistic": "mean session balanced accuracy",
+        "null_mean": null,
+        "p_value": null
+      },
+      "descriptive_session_bootstrap_95": [
+        0.25,
+        0.375
+      ]
+    }
+  },
+  "scope": "Single-participant session transfer; no subject generalization or spontaneous thought decoding",
+  "confidence_warning": "Three session clusters only; descriptive bootstrap, not population confidence",
+  "config": {
+    "action_window_seconds": [
+      0.5,
+      2.5
+    ],
+    "cue_window_seconds": [
+      0.05,
+      0.45
+    ],
+    "eeg_bands_hz": [
+      [
+        4,
+        8
+      ],
+      [
+        8,
+        13
+      ],
+      [
+        13,
+        30
+      ]
+    ],
+    "artifact_train_quantile": 0.95,
+    "model": "StandardScaler + balanced LogisticRegression C=1",
+    "tuning": "none"
+  }
+}
