@@ -148,6 +148,18 @@ export const es: Dictionary = {
       "Una persona puede hablar consigo misma sin querer contárselo a nadie. Por eso el sistema propuesto está bloqueado por defecto. Se abre solo tras una activación deliberada, decodifica en local una ventana breve, pide confirmación explícita, envía el texto aprobado y vuelve a bloquearse.",
       "Si algo falla —un tiempo agotado, un error, una conexión perdida—, el canal se cierra y no se transmite nada.",
     ],
+    intent: {
+  "title": "Pensar, percibir y comunicar no son lo mismo.",
+  "intro": "El habla interna puede acompañar la lectura o la escritura. Una sensación también puede provocar palabras o imágenes mentales: estas experiencias se mezclan y no asumimos que el EEG las separe de forma fiable.",
+  "items": [
+    "Percepción: escuchar «arriba» o leer esa palabra no debe activar una orden. Oler algo y pensar en ello tampoco implica querer comunicarlo.",
+    "Pensamiento privado: hablar contigo mismo, preparar una frase o imaginar una escena no autoriza su envío. No todo pensamiento se formula con palabras.",
+    "Comunicación voluntaria: abrir el canal con un control explícito, formular un mensaje y confirmar el texto antes de enviarlo. Reconocer palabras no demuestra consentimiento."
+  ],
+  "status": "Propuesta NPF-02 · aún sin ejecutar. Compararemos las mismas palabras escuchadas, leídas, imaginadas en privado y dirigidas al asistente, además de controles no verbales y reposo. Mediremos falsas activaciones por hora y sensibilidad en participantes reservados.",
+  "limit": "El piloto EEG actual no demostró rendimiento superior al azar (26,5 %; p = 0,46) y no evaluó esta distinción.",
+  "link": "Ver condiciones, controles y criterios del experimento"
+},
     sim: {
       tag: "Simulación de arquitectura",
       title: "Observa cómo cambia el camino",

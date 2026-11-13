@@ -147,6 +147,18 @@ export const en = {
       "A person can talk to themselves without meaning to tell anyone. So the proposed system is locked by default. It opens only after deliberate activation, decodes a short window locally, asks for explicit confirmation, sends the approved text — and locks again.",
       "If anything fails — a timeout, a fault, a lost connection — the channel closes and nothing is transmitted.",
     ],
+    intent: {
+  "title": "Thinking, perceiving and communicating are different.",
+  "intro": "Inner speech can accompany reading or writing. A sensation can also prompt words or mental images: these experiences overlap, and we do not assume EEG can reliably separate them.",
+  "items": [
+    "Perception: hearing or reading “up” must not activate a command. Smelling something and thinking about it does not imply an intention to communicate either.",
+    "Private thought: talking to yourself, preparing a sentence or imagining a scene does not authorize transmission. Not all thought takes the form of words.",
+    "Voluntary communication: open the channel with an explicit control, formulate a message and confirm the text before sending it. Recognizing words does not establish consent."
+  ],
+  "status": "NPF-02 proposal · not yet executed. We will compare the same words heard, read, privately imagined and addressed to the assistant, alongside nonverbal controls and rest. We will measure false activations per hour and sensitivity in held-out participants.",
+  "limit": "The current EEG pilot did not demonstrate above-chance performance (26.5%; p = 0.46) and did not evaluate this distinction.",
+  "link": "Read the experimental conditions, controls and criteria"
+},
     sim: {
       tag: "Architectural simulation",
       title: "See how the path changes",
