@@ -23,6 +23,7 @@ La documentación técnica original del proyecto está redactada principalmente 
 - [Protocolo experimental](../technical/research-protocol.md)
 - [Seguridad y privacidad](../technical/safety-privacy.md)
 - [Estado científico actual](../research/state-of-the-science.md)
+- [Sueños lúcidos, consciencia y descanso](../research/lucid-dreams.md)
 - [Hoja de ruta](../research/roadmap.md)
 
 ## Electrónica y material visual

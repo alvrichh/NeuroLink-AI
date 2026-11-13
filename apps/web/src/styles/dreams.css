@@ -1,0 +1,89 @@
+@layer components {
+  .dreams__intro {
+    display: grid;
+    gap: 2rem 3rem;
+    align-items: end;
+    margin-top: 1.5rem;
+  }
+  .dreams__scope {
+    border-left: 2px solid var(--accent);
+    padding-left: 1rem;
+    font-size: 0.875rem;
+    line-height: 1.6;
+    color: var(--ink-body);
+  }
+  .dreams__evidence {
+    display: grid;
+    gap: 1rem;
+    margin-top: 1.5rem;
+  }
+  .dreams__card {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    gap: 1.25rem;
+    padding: clamp(1.25rem, 2.5vw, 2rem);
+  }
+  .dreams__label {
+    color: var(--accent);
+    font-size: 0.75rem;
+    font-weight: 600;
+    line-height: 1.5;
+    letter-spacing: 0.04em;
+  }
+  .dreams__cite {
+    margin-top: auto;
+    font-size: 0.8125rem;
+    line-height: 1.5;
+  }
+  .dreams__reading {
+    display: grid;
+    gap: 2rem 3rem;
+    margin-top: clamp(3rem, 6vw, 5rem);
+  }
+  .dreams__question {
+    border-top: 1px solid var(--hairline-strong);
+  }
+  .dreams__question:last-child {
+    border-bottom: 1px solid var(--hairline-strong);
+  }
+  .dreams__question summary {
+    padding: 1.35rem 0.25rem;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: 600;
+    line-height: 1.5;
+    color: var(--ink);
+  }
+  .dreams__question summary::marker { color: var(--accent); }
+  .dreams__question summary:hover { color: var(--accent); }
+  .dreams__question summary:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 3px;
+  }
+  .dreams__answer {
+    display: grid;
+    gap: 1.25rem;
+    padding: 0.25rem 0.25rem 1.75rem;
+  }
+  .dreams__future {
+    display: grid;
+    gap: 1.25rem;
+    padding: clamp(1.5rem, 4vw, 3rem);
+    margin-top: 3rem;
+  }
+  .dreams__sources { margin-top: 3rem; scroll-margin-top: 6rem; }
+  .dreams__sources ul {
+    display: grid;
+    gap: 0.8rem 2rem;
+    margin-top: 1.5rem;
+    font-size: 0.875rem;
+    line-height: 1.6;
+  }
+  @media (min-width: 48rem) {
+    .dreams__intro { grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr); }
+    .dreams__evidence { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+    .dreams__reading { grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.4fr); }
+    .dreams__sources ul { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  }
+}

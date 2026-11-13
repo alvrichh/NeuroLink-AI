@@ -63,6 +63,7 @@ export const sectionIcons: Record<SectionId, (p: IconProps) => React.JSX.Element
       <path d="M16.5 12.750H4.250M7.5 9.5l-3.250 3.250L7.500 16" />
     </Base>
   ),
+  dreams: (p) => <MoonIcon {...p} />,
   roadmap: (p) => (
     <Base {...p}>
       <path d="M4.25 15.75V4.250" />

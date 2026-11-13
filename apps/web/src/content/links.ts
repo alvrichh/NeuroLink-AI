@@ -34,6 +34,7 @@ export const repoPaths = {
     en: "docs/en/research/state-of-the-science.md",
     es: "docs/research/state-of-the-science.md",
   },
+  dreams: { en: "docs/en/research/lucid-dreams.md", es: "docs/research/lucid-dreams.md" },
   roadmap: { en: "docs/en/research/roadmap.md", es: "docs/research/roadmap.md" },
   safety: {
     en: "docs/en/technical/safety-privacy.md",
@@ -88,6 +89,18 @@ export const refs = {
   cyton: "https://docs.openbci.com/Cyton/CytonSpecs/",
   mne: "https://mne.tools/stable/index.html",
   brainflow: "https://brainflow.readthedocs.io/en/stable/index.html",
+} as const;
+
+
+/** Published dream research and clinical background; not project results. */
+export const dreamRefs = {
+  "dialogue": "https://pubmed.ncbi.nlm.nih.gov/33607035/",
+  "incubation": "https://pmc.ncbi.nlm.nih.gov/articles/PMC7590944/",
+  "neural": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12079745/",
+  "body": "https://www.nature.com/articles/419269a",
+  "rest": "https://pmc.ncbi.nlm.nih.gov/articles/PMC7379166/",
+  "induction": "https://pubmed.ncbi.nlm.nih.gov/36408823/",
+  "paralysis": "https://www.nhs.uk/conditions/sleep-paralysis/"
 } as const;
 
 export type RefKey = keyof typeof refs;

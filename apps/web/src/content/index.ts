@@ -21,6 +21,7 @@ export const sectionIds = [
   "research",
   "technology",
   "exchange",
+  "dreams",
   "roadmap",
   "open",
 ] as const;

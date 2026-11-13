@@ -55,6 +55,7 @@ export const es: Dictionary = {
     research: "Investigación",
     technology: "Tecnología",
     exchange: "Bidireccional",
+    dreams: "Sueños",
     roadmap: "Hoja de ruta",
     open: "Ciencia abierta",
   },
@@ -550,6 +551,85 @@ export const es: Dictionary = {
     statementNote:
       "Estudios clínicos con electrodos implantados han evocado sensaciones táctiles limitadas, como forma y movimiento. Eso no es transferir texto, recuerdos ni significado.",
     statementCite: "NIH Research Matters (2025)",
+  },
+  dreams: {
+    "eyebrow": "Sueños y consciencia",
+    "title": "Un mundo dentro de la mente.",
+    "lead": "¿Podríamos explorar conscientemente una experiencia creada por completo por el cerebro?",
+    "intro": "Los sueños ya producen experiencias inmersivas. En un sueño lúcido, además, sabes que estás soñando y a veces puedes influir en lo que ocurre. Diseñar un mundo estable y programable sigue siendo una pregunta abierta.",
+    "reviewed": "Literatura revisada · 12 de noviembre de 2026",
+    "scope": "Investigaciones publicadas por otros equipos. NeuroLink AI no ha realizado un experimento de sueño ni construido una interfaz de sueños.",
+    "evidenceTitle": "Qué respalda la evidencia",
+    "evidence": [
+      {
+        "label": "Demostrado en laboratorio",
+        "title": "Diálogo limitado durante los sueños",
+        "text": "En un estudio de 2021, seis de 36 participantes dieron 29 respuestas correctas durante sueño REM verificado, mediante movimientos oculares o señales musculares faciales. La comunicación fue intermitente, no una conversación continua.",
+        "source": "Konkoly et al. · 2021"
+      },
+      {
+        "label": "Influencia experimental",
+        "title": "Sugerir un tema",
+        "text": "Dormio utilizó indicaciones auditivas en la transición al sueño para influir en los temas relatados. Es incubación parcial de sueños, no la capacidad de escribir una escena o garantizar un sueño lúcido.",
+        "source": "Haar Horowitz et al. · 2020"
+      },
+      {
+        "label": "No demostrado",
+        "title": "Un mundo interior programable",
+        "text": "Estos estudios no demuestran cómo introducir una experiencia completa, leer libremente un sueño o crear una realidad externa compartida. Vivir una experiencia inmersiva y controlarla tecnológicamente con precisión son afirmaciones distintas.",
+        "source": "Consulta las investigaciones y sus límites"
+      }
+    ],
+    "articleTitle": "Sueños lúcidos, cuerpo y descanso",
+    "articleHint": "Abre una pregunta para explorar la evidencia.",
+    "questions": {
+      "lucidity": {
+        "title": "¿Los sueños lúcidos son reales y cómo podrían funcionar?",
+        "paragraphs": [
+          "Lucidez significa reconocer que estás soñando mientras el sueño continúa. No garantiza controlar la historia, las emociones o el despertar. En el laboratorio se combinan registros del sueño con señales oculares acordadas previamente para identificar episodios lúcidos.",
+          "Un estudio de EEG de 2025 encontró diferencias de actividad y conectividad cerebral asociadas al sueño REM lúcido. Son correlatos de consciencia, no la demostración de un mecanismo único ni de un interruptor fiable de lucidez. Los artefactos oculares siguen siendo importantes al interpretar el EEG."
+        ],
+        "source": "Demirel et al. · Estudio de EEG, 2025"
+      },
+      "body": {
+        "title": "¿La parálisis del sueño y el «viaje astral» son lo mismo?",
+        "paragraphs": [
+          "La parálisis del sueño es la incapacidad temporal para moverse o hablar al dormirse o despertar. Puede incluir una sensación vívida de presencia y resultar aterradora, aunque suele ser inofensiva. No es necesaria para tener sueños lúcidos.",
+          "Una experiencia extracorporal puede sentirse convincente sin demostrar que la consciencia haya abandonado físicamente el cuerpo. En una paciente evaluada por epilepsia, la estimulación cerebral focal provocó repetidamente esa sensación. Esto apoya un papel de la integración de señales corporales, pero no explica todas esas experiencias."
+        ],
+        "source": "Blanke et al. · Caso de una paciente, 2002"
+      },
+      "rest": {
+        "title": "¿Una experiencia inmersiva desgasta las neuronas?",
+        "paragraphs": [
+          "No hay evidencia establecida de que tener sueños lúcidos ocasionales desgaste o mate neuronas. Eso no prueba que inducirlos intensivamente carezca de riesgos: los efectos a largo plazo están poco estudiados y el esfuerzo mental o el cansancio no equivalen a daño neuronal.",
+          "En un estudio breve con 355 participantes, la inducción exitosa no se asoció a peor calidad de sueño autoinformada. El estudio no midió daño neuronal. Las técnicas con despertares repetidos pueden alterar el descanso; también pueden aparecer pesadillas lúcidas y malestar. Los problemas persistentes de sueño merecen atención clínica."
+        ],
+        "source": "Aspy · Estudio de inducción, 2020"
+      },
+      "learning": {
+        "title": "¿Se puede aprender a tener lucidez?",
+        "paragraphs": [
+          "Algunas técnicas aumentan la probabilidad de lucidez, pero ninguna promete control total cada noche. MILD utiliza la intención de recordar que estás soñando. Una revisión sistemática encontró resultados favorables, con limitaciones en la evidencia.",
+          "Cuidar el descanso tiene prioridad sobre inducir sueños. Este artículo no propone privación de sueño, parálisis deliberada, medicación ni estimulación cerebral. La parálisis frecuente y angustiante, el miedo a dormir o el cansancio diurno persistente son motivos para pedir orientación profesional."
+        ],
+        "source": "Tan y Fan · Revisión sistemática, 2023"
+      }
+    },
+    "futureTitle": "Una pregunta de investigación para NeuroLink AI",
+    "future": "Un posible estudio futuro podría combinar la identificación de fases del sueño, una señal ocular acordada para indicar lucidez y una pregunta auditiva sencilla, midiendo respuestas correctas, despertares y somnolencia al día siguiente. Requeriría un protocolo independiente, supervisión adecuada y consentimiento; no es una función implementada ni parte del piloto EEG de palabras imaginadas.",
+    "privacy": "Consentir un estudio acotado del sueño no autoriza a registrar o transmitir contenido onírico privado. Cualquier trabajo futuro necesitaría límites explícitos de registro, minimización de datos y un proceso claro para retirar el consentimiento.",
+    "sourcesTitle": "Consulta las fuentes",
+    "sources": {
+      "dialogue": "Diálogo limitado en REM · Konkoly et al., 2021",
+      "incubation": "Incubación de sueños · Haar Horowitz et al., 2020",
+      "neural": "Correlatos EEG de lucidez · Demirel et al., 2025",
+      "body": "Sensaciones extracorporales · Blanke et al., 2002",
+      "rest": "Inducción y calidad del sueño · Aspy, 2020",
+      "induction": "Técnicas de inducción · Tan y Fan, 2023",
+      "paralysis": "Parálisis del sueño · Información del NHS"
+    },
+    "document": "Leer la nota de investigación completa"
   },
   roadmap: {
     eyebrow: "Hoja de ruta",

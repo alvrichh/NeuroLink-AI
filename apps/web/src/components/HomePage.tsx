@@ -1,4 +1,5 @@
 import { getDictionary, type Locale } from "@/content";
+import { Dreams } from "@/sections/Dreams";
 import { Exchange } from "@/sections/Exchange";
 import { Hero } from "@/sections/Hero";
 import { OpenResearch, SiteFooter } from "@/sections/OpenResearch";
@@ -21,6 +22,7 @@ export function HomePage({ locale }: { locale: Locale }) {
       <Research t={t.research} {...shared} />
       <Technology t={t.technology} {...shared} />
       <Exchange t={t.exchange} {...shared} />
+      <Dreams t={t.dreams} common={t.common} locale={locale} />
       <Roadmap t={t.roadmap} {...shared} />
       <OpenResearch t={t.open} common={t.common} locale={locale} />
     </main>

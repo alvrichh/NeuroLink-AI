@@ -35,7 +35,7 @@ export function Roadmap({
       <div className="frame">
         <div className="wrap grid gap-x-16 gap-y-12 nav:grid-cols-[minmax(0,0.82fr)_minmax(0,1.18fr)]">
           <div className="roadmap__aside">
-            <Eyebrow index={6}>{t.eyebrow}</Eyebrow>
+            <Eyebrow index={7}>{t.eyebrow}</Eyebrow>
             <h2 id="roadmap-title" className="t-title roadmap__title mt-6" data-reveal="" style={stagger(1)}>
               {t.title}
             </h2>
