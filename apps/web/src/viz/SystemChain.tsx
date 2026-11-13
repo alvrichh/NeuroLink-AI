@@ -20,8 +20,8 @@ const stages: Array<{ key: StageKey; domain: Domain; kind: StatusKind; link: Lin
   { key: "afe", domain: "analog", kind: "reference", link: { ref: "ads1299" } },
   { key: "adc", domain: "analog", kind: "reference", link: { ref: "ads1299" } },
   { key: "mcu", domain: "digital", kind: "reference", link: { ref: "cyton" } },
-  { key: "dsp", domain: "host", kind: "planned", link: { ref: "mne" } },
-  { key: "decoder", domain: "host", kind: "planned", link: { repo: "protocol" } },
+  { key: "dsp", domain: "host", kind: "pilot", link: { ref: "mne" } },
+  { key: "decoder", domain: "host", kind: "pilot", link: { repo: "protocol" } },
   { key: "firewall", domain: "host", kind: "prototype", link: { repo: "gateCode" } },
   { key: "ai", domain: "external", kind: "planned", link: { repo: "architecture" } },
 ];
@@ -33,7 +33,7 @@ const domainSpans: Array<{ domain: Domain; span: number }> = [
   { domain: "external", span: 1 },
 ];
 
-const legendKinds: StatusKind[] = ["reference", "prototype", "planned"];
+const legendKinds: StatusKind[] = ["reference", "pilot", "prototype", "planned"];
 
 const AUTO_ADVANCE_MS = 4200;
 

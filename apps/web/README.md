@@ -68,7 +68,7 @@ The site is designed light-first; a dark theme is available from the sun/moon sw
 - Every repository document linked from the site is listed in `links.ts` and verified to exist by `content.test.ts`.
 - Routes: `/` (English, default) and `/es/` (Spanish). The language switch keeps the reader's current section.
 
-The `#dreams` section is a bilingual literature note about lucid dreaming,
+The `/dreams/` and `/es/suenos/` page is a bilingual literature note about lucid dreaming,
 sleep paralysis, out-of-body experiences and sleep quality. It distinguishes
 published findings from hypothetical future work and links directly to the
 studies. Its native `<details>` disclosures work without JavaScript. The full
@@ -140,3 +140,16 @@ npm run dev
 - **Despliegue:** cualquier alojamiento estático. Para una subruta (GitHub Pages), compila con `NEXT_PUBLIC_BASE_PATH=/NeuroLink-AI`.
 
 [README principal](../../README.md) · [Guía de estilo de la marca](../../assets/branding/STYLE_GUIDE.md)
+
+## Bilingual research pages
+
+The overview links to dedicated pages with shared navigation, theme and locale switching:
+
+| Page | English | Español |
+| --- | --- | --- |
+| Overview | `/` | `/es/` |
+| Experiments | `/experiments/` | `/es/experimentos/` |
+| Inner speech | `/inner-speech/` | `/es/habla-interna/` |
+| Dreams | `/dreams/` | `/es/suenos/` |
+
+Route mapping lives in `src/content/routes.ts`; article copy in `src/content/pages.ts`. Each page has localized metadata. The original home section anchors remain available, including a dreams preview. `postbuild` checks all eight exported pages for a single h1, unique IDs and valid internal links/anchors. IS-01 is an executed pilot, not validated decoding; NPF-02 is a proposal.

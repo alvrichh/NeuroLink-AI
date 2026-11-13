@@ -5,11 +5,11 @@ import { Eyebrow, ExtLink, Status, stagger, type StatusKind } from "@/components
 /**
  * Evidence status of each objective, in page order, taken from the repository:
  * IS-00 is documented, NPF-01 exists as a unit-tested software prototype,
- * everything else is planned. Nothing is marked complete on aspiration.
+ * IS-01 has an executed pilot; subject generalization remains pending. Nothing is marked complete on aspiration.
  */
 const itemStatus: StatusKind[] = [
   "documented",
-  "planned",
+  "pilot",
   "prototype",
   "planned",
   "planned",
@@ -17,7 +17,7 @@ const itemStatus: StatusKind[] = [
   "optional",
 ];
 
-const legend: StatusKind[] = ["documented", "prototype", "planned", "optional"];
+const legend: StatusKind[] = ["documented", "pilot", "prototype", "planned", "optional"];
 
 export function Roadmap({
   t,

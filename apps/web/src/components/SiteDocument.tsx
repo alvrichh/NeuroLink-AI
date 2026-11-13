@@ -1,3 +1,5 @@
+import { articles } from "@/content/pages";
+import { pagePath, type PageId } from "@/content/routes";
 import type { Metadata, Viewport } from "next";
 import { GeistMono } from "geist/font/mono";
 import { GeistSans } from "geist/font/sans";
@@ -24,12 +26,15 @@ export const viewport: Viewport = {
   viewportFit: "cover",
 };
 
-export function buildMetadata(locale: Locale): Metadata {
+export function buildMetadata(locale: Locale, page?: PageId): Metadata {
   const t = getDictionary(locale);
+  const title = page ? `${articles[locale][page].title} · NeuroLink AI` : t.meta.title;
+  const description = page ? articles[locale][page].lead : t.meta.description;
+  const pathFor = (code: Locale) => page ? pagePath(page, code) : localePath(code);
   return {
     metadataBase: siteUrl ? new URL(siteUrl) : undefined,
-    title: t.meta.title,
-    description: t.meta.description,
+    title,
+    description,
     applicationName: brand.name,
     icons: {
       icon: [
@@ -44,18 +49,18 @@ export function buildMetadata(locale: Locale): Metadata {
     // when the deployment origin is known (NEXT_PUBLIC_SITE_URL).
     alternates: siteUrl
       ? {
-          canonical: withBase(localePath(locale)),
+          canonical: withBase(pathFor(locale)),
           languages: {
-            ...Object.fromEntries(locales.map((code) => [code, withBase(localePath(code))])),
-            "x-default": withBase(localePath("en")),
+            ...Object.fromEntries(locales.map((code) => [code, withBase(pathFor(code))])),
+            "x-default": withBase(pathFor("en")),
           },
         }
       : undefined,
     openGraph: {
       type: "website",
       siteName: brand.name,
-      title: t.meta.title,
-      description: t.meta.description,
+      title,
+      description,
       locale: locale === "es" ? "es_ES" : "en_US",
       // An absolute URL is required for social previews; only emit it when the
       // deployment origin is known (NEXT_PUBLIC_SITE_URL).
@@ -72,7 +77,7 @@ export function buildMetadata(locale: Locale): Metadata {
           }
         : {}),
     },
-    twitter: { card: "summary_large_image", title: t.meta.title, description: t.meta.description },
+    twitter: { card: "summary_large_image", title, description },
   };
 }
 

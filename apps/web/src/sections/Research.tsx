@@ -8,9 +8,9 @@ type CardKey = keyof Dictionary["research"]["cards"];
 
 /** Milestone, evidence status and primary citation for each research line. */
 const cardMeta: Record<CardKey, { id: string; kind: StatusKind; ref: RefKey }> = {
-  decoding: { id: "IS-01", kind: "planned", ref: "nieto" },
+  decoding: { id: "IS-01", kind: "pilot", ref: "nieto" },
   acquisition: { id: "H0", kind: "reference", ref: "openbciHardware" },
-  processing: { id: "IS-01", kind: "planned", ref: "mne" },
+  processing: { id: "IS-01", kind: "pilot", ref: "mne" },
   classification: { id: "IS-02", kind: "planned", ref: "moabbNieto" },
   intent: { id: "NPF-02", kind: "question", ref: "kunz" },
   privacy: { id: "NPF-01", kind: "prototype", ref: "unesco" },

@@ -30,7 +30,7 @@ export const en = {
     githubLong: "View on GitHub",
     newTab: "opens in a new tab",
     stage: "Research stage",
-    stageNote: "Nothing here is validated yet",
+    stageNote: "EEG pilot completed",
     conceptual: "Conceptual illustration",
     notData: "not recorded data",
     photograph: "Photograph",
@@ -39,6 +39,7 @@ export const en = {
     imageUnavailable: "Photograph unavailable — follow the source link.",
   },
   status: {
+    pilot: "Pilot executed · not validated",
     documented: "Documented",
     prototype: "Software prototype",
     planned: "Planned",
@@ -305,7 +306,7 @@ export const en = {
       },
       privacy: {
         title: "Neural privacy research",
-        text: "A fail-closed state machine — locked by default, explicit approval, automatic relock — is the one component implemented so far. It is software only, tested with synthetic events, and reads no EEG.",
+        text: "A fail-closed state machine — locked by default, explicit approval, automatic relock — is implemented alongside the offline EEG pilot. It is software only, tested with synthetic events, and reads no EEG.",
         cite: "UNESCO Recommendation on the Ethics of Neurotechnology (2025)",
         code: "Prototype source",
       },
@@ -423,7 +424,7 @@ export const en = {
         input: "Framed samples + event markers",
         output: "Clean, time-aligned epochs",
         reference: "Planned stack: Python, MNE-Python, MOABB and BrainFlow where relevant.",
-        statusNote: "Specified in the protocol; not yet implemented.",
+        statusNote: "Offline processing implemented for the IS-01 pilot. Live acquisition remains pending.",
       },
       decoder: {
         label: "Neural decoder",
@@ -433,7 +434,7 @@ export const en = {
         input: "Clean epochs",
         output: "Candidate + uncertainty",
         reference: "Baselines: LDA, logistic regression, SVM, evaluated on held-out sessions and subjects.",
-        statusNote: "No classifier has been trained.",
+        statusNote: "IS-01 pilot completed: 26.5% balanced accuracy, p = 0.46. No evidence of above-chance performance; cross-subject evaluation pending.",
       },
       firewall: {
         label: "Privacy Firewall",
@@ -663,7 +664,7 @@ export const en = {
         deliverable:
           "Four-class classification of imagined Spanish words on the Nieto et al. recordings, then generalisation and artifact tests.",
         gate: "Balanced accuracy and macro-F1 on held-out subjects and sessions, with negative controls.",
-        note: "No classifier has been trained.",
+        note: "IS-01 pilot completed: 26.5% balanced accuracy, p = 0.46. No evidence of above-chance performance; cross-subject evaluation pending.",
       },
       {
         id: "NPF-01",
@@ -677,7 +678,7 @@ export const en = {
         title: "Intent detection research",
         deliverable: "Distinguish intentional activation from private thought.",
         gate: "Separate, ethically reviewed data; false unlocks per hour.",
-        note: "Requires a new protocol. No public dataset carries these labels.",
+        note: "NPF-02 protocol proposed; not executed. Nieto2022 does not carry the required intent labels.",
       },
       {
         id: "AI-01",

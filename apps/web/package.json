@@ -14,7 +14,8 @@
     "lint": "eslint .",
     "typecheck": "npm run sync:brand && tsc --noEmit",
     "test": "node --test \"src/**/*.test.ts\"",
-    "check": "npm run lint && npm run typecheck && npm test && npm run build"
+    "check": "npm run lint && npm run typecheck && npm test && npm run build",
+    "postbuild": "node scripts/verify-export.mjs"
   },
   "engines": {
     "node": ">=22.18"

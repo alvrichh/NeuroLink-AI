@@ -673,3 +673,13 @@ html[data-theme="dark"] {
     padding-left: 0;
   }
 }
+
+/* Shared reading layout for bilingual research pages. */
+.article-sections { display: grid; gap: 2.75rem; max-width: 72ch; margin-top: 3rem; }
+.article-table { max-width: 100%; overflow-x: auto; }
+.article-table table { width: 100%; border-collapse: collapse; text-align: left; }
+.article-table caption { text-align: left; padding-bottom: 1rem; font-size: .875rem; }
+.article-table th, .article-table td { padding: 1rem; border-bottom: 1px solid currentColor; }
+.article-table thead { font-size: .875rem; }
+.article-table tbody th { font-weight: 500; }
+.research-article { padding-top: clamp(7rem, 12vw, 10rem); }
