@@ -9,10 +9,12 @@
 
 <p align="center"><strong>Inner speech → AI · Lenguaje interior → IA</strong></p>
 
+<p align="center"><a href="https://neurolink-ai-omega.vercel.app"><strong>Visit the website · Visita la web →</strong></a></p>
+
 **Inner speech → AI, with privacy by design.**  
 **Lenguaje interior → IA, con privacidad desde el diseño.**
 
-[English](#english) · [Español](#español) · [Neural Privacy Firewall](docs/technical/neural-privacy-firewall.md) · [Scientific evidence](docs/research/inner-speech-datasets.md) · [Engineering diagrams](diagrams/README.md) · [Brand style guide](assets/branding/STYLE_GUIDE.md)
+[Website / Web](https://neurolink-ai-omega.vercel.app) · [English](#english) · [Español](#español) · [Neural Privacy Firewall](docs/technical/neural-privacy-firewall.md) · [Scientific evidence](docs/research/inner-speech-datasets.md) · [Engineering diagrams](diagrams/README.md) · [Brand style guide](assets/branding/STYLE_GUIDE.md)
 
 > **Research / Investigación.** A reliable system for unrestricted, non-invasive inner-speech transcription is **not yet available**. NeuroLink AI has not produced validated neural decoding, human-subject tests or a custom patient-ready electronic device.
 
