@@ -1,6 +1,8 @@
 "use client";
 
 import { useEffect, useId, useState } from "react";
+import { usePathname } from "next/navigation";
+import { pageFromPath, pagePath, pageLabels } from "@/content/routes";
 import { localePath, locales, sectionIds, type Locale, type SectionId } from "@/content";
 import type { Dictionary } from "@/content";
 import { REPO_URL } from "@/content/links";
@@ -9,6 +11,13 @@ import { useActiveSection } from "@/lib/useActiveSection";
 import { cx, logo, withBase } from "@/lib/site";
 import { ArrowUpRight, GitHubIcon, MoonIcon, SunIcon, sectionIcons } from "./icons";
 import { ThemedLogo } from "./ui";
+
+function navigationTarget(id: SectionId, locale: Locale): string {
+  if (id === "research") return withBase(pagePath("experiments", locale));
+  if (id === "vision") return withBase(pagePath("innerSpeech", locale));
+  if (id === "dreams") return withBase(pagePath("dreams", locale));
+  return `${withBase(localePath(locale))}${id === "overview" ? "" : `#${id}`}`;
+}
 
 type NavProps = {
   locale: Locale;
@@ -27,13 +36,16 @@ const localeNames: Record<Locale, { short: string; long: string }> = {
  * expands into a sheet on tablets and phones.
  */
 export function Navigation({ locale, labels, common }: NavProps) {
-  const active = useActiveSection();
+  const section = useActiveSection();
+  const page = pageFromPath(usePathname());
+  const active: SectionId = page === "experiments" ? "research" : page === "innerSpeech" ? "vision" : page === "dreams" ? "dreams" : section;
+  const routeLabels = { ...labels, overview: locale === "es" ? "Inicio" : "Home", research: pageLabels[locale].experiments, vision: pageLabels[locale].innerSpeech };
   const activeIndex = sectionIds.indexOf(active);
 
   return (
     <>
-      <SidePanel locale={locale} labels={labels} common={common} active={active} index={activeIndex} />
-      <MobileBar locale={locale} labels={labels} common={common} active={active} index={activeIndex} />
+      <SidePanel locale={locale} labels={routeLabels} common={common} active={active} index={activeIndex} />
+      <MobileBar locale={locale} labels={routeLabels} common={common} active={active} index={activeIndex} />
     </>
   );
 }
@@ -50,6 +62,7 @@ function LanguageSwitch({
   label: string;
 }) {
   // Keep the reader's place when switching language.
+  const page = pageFromPath(usePathname());
   const hash = active === "overview" ? "" : `#${active}`;
   return (
     <div className="lang-switch" role="group" aria-label={label}>
@@ -58,7 +71,7 @@ function LanguageSwitch({
         return (
           <a
             key={code}
-            href={`${withBase(localePath(code))}${hash}`}
+            href={page ? withBase(pagePath(page, code)) : `${withBase(localePath(code))}${hash}`}
             hrefLang={code}
             lang={code}
             aria-current={current ? "true" : undefined}
@@ -110,7 +123,7 @@ function SidePanel({ locale, labels, common, active, index }: PanelProps) {
       </div>
 
       {/* Symbol over wordmark, in the same proportions as the official lockup. */}
-      <a href="#overview" className="side-nav__brand" aria-label={common.home}>
+      <a href={withBase(localePath(locale))} className="side-nav__brand" aria-label={common.home}>
         <ThemedLogo asset={logo.symbol} alt="" className="side-nav__symbol" />
         <ThemedLogo asset={logo.wordmark} alt={common.brand} className="side-nav__wordmark" />
       </a>
@@ -128,7 +141,7 @@ function SidePanel({ locale, labels, common, active, index }: PanelProps) {
             return (
               <li key={id}>
                 <a
-                  href={`#${id}`}
+                  href={navigationTarget(id, locale)}
                   className="side-nav__link"
                   aria-current={current ? "location" : undefined}
                 >
@@ -195,7 +208,7 @@ function MobileBar({ locale, labels, common, active, index }: PanelProps) {
       />
       <header className={cx("mobile-nav glass", open && "is-open")}>
         <div className="mobile-nav__bar">
-          <a href="#overview" className="mobile-nav__brand" aria-label={common.home} onClick={() => setOpen(false)}>
+          <a href={withBase(localePath(locale))} className="mobile-nav__brand" aria-label={common.home} onClick={() => setOpen(false)}>
             <ThemedLogo asset={logo.symbol} alt="" className="mobile-nav__symbol" />
             <ThemedLogo asset={logo.wordmark} alt={common.brand} className="mobile-nav__wordmark" />
           </a>
@@ -235,7 +248,7 @@ function MobileBar({ locale, labels, common, active, index }: PanelProps) {
                   return (
                     <li key={id} style={{ ["--i" as string]: i }}>
                       <a
-                        href={`#${id}`}
+                        href={navigationTarget(id, locale)}
                         className="mobile-nav__link"
                         aria-current={id === active ? "location" : undefined}
                         onClick={() => setOpen(false)}

@@ -1,4 +1,6 @@
 import type { Dictionary, Locale } from "@/content";
+import { pagePath } from "@/content/routes";
+import { withBase } from "@/lib/site";
 import { refs, repoLink } from "@/content/links";
 import { Eyebrow, ExtLink, Sentences, Status, stagger } from "@/components/ui";
 import { FirewallSimulation } from "@/viz/FirewallSimulation";
@@ -37,18 +39,7 @@ export function Privacy({
           <div id="inner-speech-intent" className="mt-10" aria-labelledby="intent-title">
             <h3 id="intent-title" className="t-heading">{t.intent.title}</h3>
             <p className="t-body mt-5 max-w-[65ch]">{t.intent.intro}</p>
-            <ul className="mt-7 grid gap-6 md:grid-cols-3">
-              {t.intent.items.map((item) => (
-                <li key={item} className="t-body">{item}</li>
-              ))}
-            </ul>
-            <p className="t-small mt-7 max-w-[75ch]">{t.intent.status}</p>
-            <p className="t-small mt-3 max-w-[75ch]">{t.intent.limit}</p>
-            <p className="mt-5">
-              <ExtLink href={`${repoLink("protocol", locale)}#npf-02`} newTab={common.newTab}>
-                {t.intent.link}
-              </ExtLink>
-            </p>
+            <p className="mt-5"><a className="link" href={withBase(pagePath("innerSpeech", locale))}>{t.intent.link}</a></p>
           </div>
 
           <div className="mt-[clamp(2.5rem,5vw,4.5rem)]" data-reveal="scale">

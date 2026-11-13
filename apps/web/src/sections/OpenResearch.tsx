@@ -1,8 +1,8 @@
-import type { Dictionary, Locale } from "@/content";
+import { localePath, type Dictionary, type Locale } from "@/content";
 import { REPO_URL, repoLink } from "@/content/links";
 import { ArrowUpRight, GitHubIcon } from "@/components/icons";
 import { Eyebrow, ThemedLogo, stagger } from "@/components/ui";
-import { logo } from "@/lib/site";
+import { logo, withBase } from "@/lib/site";
 
 type LinkKey = keyof Dictionary["open"]["links"];
 
@@ -93,7 +93,7 @@ export function SiteFooter({
     <footer className="footer">
       <div className="frame">
         <div className="wrap footer__inner">
-          <a href="#overview" className="footer__brand" aria-label={common.home}>
+          <a href={withBase(localePath(locale))} className="footer__brand" aria-label={common.home}>
             <ThemedLogo asset={logo.lockup} alt={common.logoAlt} />
           </a>
           <div className="footer__text">
@@ -108,7 +108,7 @@ export function SiteFooter({
                 {footer.brandLink}
                 <span className="sr-only"> ({common.newTab})</span>
               </a>
-              <a href="#overview" className="link">
+              <a href={withBase(localePath(locale))} className="link">
                 {footer.top}
               </a>
             </p>

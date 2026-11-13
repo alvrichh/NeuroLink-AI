@@ -32,7 +32,7 @@ export const es: Dictionary = {
     githubLong: "Ver en GitHub",
     newTab: "se abre en una pestaña nueva",
     stage: "Fase de investigación",
-    stageNote: "Nada está validado todavía",
+    stageNote: "Piloto EEG ejecutado",
     conceptual: "Ilustración conceptual",
     notData: "no son datos registrados",
     photograph: "Fotografía",
@@ -41,6 +41,7 @@ export const es: Dictionary = {
     imageUnavailable: "Fotografía no disponible: consulta el enlace de la fuente.",
   },
   status: {
+    pilot: "Piloto ejecutado · sin validar",
     documented: "Documentado",
     prototype: "Prototipo de software",
     planned: "Planificado",
@@ -306,7 +307,7 @@ export const es: Dictionary = {
       },
       privacy: {
         title: "Investigación en privacidad neuronal",
-        text: "Una máquina de estados de cierre seguro —bloqueada por defecto, aprobación explícita, rebloqueo automático— es el único componente implementado hasta ahora. Es solo software, probado con eventos sintéticos, y no lee EEG.",
+        text: "Una máquina de estados de cierre seguro —bloqueada por defecto, aprobación explícita, rebloqueo automático— está implementada junto al piloto EEG offline. Es solo software, probado con eventos sintéticos, y no lee EEG.",
         cite: "Recomendación de la UNESCO sobre la ética de la neurotecnología (2025)",
         code: "Código del prototipo",
       },
@@ -424,7 +425,7 @@ export const es: Dictionary = {
         input: "Tramas de muestras + marcadores de eventos",
         output: "Épocas limpias y alineadas en el tiempo",
         reference: "Pila prevista: Python, MNE-Python, MOABB y BrainFlow cuando proceda.",
-        statusNote: "Especificado en el protocolo; aún sin implementar.",
+        statusNote: "Procesamiento offline implementado para IS-01. Adquisición en directo pendiente.",
       },
       decoder: {
         label: "Decodificador neuronal",
@@ -434,7 +435,7 @@ export const es: Dictionary = {
         input: "Épocas limpias",
         output: "Propuesta + incertidumbre",
         reference: "Modelos de base: LDA, regresión logística y SVM, evaluados en sesiones y sujetos reservados.",
-        statusNote: "No se ha entrenado ningún clasificador.",
+        statusNote: "Piloto IS-01 ejecutado: 26,5 % de acierto equilibrado, p = 0,46. Sin evidencia de mejora sobre el azar; evaluación entre sujetos pendiente.",
       },
       firewall: {
         label: "Firewall de privacidad",
@@ -664,7 +665,7 @@ export const es: Dictionary = {
         deliverable:
           "Clasificación en cuatro clases de palabras imaginadas en español con los registros de Nieto et al.; después, pruebas de generalización y de artefactos.",
         gate: "Exactitud equilibrada y macro-F1 en sujetos y sesiones reservados, con controles negativos.",
-        note: "No se ha entrenado ningún clasificador.",
+        note: "Piloto IS-01 ejecutado: 26,5 % de acierto equilibrado, p = 0,46. Sin evidencia de mejora sobre el azar; evaluación entre sujetos pendiente.",
       },
       {
         id: "NPF-01",
@@ -678,7 +679,7 @@ export const es: Dictionary = {
         title: "Investigación en detección de intención",
         deliverable: "Distinguir la activación intencional del pensamiento privado.",
         gate: "Datos propios con revisión ética; falsos desbloqueos por hora.",
-        note: "Requiere un protocolo nuevo. Ningún conjunto público tiene estas etiquetas.",
+        note: "Protocolo NPF-02 propuesto, sin ejecutar. Nieto2022 no contiene las etiquetas de intención necesarias.",
       },
       {
         id: "AI-01",
