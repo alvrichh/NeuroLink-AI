@@ -20,6 +20,7 @@ export const sectionIds = [
   "privacy",
   "research",
   "technology",
+  "tiara",
   "exchange",
   "dreams",
   "roadmap",

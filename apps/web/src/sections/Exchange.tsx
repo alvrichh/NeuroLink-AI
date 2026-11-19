@@ -19,7 +19,7 @@ export function Exchange({
       <div className="frame">
         <div className="wrap">
           <div className="max-w-[54rem]">
-            <Eyebrow index={5}>{t.eyebrow}</Eyebrow>
+            <Eyebrow index={6}>{t.eyebrow}</Eyebrow>
             <h2 id="exchange-title" className="t-title mt-6" data-reveal="" style={stagger(1)}>
               <Sentences text={t.title} />
             </h2>

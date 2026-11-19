@@ -46,6 +46,14 @@ They remain to avoid breaking existing links. New entry pages link to the engine
 
 The website shows no measured data. The register of exact photo URLs used by the site is `apps/web/src/content/media.ts`; keep it consistent with this file.
 
+## Partner material / Material de colaboradores
+
+| Visual | Label | Provenance |
+| --- | --- | --- |
+| Prometeo Tiara EEG headband with Anticipation Technology boxes (`apps/web/public/partners/prometeo-tiara.webp`) | PHOTOGRAPH | Supplied by the project owner; photograph by Anticipation Technology. Cropped so that no people appear. Shows their hardware, **not** a NeuroLink AI device. **Permission to publish must be confirmed with Anticipation Technology**; remove the image if it is not granted. |
+
+The website describes the headband only as shown in its maker's demonstration videos; NeuroLink AI has not tested it.
+
 ## Publishing real measurements
 
 For each plot: dataset or acquisition device, legal permission to reuse data, subject/session where not personally identifying, preprocessing steps, plotting code/version, axis labels, units, evaluation split, and whether generated from recorded or synthetic EEG. No invented ERP curves or fabricated scope traces.

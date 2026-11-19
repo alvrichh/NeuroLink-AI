@@ -74,6 +74,7 @@ export function repoLink(key: RepoPathKey, locale: Locale): string {
 
 /** Primary literature and vendor documentation cited by the project docs. */
 export const refs = {
+  anticipation: "https://anticipationtech.com",
   nieto: "https://www.nature.com/articles/s41597-022-01147-2",
   nemar: "https://nemar.org/dataset/on003626",
   moabbNieto: "https://moabb.neurotechx.com/docs/generated/moabb.datasets.Nieto2022.html",

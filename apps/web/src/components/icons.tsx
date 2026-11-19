@@ -63,6 +63,15 @@ export const sectionIcons: Record<SectionId, (p: IconProps) => React.JSX.Element
       <path d="M16.5 12.750H4.250M7.5 9.5l-3.250 3.250L7.500 16" />
     </Base>
   ),
+  tiara: (p) => (
+    <Base {...p}>
+      <path d="M3.5 13.5a6.5 6.5 0 0 1 13 0" />
+      <circle cx="6" cy="8.4" r="1.15" fill="currentColor" stroke="none" />
+      <circle cx="10" cy="7" r="1.15" fill="currentColor" stroke="none" />
+      <circle cx="14" cy="8.4" r="1.15" fill="currentColor" stroke="none" />
+      <path d="M3.5 13.5v1.5M16.5 13.5v1.5" />
+    </Base>
+  ),
   dreams: (p) => <MoonIcon {...p} />,
   roadmap: (p) => (
     <Base {...p}>

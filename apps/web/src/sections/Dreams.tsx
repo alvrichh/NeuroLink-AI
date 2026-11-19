@@ -21,7 +21,7 @@ export function Dreams({ t, common, locale }: {
     <section id="dreams" className="section" aria-labelledby="dreams-title">
       <div className="frame">
         <div className="wrap">
-          <Eyebrow index={6}>{t.eyebrow}</Eyebrow>
+          <Eyebrow index={7}>{t.eyebrow}</Eyebrow>
           <div className="dreams__intro">
             <div>
               <h2 id="dreams-title" className="t-title max-w-[12em]">{t.title}</h2>

@@ -2261,7 +2261,7 @@
   .spine__item {
     position: relative;
     display: grid;
-    grid-template-columns: 1.5rem 1fr;
+    grid-template-columns: 1.5rem minmax(0, 1fr);
     gap: clamp(1rem, 2.5vw, 1.75rem);
     padding-bottom: 0.75rem;
   }
@@ -2558,5 +2558,260 @@
     flex-wrap: wrap;
     gap: 0.5rem 1.5rem;
     margin-top: 1rem;
+  }
+}
+
+/* ---------------------------------------------------------------------------
+   Prometeo Tiara (hardware partner)
+--------------------------------------------------------------------------- */
+@layer components {
+  .tiara__intro {
+    display: grid;
+    gap: clamp(2rem, 5vw, 4rem);
+    align-items: center;
+  }
+
+  @media (min-width: 68.75rem) {
+    .tiara__intro {
+      grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.05fr);
+    }
+  }
+
+  .tiara__status {
+    display: inline-flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.5rem 0.75rem;
+    margin-top: 2rem;
+    padding: 0.625rem 1rem;
+    border-radius: 999px;
+    background: var(--card);
+    box-shadow:
+      inset 0 1px 0 var(--card-edge),
+      inset 0 0 0 1px var(--hairline);
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: var(--ink);
+  }
+
+  .tiara__pulse {
+    position: relative;
+    width: 0.5rem;
+    height: 0.5rem;
+    border-radius: 999px;
+    background: var(--accent);
+  }
+
+  .tiara__pulse::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    box-shadow: 0 0 0 1.5px var(--accent);
+    opacity: 0;
+  }
+
+  html[data-motion="on"] .tiara__pulse::after {
+    animation: nl-ring 2.6s var(--ease-expo) infinite;
+  }
+
+  .tiara__photo {
+    display: grid;
+    gap: 0.75rem;
+    margin: 0;
+  }
+
+  .tiara__frame {
+    position: relative;
+    overflow: hidden;
+    border-radius: var(--radius-card);
+    box-shadow:
+      inset 0 0 0 1px var(--hairline),
+      0 40px 80px -50px color-mix(in srgb, var(--shadow) 45%, transparent);
+    aspect-ratio: 970 / 789;
+    background: var(--surface-strong);
+  }
+
+  .tiara__frame img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 1.4s var(--ease-expo);
+  }
+
+  @media (hover: hover) {
+    .tiara__photo:hover img {
+      transform: scale(1.025);
+    }
+  }
+
+  .tiara__chip {
+    position: absolute;
+    left: 0.875rem;
+    bottom: 0.875rem;
+    padding: 0.625rem 0.875rem;
+    border-radius: 999px;
+  }
+
+  .tiara__grid {
+    display: grid;
+    gap: 1rem;
+    margin-top: clamp(3rem, 6vw, 5rem);
+  }
+
+  @media (min-width: 56rem) {
+    .tiara__grid {
+      grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+    }
+  }
+
+  .tiara__spec dd {
+    max-width: 18em;
+  }
+
+  .tiara__demos {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+    padding: clamp(1.5rem, 3vw, 2.25rem);
+  }
+
+  .tiara__demos ol {
+    display: grid;
+    border-top: 1px solid var(--hairline-strong);
+  }
+
+  .tiara__demos li {
+    display: grid;
+    grid-template-columns: 2rem 1fr;
+    gap: 0.5rem;
+    padding: 0.9375rem 0;
+    border-bottom: 1px solid var(--hairline);
+  }
+
+  .tiara__demos li > span {
+    padding-top: 0.1875rem;
+    color: var(--accent);
+  }
+
+  .tiara__demo-title {
+    font-size: 1rem;
+    font-weight: 600;
+    letter-spacing: -0.02em;
+    color: var(--ink);
+  }
+
+  .tiara__note {
+    margin-top: auto;
+    font-size: 0.8125rem;
+    line-height: 1.5;
+    color: var(--ink-muted);
+  }
+
+  .tiara__fit {
+    margin-top: clamp(3.5rem, 7vw, 6rem);
+  }
+
+  .tiara__fit-head {
+    display: grid;
+    gap: 1rem 4rem;
+  }
+
+  @media (min-width: 56rem) {
+    .tiara__fit-head {
+      grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr);
+      align-items: end;
+    }
+  }
+
+  .tiara__flow {
+    position: relative;
+    display: grid;
+    gap: 0.75rem;
+    margin-top: 2rem;
+  }
+
+  @media (min-width: 48rem) {
+    .tiara__flow {
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 1.25rem;
+    }
+
+    /* The signal path between the four blocks. */
+    .tiara__flow li + li::before {
+      content: "";
+      position: absolute;
+      top: 50%;
+      left: -1.25rem;
+      width: 1.25rem;
+      height: 2px;
+      margin-top: -1px;
+      background: linear-gradient(90deg, var(--accent), color-mix(in srgb, var(--nl-cyan) 70%, var(--accent)));
+    }
+  }
+
+  .tiara__flow li {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 0.375rem;
+    padding: 1.125rem 1.25rem 1.25rem;
+    border-radius: var(--radius-inner);
+    background: var(--card);
+    box-shadow:
+      inset 0 1px 0 var(--card-edge),
+      inset 0 0 0 1px var(--hairline);
+  }
+
+  .tiara__flow li[data-partner="true"] {
+    box-shadow:
+      inset 0 1px 0 var(--card-edge),
+      inset 0 0 0 1.5px color-mix(in srgb, var(--accent) 55%, transparent),
+      0 0 0 5px color-mix(in srgb, var(--nl-cyan) 16%, transparent);
+  }
+
+  .tiara__owner {
+    font-size: 0.625rem;
+    letter-spacing: 0.07em;
+    text-transform: uppercase;
+    color: var(--ink-muted);
+  }
+
+  .tiara__flow li[data-partner="true"] .tiara__owner {
+    color: var(--accent);
+  }
+
+  .tiara__step {
+    font-size: 1.0625rem;
+    font-weight: 600;
+    letter-spacing: -0.02em;
+    color: var(--ink);
+  }
+
+  .tiara__limits {
+    display: grid;
+    gap: 2.5rem 4rem;
+    margin-top: clamp(3.5rem, 7vw, 6rem);
+  }
+
+  @media (min-width: 68.75rem) {
+    .tiara__limits {
+      grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr);
+      align-items: start;
+    }
+  }
+
+  .tiara__limits .hardware__safety {
+    margin-top: 0;
+  }
+}
+
+/* Long status labels ("Pilot executed · not validated") may wrap on small
+   phones instead of widening the roadmap cards. */
+@layer components {
+  .spine__meta .status,
+  .roadmap__legend .status {
+    white-space: normal;
   }
 }

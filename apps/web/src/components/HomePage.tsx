@@ -7,6 +7,7 @@ import { Privacy } from "@/sections/Privacy";
 import { Research } from "@/sections/Research";
 import { Roadmap } from "@/sections/Roadmap";
 import { Technology } from "@/sections/Technology";
+import { Tiara } from "@/sections/Tiara";
 import { Vision } from "@/sections/Vision";
 
 /** Overview, with dedicated bilingual research pages. */
@@ -22,6 +23,7 @@ export function HomePage({ locale }: { locale: Locale }) {
       <Privacy t={t.privacy} common={t.common} locale={locale} />
       <Research t={t.research} {...shared} />
       <Technology t={t.technology} {...shared} />
+      <Tiara t={t.tiara} {...shared} />
       <Exchange t={t.exchange} {...shared} />
       <Roadmap t={t.roadmap} {...shared} />
       <OpenResearch t={t.open} common={t.common} locale={locale} />
